@@ -1,4 +1,5 @@
-export const metadata = {
+
+export const metadata = {       
   title: "Environnement - GCT",
   description: "Découvrez l'environnement du Groupe Chimique Tunisien, ses actions pour la protection de l'environnement.",
 };
@@ -8,4 +9,4 @@ export default function Environnement(){
             Environnement
         </div>
     );
-}
+}           
