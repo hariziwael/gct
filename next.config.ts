@@ -1,16 +1,20 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+// next.config.js
+module.exports = {
+  experimental: {
+    serverActions: true,
+  },
+  webpack: (config: any, { isServer }: { isServer: boolean }) => {
+    if (isServer) {
+      config.externals.push('@sanity/next-loader')
+    }
+    return config
+  },
+}
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-        port: '',
-        pathname: '/images/**',
-      },
-    ],
+    domains: ['cdn.sanity.io'], // ✅ allow Sanity images
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

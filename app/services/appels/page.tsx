@@ -1,12 +1,32 @@
 import client  from '@/lib/sanity'
 import { format } from 'date-fns'
-
+import Link from "next/link"
 export const dynamic = 'force-dynamic'
 export const metadata = {
     title: "Appels d’Offres - GCT",
     description: "Consultez les appels d’offres ouverts et téléchargez les documents nécessaires pour y participer.",
   }
 export default async function AppelsPage() {
+
+
+
+
+
+
+
+  const Breadcrumb = () => (
+    <nav className="text-sm text-gray-500 mb-6 flex items-center">
+    <Link href="/" className="hover:text-blue-600 transition-colors">Accueil</Link>
+    <span className="mx-2">&raquo;</span>
+    
+    <Link href="/services" className="hover:text-blue-600 transition-colors">
+    Services</Link>
+    <span className="mx-2">&raquo;</span>
+    <span className="font-semibold text-blue-700">Appels</span>
+  </nav>
+    );
+
+
   const appels = await client.fetch(`*[_type == "appelOffre"] | order(dateLimite desc){
     _id,
     titre,
@@ -18,6 +38,7 @@ export default async function AppelsPage() {
 
   return (
     <section className="p-6">
+      <Breadcrumb />
       <h1 className="text-2xl font-bold mb-6">Appels d’Offres</h1>
       <div className="grid gap-4">
         {appels.map((a: any) => (

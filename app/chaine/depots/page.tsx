@@ -1,11 +1,22 @@
 import client  from '@/lib/sanity'
-
+import Link from 'next/link'
 export const dynamic = 'force-dynamic'
 export const metadata = {
   title: "Dépôts de Phosphate - GCT",
   description: "Découvrez les dépôts de phosphate du Groupe Chimique Tunisien, leurs capacités de stockage et leurs localisations.",
 }
 export default async function DepotsPhosphatePage() {
+
+  const Breadcrumb = () => (
+    <nav className="text-sm text-gray-500 mb-6 flex items-center">
+      <Link href="/" className="hover:text-blue-600 transition-colors">Accueil</Link>
+      <span className="mx-2">&raquo;</span>
+    <Link href="/chaine" className="hover:text-blue-600 transition-colors">Chaine de Valeur</Link>
+    <span className="mx-2">&raquo;</span>
+    <span className="font-semibold text-blue-700">Dépôts de Phosphate</span>
+  </nav>
+    );
+
   const depots = await client.fetch(`*[_type == "depotPhosphate"]{
     _id,
     nom,
@@ -17,6 +28,7 @@ export default async function DepotsPhosphatePage() {
 
   return (
     <section className="p-6">
+      <Breadcrumb />
       <h1 className="text-2xl font-bold mb-6">Dépôts de Phosphate</h1>
       <div className="grid md:grid-cols-2 gap-6">
         {depots.map((depot: any) => (

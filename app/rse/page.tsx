@@ -1,36 +1,87 @@
-import  client  from '@/lib/sanity'
+// app/rse/page.tsx
+import { client } from "@/lib/client";
+import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import Link from 'next/link'
 
-export const dynamic = 'force-dynamic'
-export const metadata = {
-  title: "Responsabilité Sociétale (RSE) - GCT",
-  description: "Découvrez les initiatives de responsabilité sociétale du Groupe Chimique Tunisien, ses actions pour la protection de l'environnement et la promotion de la santé et du bien-être.",
-}
-export default async function RsePage() {
-  const initiatives = await client.fetch(`*[_type == "rse"] | order(_createdAt desc){
-    _id,
-    titre,
-    description,
-    categorie,
-    "imageUrl": image.asset->url
-  }`)
+type RSEData = {
+  title: string;
+  introduction: string;
+  objectives: string[];
+  pillars: string[];
+  partners: string[];
+  futureProjects: { title: string; description: string }[];
+};
+
+export default async function RSEPage() {
+  const data: RSEData = await client.fetch(`*[_type == "rse"][0]`);
 
   return (
-    <section className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Responsabilité Sociétale (RSE)</h1>
-      <div className="grid md:grid-cols-2 gap-6">
-        {initiatives.map((item: any) => (
-          <div key={item._id} className="border rounded-xl p-4 bg-white shadow">
-            {item.imageUrl && (
-              <img src={item.imageUrl} alt={item.titre} className="rounded-md mb-3 h-48 w-full object-cover" />
-            )}
-            <h2 className="text-xl font-semibold">{item.titre}</h2>
-            <p className="text-gray-600">{item.description}</p>
-            {item.categorie && (
-              <p className="text-sm text-gray-500 mt-2">Catégorie: {item.categorie}</p>
-            )}
+    <main className="p-6 max-w-5xl mx-auto">
+      <h1 className="text-4xl font-bold mb-6">{data.title}</h1>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-2">Introduction</h2>
+        <p className="text-gray-700">{data.introduction}</p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-2">Objectifs</h2>
+        <ul className="list-disc pl-6 text-gray-700">
+          {data.objectives.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+            {/* RSE Sections Navigation */}
+<section className="pb-16">
+  <div className="container mx-auto px-4 max-w-7xl">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl font-bold text-blue-900">Explorez Nos Ressources Humaines</h2>
+      <p className="text-gray-600 mt-2">Effectif, formation et développement des compétences</p>
+    </div>
+
+    <div className="grid gap-8 md:grid-cols-2">
+      <Link href="/rse/effectif" className="block bg-white border border-blue-100 p-6 rounded-xl shadow hover:shadow-md hover:bg-blue-50 transition">
+        <h3 className="text-2xl font-semibold text-blue-800 mb-2">Effectif</h3>
+        <p className="text-gray-600">Consultez la structure des effectifs et la dynamique du personnel au sein du GCT.</p>
+      </Link>
+      <Link href="/rse/formation" className="block bg-white border border-blue-100 p-6 rounded-xl shadow hover:shadow-md hover:bg-blue-50 transition">
+        <h3 className="text-2xl font-semibold text-blue-800 mb-2">Formation</h3>
+        <p className="text-gray-600">Découvrez les programmes de formation et d’acquisition de compétences pour les collaborateurs.</p>
+      </Link>
+    </div>
+  </div>
+</section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-2">Axes stratégiques</h2>
+        <ul className="list-disc pl-6 text-gray-700">
+          {data.pillars.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-2">Partenaires</h2>
+        <ul className="list-disc pl-6 text-gray-700">
+          {data.partners.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-2">Projets Futurs</h2>
+        {data.futureProjects.map((proj, i) => (
+          <div key={i} className="mb-4">
+            <h3 className="font-bold">{proj.title}</h3>
+            <p className="text-gray-700">{proj.description}</p>
           </div>
         ))}
-      </div>
-    </section>
-  )
+      </section>
+    </main>
+  );
 }

@@ -13,10 +13,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Groupe Chimique Tunisie",
-  description: "Site officiel du Groupe Chimique Tunisie - GCT",
-};
+
+
+// app/layout.tsx
+
+export const metadata = {
+  metadataBase: new URL('https://gct.vercel.app'),
+  title: {
+    default: 'GCT – Groupe Chimique Tunisien',
+    template: '%s | GCT',
+  },
+  description: 'Site officiel du Groupe Chimique Tunisien.',
+  keywords: ['GCT', 'Tunisie', 'Phosphate', 'Chimie', 'Industrie'],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: 'Groupe Chimique Tunisien',
+    description: 'Découvrez les produits et l’impact du GCT.',
+    url: 'https://gct.vercel.app',
+    siteName: 'GCT',
+    locale: ['fr_FR', 'ar_AR', 'tn_TN'],
+    type: 'website',
+  },
+}
+
 
 export default function RootLayout({
   children,
