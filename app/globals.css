@@ -16,6 +16,32 @@
   100% { background-position: 200% 50%; }
 }
 
+@keyframes moveRightLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes moveLeftRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-moveRightLeft {
+  animation: moveRightLeft 15s linear infinite;
+}
+
+.animate-moveLeftRight {
+  animation: moveLeftRight 20s linear infinite;
+}
+
 .animate-gradient-x {
   background-size: 200% auto;
 }
@@ -38,4 +64,15 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Add to your global CSS */
+body {
+  padding-top: 128px; /* Adjust based on navbar height */
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 144px; /* More space for mobile navbars */
+  }
 }

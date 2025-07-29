@@ -22,21 +22,17 @@ const navLinks = [
   {
     name: "Management",
     href: "/management",
-    dropdown: [
-      { name: "Stratégie du GCT", href: "/management/strategie" },
-      { name: "Objectifs du GCT", href: "/management/objectifs" },
-      { name: "Gouvernance d'Entreprise", href: "/management/gouvernance" },
-    ],
+    
   },
   {
     name: "Chaine de Valeur",
     href: "/chaine",
-    dropdown: [
-      { name: "Sites Miniers de Phosphate", href: "/chaine/sites" },
-      { name: "Dépots de Phosphate en Tunisie", href: "/chaine/depots" },
-      { name: "Usines du GCT", href: "/chaine/usines" },
-      { name: "Production du GCT", href: "/chaine/production" },
-    ],
+    // dropdown: [
+    //   { name: "Sites Miniers de Phosphate", href: "/chaine/sites" },
+    //   { name: "Dépots de Phosphate en Tunisie", href: "/chaine/depots" },
+    //   { name: "Usines du GCT", href: "/chaine/usines" },
+    //   { name: "Production du GCT", href: "/chaine/production" },
+    // ],
   },
   {
     name: "Environnement",
@@ -54,12 +50,12 @@ const navLinks = [
       {
         name: "Achats",
         href: "/services/achats",
-        subitems: [
-          { name: "Manuel des procédures", href: "/services/achats/procedures" },
-          { name: "Commission Recours/Intégrité", href: "/services/achats/recours" },
-          { name: "Appel Fournisseurs", href: "/services/achats/fournisseurs" },
-          { name: "Appel Armateurs", href: "/services/achats/armateurs" },
-        ],
+        // subitems: [
+        //   { name: "Manuel des procédures", href: "/services/achats/procedures" },
+        //   { name: "Commission Recours/Intégrité", href: "/services/achats/recours" },
+        //   { name: "Appel Fournisseurs", href: "/services/achats/fournisseurs" },
+        //   { name: "Appel Armateurs", href: "/services/achats/armateurs" },
+        // ],
       },
       { name: "Appels", href: "/services/appels" },
     ],
@@ -110,10 +106,14 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-2 md:mb-0">
-              <div className="bg-white p-1.5 rounded-full mr-3">
-                <div className="bg-emerald-800 w-10 h-10 flex items-center justify-center rounded-full">
-                  <span className="text-white font-bold text-xl">GCT</span>
-                </div>
+              <div className=" p-0.2  mr-3">
+                <Link href="/" className="block">
+                  <img
+                    src="/images/logo_gct.png" // <-- Change to your actual image path
+                    alt="GCT Logo"
+                    className="w-10 h-15  object-cover"
+                  />
+                </Link>
               </div>
               <div>
                 <span className="font-bold text-lg md:text-xl">Groupe Chimique Tunisien</span>
@@ -140,10 +140,10 @@ export default function Navbar() {
       </div>
 
       {/* Main Navigation Bar - Transparent */}
-      <nav className={`fixed w-full z-40 top-16 transition-all duration-300 ${scrolled ? 'bg-emerald-800 py-2 shadow-lg' : 'bg-transparent py-3'}`}>
+      <nav className={`fixed w-full  z-40  sm:top-16 lg:top-18 transition-all duration-300 ${scrolled ? 'bg-emerald-800    py-2 shadow-lg' : 'bg-transparent py-3'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <div className="hidden md:flex space-x-6">
+            <div className="hidden md:flex space-x-4">
               {navLinks.map((item) => (
                 <div key={item.name} className="relative group">
                   <Link

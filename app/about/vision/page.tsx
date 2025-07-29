@@ -20,78 +20,98 @@ const gctVisionContent = {
 export default function GCTVisionPage() {
   // --- Breadcrumb Component ---
   const Breadcrumb = () => (
-    <nav className="text-sm text-gray-500 mb-6 flex items-center">
-      <Link href="/" className="hover:text-blue-600 transition-colors">Accueil</Link>
-      <span className="mx-2">&raquo;</span>
-      <Link href="/about" className="hover:text-blue-600 transition-colors">À propos</Link>
-      <span className="mx-2">&raquo;</span>
-      <span className="font-semibold text-blue-700">Vision du GCT</span>
+    <nav aria-label="breadcrumb" className="text-sm text-gray-500 mb-4 flex items-center">
+      <Link href="/" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">Accueil</Link>
+      <span className="mx-2 text-gray-400">&raquo;</span>
+      <Link href="/about" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">À propos</Link>
+      <span className="mx-2 text-gray-400">&raquo;</span>
+      <span className="font-medium text-emerald-700" aria-current="page">Vision du GCT</span>
     </nav>
   );
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-12 bg-gray-50">
-      <Breadcrumb />
+    <div className="bg-emerald-50 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumb />
 
-      <section className="bg-white shadow-lg rounded-xl p-6 md:p-10 mb-12">
-        <h1 className="text-4xl font-extrabold text-blue-800 text-center mb-6">
-          {gctVisionContent.pageTitle}
-        </h1>
-
-        <div className="grid md:grid-cols-2 gap-8 items-center mt-8">
-          <div className="order-2 md:order-1">
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              {gctVisionContent.introduction}
-            </p>
-
-            <h2 className="text-2xl font-bold text-blue-700 mb-3 flex items-center">
-                <svg className="w-7 h-7 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 6a3 3 0 013-3h10a2 2 0 012 2v8a2 2 0 01-2 2H6.5L1 18V6a3 3 0 013-3zM7 9a1 1 0 011-1h1a1 1 0 110 2H8a1 1 0 01-1-1zm3 0a1 1 0 112 0v1a1 1 0 11-2 0V9zm3 0a1 1 0 112 0v3a1 1 0 11-2 0V9z" clipRule="evenodd"></path></svg>
-                Notre Objectif
-            </h2>
-            <p className="text-xl font-semibold text-gray-800 mb-4">
-              Atteindre une capacité annuelle de transformation de{' '}
-              <span className="text-blue-600">{gctVisionContent.annualCapacityTarget} millions de tonnes</span> de phosphate.
-            </p>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              {gctVisionContent.capacityAchievementStrategy}
-            </p>
-
-            <h2 className="text-2xl font-bold text-blue-700 mb-3 flex items-center">
-                <svg className="w-7 h-7 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.538 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.783.57-1.838-.197-1.538-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.92 8.51c-.783-.57-.381-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z"></path></svg>
-                Orientation & Perspectives
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              {gctVisionContent.industryOrientation}
-            </p>
-            <p className="text-gray-700 font-semibold leading-relaxed">
-              {gctVisionContent.newIndustryPerspectives}
-            </p>
+        <section className="bg-white rounded-2xl shadow-xl overflow-hidden">
+          {/* Hero Section */}
+          <div className="relative">
+            <div className="absolute inset-0 bg-emerald-700 opacity-70"></div>
+            <Image
+              src={gctVisionContent.visionImageSrc}
+              alt={gctVisionContent.visionImageAlt}
+              width={1200} // Adjust as needed
+              height={600} // Adjust as needed
+              className="object-cover w-full h-80 sm:h-96"
+              priority // Load this image with high priority
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white text-center drop-shadow-lg">
+                {gctVisionContent.pageTitle}
+              </h1>
+            </div>
           </div>
 
-          {/* Vision Image */}
-          {gctVisionContent.visionImageSrc && (
-            <div className="order-1 md:order-2 flex justify-center items-center">
-              <div className="relative w-full max-w-md h-64 md:h-96 rounded-xl overflow-hidden shadow-lg border-4 border-blue-300">
-                <Image
-                  src={gctVisionContent.visionImageSrc}
-                  alt={gctVisionContent.visionImageAlt}
-                  layout="fill"
-                  objectFit="cover"
-                  className="transition-transform duration-300 hover:scale-105"
-                  priority // Mark as priority if it's a key image on the page
-                />
+          {/* Content Section */}
+          <div className="px-4 py-8 sm:px-8 sm:py-12">
+            <div className="max-w-3xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="order-2 md:order-1">
+                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                    {gctVisionContent.introduction}
+                  </p>
+
+                  <h2 className="text-2xl font-semibold text-emerald-800 mb-4 flex items-center">
+                    <svg className="w-6 h-6 mr-2 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    Notre Objectif
+                  </h2>
+                  <p className="text-xl font-semibold text-gray-800 mb-4">
+                    Atteindre une capacité annuelle de transformation de{' '}
+                    <span className="text-emerald-600">{gctVisionContent.annualCapacityTarget} millions de tonnes</span> de phosphate.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    {gctVisionContent.capacityAchievementStrategy}
+                  </p>
+
+                  <h2 className="text-2xl font-semibold text-emerald-800 mb-4 flex items-center">
+                    <svg className="w-6 h-6 mr-2 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 15v2m-1.023-3h2.046m5.475 14H21a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.586m-1.025-4h1.023m-1.023-3.423l1.51-1.887M9.664 10.341l1.51-1.887m-1.023-3.423l1.51-1.887M12 7.108l1.51-1.887m-1.023 3.423l1.51 1.887M9.664 13.659l1.51 1.887"></path></svg>
+                    Orientation & Perspectives
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    {gctVisionContent.industryOrientation}
+                  </p>
+                  <p className="text-gray-700 font-semibold leading-relaxed">
+                    {gctVisionContent.newIndustryPerspectives}
+                  </p>
+                </div>
+
+                {/* Vision Image */}
+                {gctVisionContent.visionImageSrc && (
+                  <div className="order-1 md:order-2 flex justify-center items-center">
+                    <div className="relative w-full max-w-md h-64 md:h-96 rounded-xl overflow-hidden shadow-lg border-4 border-emerald-300">
+                      <Image
+                        src={gctVisionContent.visionImageSrc}
+                        alt={gctVisionContent.visionImageAlt}
+                        fill
+                        className="object-cover transition-transform duration-300 hover:scale-105"
+                        priority // Mark as priority if it's a key image on the page
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Optional: Navigation back to About page */}
-      <div className="mt-12 text-center py-8 border-t border-gray-200">
-        <Link href="/about" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-          <svg className="mr-2 -ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd"></path></svg>
-          Retour à À Propos
-        </Link>
+        {/* Optional: Navigation back to About page */}
+        <div className="mt-12 text-center">
+          <Link href="/about" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-colors duration-300">
+            <svg className="mr-2 -ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Retour à À Propos
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ export default async function RSEPage() {
   const data: RSEData = await client.fetch(`*[_type == "rse"][0]`);
 
   return (
-    <main className="p-6 max-w-5xl mx-auto">
+    <main className="p-6 max-w-5xl bg-emerald-50 mx-auto">
       <h1 className="text-4xl font-bold mb-6">{data.title}</h1>
 
       <section className="mb-8">
@@ -38,17 +38,17 @@ export default async function RSEPage() {
 <section className="pb-16">
   <div className="container mx-auto px-4 max-w-7xl">
     <div className="text-center mb-12">
-      <h2 className="text-3xl font-bold text-blue-900">Explorez Nos Ressources Humaines</h2>
+      <h2 className="text-3xl font-bold text-emerald-900">Explorez Nos Ressources Humaines</h2>
       <p className="text-gray-600 mt-2">Effectif, formation et développement des compétences</p>
     </div>
 
     <div className="grid gap-8 md:grid-cols-2">
-      <Link href="/rse/effectif" className="block bg-white border border-blue-100 p-6 rounded-xl shadow hover:shadow-md hover:bg-blue-50 transition">
-        <h3 className="text-2xl font-semibold text-blue-800 mb-2">Effectif</h3>
+      <Link href="/rse/effectif" className="block bg-white border border-emerald-100 p-6 rounded-xl shadow hover:shadow-md hover:bg-emerald-50 transition">
+        <h3 className="text-2xl font-semibold text-emerald-800 mb-2">Effectif</h3>
         <p className="text-gray-600">Consultez la structure des effectifs et la dynamique du personnel au sein du GCT.</p>
       </Link>
-      <Link href="/rse/formation" className="block bg-white border border-blue-100 p-6 rounded-xl shadow hover:shadow-md hover:bg-blue-50 transition">
-        <h3 className="text-2xl font-semibold text-blue-800 mb-2">Formation</h3>
+      <Link href="/rse/formation" className="block bg-white border border-emerald-100 p-6 rounded-xl shadow hover:shadow-md hover:bg-emerald-50 transition">
+        <h3 className="text-2xl font-semibold text-emerald-800 mb-2">Formation</h3>
         <p className="text-gray-600">Découvrez les programmes de formation et d’acquisition de compétences pour les collaborateurs.</p>
       </Link>
     </div>

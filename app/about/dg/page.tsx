@@ -73,16 +73,16 @@ const dgMessageContent = {
     ],
     gratitude: `Enfin, nous adressons nos remerciements à tous les travailleurs de notre entreprise qui contribuent à créer de la richesse, en surmontant quotidiennement les défis dans un climat social difficile depuis 2011. Merci à nos partenaires et clients pour leur confiance renouvelée. Nous continuerons à écouter nos employés et nos clients pour rester un leader sur les marchés locaux et mondiaux.`,
   },
-  directorGeneralName: "Le Directeur Général",
+  directorGeneralName: "Hédi Youssef",
 };
 
 const Breadcrumb = () => (
   <nav className="text-sm text-gray-500 mb-6 flex items-center">
-    <Link href="/" className="hover:text-blue-600 transition-colors">Accueil</Link>
+    <Link href="/" className="hover:text-emerald-600 transition-colors">Accueil</Link>
     <span className="mx-2">&raquo;</span>
-    <Link href="/about" className="hover:text-blue-600 transition-colors">À propos</Link>
+    <Link href="/about" className="hover:text-emerald-600 transition-colors">À propos</Link>
     <span className="mx-2">&raquo;</span>
-    <span className="font-semibold text-blue-700">Mot du Directeur Général</span>
+    <span className="font-semibold text-emerald-700">Mot du Directeur Général</span>
   </nav>
 );
 
@@ -90,7 +90,7 @@ const SectionHeader = ({ title, subtitle, icon }: { title: string; subtitle?: st
   <div className="mb-8">
     <div className="flex items-center mb-4">
       {icon && <span className="text-2xl mr-3">{icon}</span>}
-      <h2 className="text-2xl md:text-3xl font-bold text-blue-900 border-l-4 border-blue-600 pl-4 py-1">
+      <h2 className="text-2xl md:text-3xl font-bold text-emerald-800 border-l-4 border-emerald-600 pl-4 py-1">
         {title}
       </h2>
     </div>
@@ -99,24 +99,24 @@ const SectionHeader = ({ title, subtitle, icon }: { title: string; subtitle?: st
 );
 
 const ValueCard = ({ value }: { value: string }) => (
-  <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-all">
-    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-      <span className="text-2xl text-blue-600">★</span>
+  <div className="bg-gradient-to-br from-emerald-50 to-white border border-emerald-200 rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-all">
+    <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <span className="text-2xl text-emerald-600">★</span>
     </div>
-    <h3 className="font-bold text-blue-800">{value}</h3>
+    <h3 className="font-bold text-emerald-800">{value}</h3>
   </div>
 );
 
 const TimelineItem = ({ year, title, description }: { year: string; title: string; description: string }) => (
   <div className="flex">
     <div className="flex flex-col items-center mr-4">
-      <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
+      <div className="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold">
         {year}
       </div>
-      <div className="w-1 h-full bg-blue-200 mt-2"></div>
+      <div className="w-1 h-full bg-emerald-200 mt-2"></div>
     </div>
     <div className="pb-8">
-      <h3 className="text-xl font-bold text-blue-900 mb-2">{title}</h3>
+      <h3 className="text-xl font-bold text-emerald-900 mb-2">{title}</h3>
       <p className="text-gray-700">{description}</p>
     </div>
   </div>
@@ -124,29 +124,28 @@ const TimelineItem = ({ year, title, description }: { year: string; title: strin
 
 export default function DirectorGeneralMessagePage() {
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen">
+    <div className="bg-gradient-to-b from-emerald-50 to-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-16 bg-gradient-to-r from-blue-900 to-blue-700 text-white">
+      <section className="relative py-12 bg-gradient-to-r from-emerald-900 to-emerald-700 text-white">
         <div className="container mx-auto px-4 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
             <div className="lg:col-span-2">
               <Breadcrumb />
               <div className="w-20 h-1 bg-cyan-400 mb-6 rounded-full"></div>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-2">
                 {dgMessageContent.title}
               </h1>
-              <p className="text-xl text-blue-100 max-w-3xl">
+              <p className="text-xl text-emerald-100 max-w-3xl">
                 {dgMessageContent.introduction}
               </p>
             </div>
             
             <div className="flex justify-center">
               <div className="relative w-64 h-64 rounded-full border-4 border-white shadow-2xl overflow-hidden">
-                <Image
+                <img
                   src="/images/dg-photo.jpg"
                   alt="Directeur Général"
-                  fill
-                  className="object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
@@ -154,7 +153,7 @@ export default function DirectorGeneralMessagePage() {
         </div>
         
         {/* Decorative Elements */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-800/20 to-transparent"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-emerald-800/20 to-transparent"></div>
         <div className="absolute bottom-10 left-10 w-8 h-8 rounded-full bg-cyan-400/20 animate-pulse"></div>
       </section>
 
@@ -169,29 +168,46 @@ export default function DirectorGeneralMessagePage() {
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100">
+            <div className="bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-6 border border-emerald-100 shadow-sm">
               {dgMessageContent.innovationSustainability.paragraphs.map((p, i) => (
                 <p key={i} className="text-gray-700 mb-4">
                   {p}
                 </p>
               ))}
-              <div className="bg-blue-100 border-l-4 border-blue-500 p-4 rounded-lg mt-4">
-                <p className="text-blue-800 font-medium">
+              <div className="bg-emerald-100 border-l-4 border-emerald-500 p-4 rounded-lg mt-4">
+                <p className="text-emerald-800 font-medium">
                   {dgMessageContent.innovationSustainability.keyBenefit}
                 </p>
               </div>
             </div>
             
-            <div className="relative rounded-2xl overflow-hidden h-80 border-4 border-white shadow-lg">
-              <Image
-                src="/images/innovation.jpg"
-                alt="Innovation et développement durable"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
-                <p>Centre de recherche GCT - Développement de solutions durables</p>
+            <div className="bg-gradient-to-br from-cyan-50 to-white rounded-2xl p-6 border border-cyan-100 shadow-sm flex flex-col justify-center">
+              <div className="text-center mb-4">
+                <span className="text-6xl text-cyan-500">♻️</span>
               </div>
+              <h3 className="text-xl font-bold text-emerald-800 text-center mb-3">
+                Nos Objectifs Clés
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-start">
+                  <div className="bg-cyan-100 p-2 rounded-lg mr-3">
+                    <span className="text-cyan-600">✓</span>
+                  </div>
+                  <p>Adoption de technologies propres et modernes</p>
+                </li>
+                <li className="flex items-start">
+                  <div className="bg-cyan-100 p-2 rounded-lg mr-3">
+                    <span className="text-cyan-600">✓</span>
+                  </div>
+                  <p>Amélioration continue de la performance environnementale</p>
+                </li>
+                <li className="flex items-start">
+                  <div className="bg-cyan-100 p-2 rounded-lg mr-3">
+                    <span className="text-cyan-600">✓</span>
+                  </div>
+                  <p>Réduction des coûts et amélioration de la compétitivité</p>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
@@ -204,20 +220,8 @@ export default function DirectorGeneralMessagePage() {
             icon="🏅"
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="relative rounded-2xl overflow-hidden h-80 border-4 border-white shadow-lg">
-              <Image
-                src="/images/lab-quality.jpg"
-                alt="Laboratoire certifié ISO"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
-                <p>Laboratoire GCT - Certification ISO/IEC 17025:2017</p>
-              </div>
-            </div>
-            
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-amber-50 to-white rounded-2xl p-6 border border-amber-100 shadow-sm">
               {dgMessageContent.qualityCertifications.paragraphs.map((p, i) => (
                 <p key={i} className="text-gray-700 mb-6">
                   {p}
@@ -227,15 +231,45 @@ export default function DirectorGeneralMessagePage() {
               <div className="space-y-4">
                 {dgMessageContent.qualityCertifications.certifications.map((cert, i) => (
                   <div key={i} className="flex items-start">
-                    <div className="bg-blue-100 p-2 rounded-lg mr-4">
-                      <span className="text-blue-600">✓</span>
+                    <div className="bg-amber-100 p-2 rounded-lg mr-4">
+                      <span className="text-amber-600">✓</span>
                     </div>
                     <div>
-                      <h4 className="font-bold text-blue-800">{cert.split('(')[0]}</h4>
+                      <h4 className="font-bold text-emerald-800">{cert.split('(')[0]}</h4>
                       <p className="text-gray-600">{cert.split('(')[1]?.replace(')', '')}</p>
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-6 border border-emerald-100 shadow-sm">
+              <h3 className="text-xl font-bold text-emerald-800 mb-4">Notre Approche Qualité</h3>
+              <p className="text-gray-700 mb-4">
+                La démarche qualité au sein du GCT repose sur une culture d'excellence qui s'étend à tous les niveaux de l'organisation.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-4 mt-6">
+                <div className="bg-white p-4 rounded-lg border border-emerald-100">
+                  <div className="text-emerald-600 text-2xl mb-2">🔍</div>
+                  <h4 className="font-bold text-emerald-800">Contrôle Rigoureux</h4>
+                  <p className="text-sm text-gray-600">Processus de vérification à chaque étape</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-emerald-100">
+                  <div className="text-emerald-600 text-2xl mb-2">🔄</div>
+                  <h4 className="font-bold text-emerald-800">Amélioration Continue</h4>
+                  <p className="text-sm text-gray-600">Optimisation permanente de nos méthodes</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-emerald-100">
+                  <div className="text-emerald-600 text-2xl mb-2">📊</div>
+                  <h4 className="font-bold text-emerald-800">Benchmarking</h4>
+                  <p className="text-sm text-gray-600">Comparaison avec les standards internationaux</p>
+                </div>
+                <div className="bg-white p-4 rounded-lg border border-emerald-100">
+                  <div className="text-emerald-600 text-2xl mb-2">👥</div>
+                  <h4 className="font-bold text-emerald-800">Formation</h4>
+                  <p className="text-sm text-gray-600">Sensibilisation de tous les collaborateurs</p>
+                </div>
               </div>
             </div>
           </div>
@@ -250,7 +284,7 @@ export default function DirectorGeneralMessagePage() {
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100">
+            <div className="bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-6 border border-emerald-100 shadow-sm">
               {dgMessageContent.humanResources.paragraphs.map((p, i) => (
                 <p key={i} className="text-gray-700 mb-4">
                   {p}
@@ -258,7 +292,7 @@ export default function DirectorGeneralMessagePage() {
               ))}
               
               <div className="mt-8">
-                <h3 className="text-xl font-bold text-blue-800 mb-4">Nos Valeurs Fondamentales</h3>
+                <h3 className="text-xl font-bold text-emerald-800 mb-4">Nos Valeurs Fondamentales</h3>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {dgMessageContent.humanResources.values.map((value) => (
                     <ValueCard key={value} value={value} />
@@ -267,15 +301,49 @@ export default function DirectorGeneralMessagePage() {
               </div>
             </div>
             
-            <div className="relative rounded-2xl overflow-hidden h-80 border-4 border-white shadow-lg">
-              <Image
-                src="/images/team.jpg"
-                alt="Équipe GCT"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
-                <p>L'équipe GCT - Notre plus grande force</p>
+            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100 shadow-sm">
+              <h3 className="text-xl font-bold text-emerald-800 mb-4">Notre Engagement envers les Employés</h3>
+              
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-bold text-emerald-800 mb-2 flex items-center">
+                    <span className="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center mr-3">✓</span>
+                    Santé & Sécurité
+                  </h4>
+                  <p className="text-gray-700 ml-11">
+                    Environnements de travail sécurisés et programmes de bien-être
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="font-bold text-emerald-800 mb-2 flex items-center">
+                    <span className="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center mr-3">✓</span>
+                    Développement Professionnel
+                  </h4>
+                  <p className="text-gray-700 ml-11">
+                    Plans de carrière et formations continues adaptés
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="font-bold text-emerald-800 mb-2 flex items-center">
+                    <span className="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center mr-3">✓</span>
+                    Reconnaissance
+                  </h4>
+                  <p className="text-gray-700 ml-11">
+                    Programmes de récompense et valorisation des contributions
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="font-bold text-emerald-800 mb-2 flex items-center">
+                    <span className="bg-blue-100 w-8 h-8 rounded-full flex items-center justify-center mr-3">✓</span>
+                    Dialogue Social
+                  </h4>
+                  <p className="text-gray-700 ml-11">
+                    Communication transparente et participation aux décisions
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -289,35 +357,40 @@ export default function DirectorGeneralMessagePage() {
             icon="🤝"
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="relative rounded-2xl overflow-hidden h-80 border-4 border-white shadow-lg">
-              <Image
-                src="/images/community.jpg"
-                alt="Engagement communautaire"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
-                <p>Projets communautaires soutenus par GCT</p>
-              </div>
+          <div className="bg-gradient-to-br from-amber-50 to-white rounded-2xl p-6 border border-amber-100 shadow-sm">
+            {dgMessageContent.societalEngagement.paragraphs.map((p, i) => (
+              <p key={i} className="text-gray-700 mb-4">
+                {p}
+              </p>
+            ))}
+            
+            <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-lg mt-6">
+              <p className="text-yellow-800 italic">
+                "{dgMessageContent.societalEngagement.definition}"
+              </p>
             </div>
             
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100">
-              {dgMessageContent.societalEngagement.paragraphs.map((p, i) => (
-                <p key={i} className="text-gray-700 mb-4">
-                  {p}
-                </p>
-              ))}
-              
-              <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-lg mt-6">
-                <p className="text-yellow-800 italic">
-                  "{dgMessageContent.societalEngagement.definition}"
-                </p>
+            <p className="text-gray-700 mt-4">
+              {dgMessageContent.societalEngagement.recentFocus}
+            </p>
+            
+            <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="text-center p-4">
+                <div className="text-3xl text-emerald-600 mb-2">🏥</div>
+                <h4 className="font-bold text-emerald-800">Santé</h4>
               </div>
-              
-              <p className="text-gray-700 mt-4">
-                {dgMessageContent.societalEngagement.recentFocus}
-              </p>
+              <div className="text-center p-4">
+                <div className="text-3xl text-emerald-600 mb-2">🏫</div>
+                <h4 className="font-bold text-emerald-800">Éducation</h4>
+              </div>
+              <div className="text-center p-4">
+                <div className="text-3xl text-emerald-600 mb-2">💧</div>
+                <h4 className="font-bold text-emerald-800">Infrastructures</h4>
+              </div>
+              <div className="text-center p-4">
+                <div className="text-3xl text-emerald-600 mb-2">🌿</div>
+                <h4 className="font-bold text-emerald-800">Environnement</h4>
+              </div>
             </div>
           </div>
         </section>
@@ -330,26 +403,48 @@ export default function DirectorGeneralMessagePage() {
             icon="🌿"
           />
           
-          <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-6 border border-green-100">
-            {dgMessageContent.environmentalStewardship.paragraphs.map((p, i) => (
-              <p key={i} className="text-gray-700 mb-6">
-                {p}
-              </p>
-            ))}
-            
-            <h3 className="text-xl font-bold text-green-800 mb-4">
-              {dgMessageContent.environmentalStewardship.climateStrategy.heading}
-            </h3>
-            
-            <div className="space-y-3">
-              {dgMessageContent.environmentalStewardship.climateStrategy.initiatives.map((item, i) => (
-                <div key={i} className="flex items-start">
-                  <div className="bg-green-100 p-2 rounded-lg mr-4">
-                    <span className="text-green-600">✓</span>
-                  </div>
-                  <p className="text-gray-700">{item}</p>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-6 border border-green-100 shadow-sm">
+              {dgMessageContent.environmentalStewardship.paragraphs.map((p, i) => (
+                <p key={i} className="text-gray-700 mb-6">
+                  {p}
+                </p>
               ))}
+            </div>
+            
+            <div className="bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-6 border border-emerald-100 shadow-sm">
+              <h3 className="text-xl font-bold text-emerald-800 mb-4">
+                {dgMessageContent.environmentalStewardship.climateStrategy.heading}
+              </h3>
+              
+              <div className="space-y-3">
+                {dgMessageContent.environmentalStewardship.climateStrategy.initiatives.map((item, i) => (
+                  <div key={i} className="flex items-start">
+                    <div className="bg-green-100 p-2 rounded-lg mr-4">
+                      <span className="text-green-600">✓</span>
+                    </div>
+                    <p className="text-gray-700">{item}</p>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="mt-8 bg-gradient-to-r from-green-100 to-emerald-100 p-4 rounded-lg">
+                <h4 className="font-bold text-emerald-800 mb-2">Nos Objectifs Climatiques</h4>
+                <div className="flex justify-between items-center">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-emerald-800">-30%</div>
+                    <div className="text-sm text-gray-600">Émissions CO2 d'ici 2030</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-emerald-800">+40%</div>
+                    <div className="text-sm text-gray-600">Efficacité énergétique</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-emerald-800">100%</div>
+                    <div className="text-sm text-gray-600">Sites dépollués d'ici 2028</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -362,40 +457,41 @@ export default function DirectorGeneralMessagePage() {
             icon="🔬"
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-6 border border-purple-100">
-              {dgMessageContent.researchInnovation.paragraphs.map((p, i) => (
-                <p key={i} className="text-gray-700 mb-4">
-                  {p}
-                </p>
-              ))}
-              
-              <div className="mt-6 flex items-center">
-                <div className="bg-purple-100 p-3 rounded-lg mr-4">
-                  <span className="text-purple-600 text-xl">🎓</span>
-                </div>
-                <p className="text-gray-700">
-                  Le GCT collabore avec plusieurs universités tunisiennes pour développer des solutions innovantes.
+          <div className="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-6 border border-purple-100 shadow-sm">
+            {dgMessageContent.researchInnovation.paragraphs.map((p, i) => (
+              <p key={i} className="text-gray-700 mb-4">
+                {p}
+              </p>
+            ))}
+            
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white p-4 rounded-lg border border-emerald-100">
+                <div className="text-emerald-600 text-3xl mb-3">🎓</div>
+                <h4 className="font-bold text-emerald-800 mb-2">Partenariats Académiques</h4>
+                <p className="text-gray-600 text-sm">
+                  Collaboration avec les principales universités tunisiennes
                 </p>
               </div>
-            </div>
-            
-            <div className="relative rounded-2xl overflow-hidden h-80 border-4 border-white shadow-lg">
-              <Image
-                src="/images/research.jpg"
-                alt="Recherche scientifique"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
-                <p>Collaboration entre GCT et les universités tunisiennes</p>
+              <div className="bg-white p-4 rounded-lg border border-emerald-100">
+                <div className="text-emerald-600 text-3xl mb-3">💡</div>
+                <h4 className="font-bold text-emerald-800 mb-2">Projets Innovants</h4>
+                <p className="text-gray-600 text-sm">
+                  Recherche sur des solutions de production durable
+                </p>
+              </div>
+              <div className="bg-white p-4 rounded-lg border border-emerald-100">
+                <div className="text-emerald-600 text-3xl mb-3">🌍</div>
+                <h4 className="font-bold text-emerald-800 mb-2">Défis Environnementaux</h4>
+                <p className="text-gray-600 text-sm">
+                  Solutions pour la préservation des ressources en eau
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Historical Timeline */}
-        <section className="mb-16 bg-white rounded-2xl shadow-lg p-8 border border-blue-100">
+        <section className="mb-16 bg-white rounded-2xl shadow-lg p-8 border border-emerald-100">
           <SectionHeader 
             title="Notre Héritage & Expertise"
             subtitle="Plus de 76 ans au service de l'innovation dans la transformation du phosphate"
@@ -436,7 +532,7 @@ export default function DirectorGeneralMessagePage() {
         </section>
 
         {/* Conclusion */}
-        <section className="bg-gradient-to-r from-blue-900 to-blue-700 rounded-2xl p-8 text-white">
+        <section className="bg-gradient-to-t from-emerald-900 to-emerald-600 rounded-2xl p-8 text-white shadow-xl">
           <div className="max-w-4xl mx-auto">
             <SectionHeader 
               title={dgMessageContent.challengeConclusion.heading}
@@ -444,7 +540,7 @@ export default function DirectorGeneralMessagePage() {
               icon="✨"
             />
             
-            <div className="prose prose-invert max-w-none text-blue-100">
+            <div className="prose prose-invert max-w-none text-emerald-100">
               {dgMessageContent.challengeConclusion.paragraphs.map((p, i) => (
                 <p key={i} className="text-lg">
                   {p}
@@ -463,24 +559,7 @@ export default function DirectorGeneralMessagePage() {
           </div>
         </section>
 
-        {/* Explore More */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold text-blue-900 mb-6">Découvrez le GCT</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/about" className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg shadow hover:shadow-lg transition-all">
-              Notre Histoire
-            </Link>
-            <Link href="/produits" className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg shadow hover:shadow-lg transition-all">
-              Nos Produits
-            </Link>
-            <Link href="/rse" className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg shadow hover:shadow-lg transition-all">
-              Engagement RSE
-            </Link>
-            <Link href="/contact" className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg shadow hover:shadow-lg transition-all">
-              Contactez-nous
-            </Link>
-          </div>
-        </div>
+        
       </div>
     </div>
   );

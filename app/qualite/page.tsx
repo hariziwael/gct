@@ -1,5 +1,3 @@
-// app/about/qualite/page.tsx
-
 import Link from 'next/link';
 
 // The fixed paragraph content
@@ -17,39 +15,33 @@ Pour assurer la qualité et la conformité du phosphate de calcium, tout en amé
 export default function GCTQualitePage() {
   // --- Breadcrumb Component ---
   const Breadcrumb = () => (
-    <nav className="text-sm text-gray-500 mb-6 flex items-center">
-      <Link href="/" className="hover:text-blue-600 transition-colors">Accueil</Link>
-      <span className="mx-2">&raquo;</span>
-      <Link href="/about" className="hover:text-blue-600 transition-colors">L'Entreprise</Link>
-      <span className="mx-2">&raquo;</span>
-      <Link href="/about/management" className="hover:text-blue-600 transition-colors">Management</Link>
-      <span className="mx-2">&raquo;</span>
-      <span className="font-semibold text-blue-700">Gestion de la Qualité</span>
+    <nav aria-label="breadcrumb" className="text-sm text-gray-500 mb-4 flex items-center">
+      <Link href="/" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">Accueil</Link>
+      <span className="mx-2 text-gray-400">&raquo;</span>
+      <Link href="/about" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">L'Entreprise</Link>
+      <span className="mx-2 text-gray-400">&raquo;</span>
+      <Link href="/about/management" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">Management</Link>
+      <span className="mx-2 text-gray-400">&raquo;</span>
+      <span className="font-medium text-emerald-700" aria-current="page">Gestion de la Qualité</span>
     </nav>
   );
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-12 bg-gray-50">
-      <Breadcrumb />
+    <div className="bg-emerald-50 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumb />
 
-      <section className="bg-white shadow-lg rounded-xl p-6 md:p-10 mb-12">
-        <h1 className="text-4xl font-extrabold text-blue-800 text-center mb-8">
-          {qualiteContent.pageTitle}
-        </h1>
+        <section className="bg-white shadow-xl rounded-2xl p-6 md:p-8 lg:p-12 mb-12">
+          <h1 className="text-3xl lg:text-4xl font-extrabold text-emerald-800 text-center mb-6 lg:mb-8">
+            {qualiteContent.pageTitle}
+          </h1>
 
-        <div className="mb-10 text-justify bg-blue-50 p-6 rounded-lg shadow-sm border border-blue-200">
-          <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line">
-            {qualiteContent.paragraph}
-          </p>
-        </div>
-      </section>
-
-      {/* Optional: Navigation back to Management page */}
-      <div className="mt-12 text-center py-8 border-t border-gray-200">
-        <Link href="/about/management" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-          <svg className="mr-2 -ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd"></path></svg>
-          Retour à Management
-        </Link>
+          <div className="mb-10 text-justify bg-emerald-50 p-6 rounded-xl shadow-sm border border-emerald-200">
+            <p className="text-base lg:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+              {qualiteContent.paragraph}
+            </p>
+          </div>
+        </section>
       </div>
     </div>
   );

@@ -18,128 +18,325 @@ const companyContent = {
   mission: {
     heading: "Notre Mission",
     points: [
-      "Création d'une forte valeur ajoutée à partir du phosphate tunisien ;",
-      "Production et exportation de l'Acide Phosphorique et des Engrais Solides à travers le monde ;",
-      "Création d'emplois et amélioration de la vie sociale des citoyens.",
+      "Création d'une forte valeur ajoutée à partir du phosphate tunisien",
+      "Production et exportation de l'Acide Phosphorique et des Engrais Solides à travers le monde",
+      "Création d'emplois et amélioration de la vie sociale des citoyens",
     ],
   },
-  imageAltText: "Siège de Makar", // Alt text for the image
-  imageSrc: "/images/siege-makar.jpg", // Path to your image in the public folder
+  imageAltText: "Siège de Makar",
+  imageSrc: "/images/siege-makar.jpg",
 };
 
 export default function QuiSommesNousPage() {
-
   // --- Breadcrumb Component ---
   const Breadcrumb = () => (
     <nav className="text-sm text-gray-500 mb-6 flex items-center">
-      <Link href="/" className="hover:text-blue-600 transition-colors">Accueil</Link>
+      <Link href="/" className="hover:text-emerald-600 transition-colors">Accueil</Link>
       <span className="mx-2">&raquo;</span>
-      
-      <Link href="/about" className="hover:text-blue-600 transition-colors">
-      À propos</Link>
+      <Link href="/about" className="hover:text-emerald-600 transition-colors">À propos</Link>
       <span className="mx-2">&raquo;</span>
-      <span className="font-semibold text-blue-700">Qui-Sommes-Nous</span>
+      <span className="font-semibold text-emerald-700">Qui-Sommes-Nous</span>
     </nav>
   );
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-12 bg-gray-50">
-      <Breadcrumb />
-      <section className="bg-white shadow-lg rounded-xl p-6 md:p-10 mb-12">
-        <h1 className="text-4xl font-extrabold text-blue-800 text-center mb-6">
-          {companyContent.title}
-        </h1>
-
-        <p className="text-lg text-gray-700 leading-relaxed mb-8 text-center md:text-left">
-          {companyContent.introduction}
-        </p>
-
-        {/* Image Section for "siege Makar" */}
-        <div className="my-8 text-center">
-          <div className="relative w-full max-w-2xl mx-auto h-64 md:h-96 rounded-lg overflow-hidden shadow-lg border border-gray-200">
-            <Image
-              src={companyContent.imageSrc}
-              alt={companyContent.imageAltText}
-              layout="fill"
-              objectFit="cover"
-              className="transition-transform duration-300 hover:scale-105"
-            />
-          </div>
-          <p className="mt-4 text-sm text-gray-500 italic">
-            Image: {companyContent.imageAltText}
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 mt-12">
-          {/* Global Leader Section */}
-          <div className="p-6 bg-blue-50 rounded-lg shadow-sm">
-            <h2 className="text-2xl font-bold text-blue-700 mb-4 flex items-center">
-              <svg className="w-7 h-7 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535A1 1 0 0111.414 15l-3.293-3.293a1 1 0 01.707-1.707H10a1 1 0 01.707.293l1.5 1.5a1 1 0 010 1.414z" clipRule="evenodd"></path></svg>
-              Un Leader Mondial
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              {companyContent.globalLeader.text}
-            </p>
-            <p className="text-blue-600 font-semibold">
-              Capacité annuelle: {companyContent.globalLeader.capacity}
-            </p>
-          </div>
-
-          {/* Additional Products & Employee Count */}
-          <div className="p-6 bg-green-50 rounded-lg shadow-sm">
-            <h2 className="text-2xl font-bold text-green-700 mb-4 flex items-center">
-              <svg className="w-7 h-7 mr-3 text-green-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-3-5a1 1 0 112 0v2a1 1 0 11-2 0v-2zm3-4a1 1 0 112 0v4a1 1 0 11-2 0V9zm3-3a1 1 0 112 0v6a1 1 0 11-2 0V6z" clipRule="evenodd"></path></svg>
-              Nos Produits & Équipe
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              {companyContent.additionalProducts}
-            </p>
-            <p className="text-gray-700 mb-2">
-              Le GCT emploie plus de <span className="font-semibold text-green-800">{companyContent.employees}</span>.
-            </p>
-          </div>
-        </div>
-
-        {/* Production Sites */}
-        <div className="mt-12 p-6 bg-yellow-50 rounded-lg shadow-sm">
-          <h2 className="text-2xl font-bold text-yellow-700 mb-4 text-center md:text-left flex items-center">
-            <svg className="w-7 h-7 mr-3 text-yellow-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path></svg>
-            {companyContent.productionSites.heading}
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
-            {companyContent.productionSites.locations.map((location, index) => (
-              <div key={index} className="flex items-center p-4 bg-white rounded-md shadow-sm border border-yellow-200">
-                <svg className="w-6 h-6 mr-3 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path></svg>
-                <span className="text-lg font-medium text-gray-800">{location}</span>
+    <div className="bg-gradient-to-b from-emerald-50 to-white min-h-screen">
+      {/* Hero Section */}
+      <section className="relative py-16 bg-gradient-to-r from-emerald-900 to-emerald-700 text-white">
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+            <div className="lg:col-span-2">
+              <Breadcrumb />
+              <div className="w-20 h-1 bg-cyan-400 mb-6 rounded-full"></div>
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+                {companyContent.title}
+              </h1>
+              <p className="text-xl text-emerald-100 max-w-3xl">
+                {companyContent.introduction}
+              </p>
+            </div>
+            
+            <div className="flex justify-center">
+              <div className="relative w-64 h-64 rounded-full border-4 border-white shadow-2xl overflow-hidden">
+                <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-full" />
               </div>
-            ))}
+            </div>
           </div>
         </div>
-
-        {/* Our Mission */}
-        <div className="mt-12 p-6 bg-purple-50 rounded-lg shadow-sm">
-          <h2 className="text-2xl font-bold text-purple-700 mb-4 text-center md:text-left flex items-center">
-            <svg className="w-7 h-7 mr-3 text-purple-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clipRule="evenodd"></path></svg>
-            {companyContent.mission.heading}
-          </h2>
-          <ul className="list-none space-y-3 mt-6">
-            {companyContent.mission.points.map((point, index) => (
-              <li key={index} className="flex items-start text-gray-700 leading-relaxed">
-                <svg className="w-6 h-6 mr-3 text-purple-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-emerald-800/20 to-transparent"></div>
+        <div className="absolute bottom-10 left-10 w-8 h-8 rounded-full bg-cyan-400/20 animate-pulse"></div>
       </section>
 
-      {/* Optional: Simple CTA at the bottom */}
-      <div className="mt-12 text-center py-8 border-t border-gray-200">
-        <h3 className="text-2xl font-semibold text-blue-800 mb-6">En savoir plus sur le GCT</h3>
-        <a href="/about/dg" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-          Message du Directeur Général
-          <svg className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd"></path><path fillRule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
-        </a>
+      {/* Main Content */}
+      <div className="container mx-auto px-4 max-w-6xl py-16">
+        {/* Introduction & Image */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+          <div className="bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-8 border border-emerald-100 shadow-sm">
+            <h2 className="text-2xl font-bold text-emerald-800 mb-4">Notre Histoire</h2>
+            <p className="text-gray-700 mb-6">
+              Fondé en 1947, le Groupe Chimique Tunisien (GCT) a évolué d'une entreprise d'extraction de phosphate brut 
+              à un leader mondial dans la transformation de phosphates. Avec plus de 75 ans d'expertise, nous avons 
+              constamment innové pour valoriser cette ressource naturelle au profit de l'économie tunisienne.
+            </p>
+            
+            <div className="flex items-center bg-blue-50 p-4 rounded-lg">
+              <div className="bg-emerald-100 p-3 rounded-lg mr-4">
+                <span className="text-emerald-600 text-xl">🏭</span>
+              </div>
+              <p className="text-gray-700">
+                Aujourd'hui, nous transformons le phosphate tunisien en produits à haute valeur ajoutée pour le marché mondial.
+              </p>
+            </div>
+          </div>
+          
+          <div className="relative rounded-2xl overflow-hidden h-80 border-4 border-white shadow-lg">
+            <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-full" />
+          </div>
+        </div>
+
+        {/* Global Leader Section */}
+        <section className="mb-16">
+          <div className="bg-gradient-to-br from-cyan-50 to-white rounded-2xl p-8 border border-cyan-100 shadow-sm">
+            <div className="flex items-center mb-6">
+              <div className="bg-emerald-100 p-3 rounded-lg mr-4">
+                <span className="text-emerald-600 text-xl">🌍</span>
+              </div>
+              <h2 className="text-2xl font-bold text-emerald-800">Un Leader Mondial</h2>
+            </div>
+            
+            <p className="text-gray-700 mb-6">
+              {companyContent.globalLeader.text}
+            </p>
+            
+            <div className="bg-gradient-to-r from-emerald-100 to-cyan-100 p-6 rounded-lg">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-emerald-800 mb-2">
+                  {companyContent.globalLeader.capacity}
+                </div>
+                <p className="text-emerald-700">Capacité annuelle de production</p>
+              </div>
+            </div>
+            
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-white p-4 rounded-lg border border-emerald-100 text-center">
+                <div className="text-3xl text-emerald-600 mb-2">🔄</div>
+                <h3 className="font-bold text-emerald-800">Acide Phosphorique</h3>
+                <p className="text-gray-600 text-sm">Marchand (MGA)</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg border border-emerald-100 text-center">
+                <div className="text-3xl text-emerald-600 mb-2">🌱</div>
+                <h3 className="font-bold text-emerald-800">Engrais Phosphatés</h3>
+                <p className="text-gray-600 text-sm">DAP, MAP, TSP, SSP</p>
+              </div>
+              <div className="bg-white p-4 rounded-lg border border-emerald-100 text-center">
+                <div className="text-3xl text-emerald-600 mb-2">🧪</div>
+                <h3 className="font-bold text-emerald-800">Phosphate de Calcium</h3>
+                <p className="text-gray-600 text-sm">DCP</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Additional Products & Team */}
+        <section className="mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gradient-to-br from-amber-50 to-white rounded-2xl p-8 border border-amber-100 shadow-sm">
+              <div className="flex items-center mb-6">
+                <div className="bg-emerald-100 p-3 rounded-lg mr-4">
+                  <span className="text-emerald-600 text-xl">➕</span>
+                </div>
+                <h2 className="text-2xl font-bold text-emerald-800">Produits Complémentaires</h2>
+              </div>
+              
+              <p className="text-gray-700 mb-6">
+                {companyContent.additionalProducts}
+              </p>
+              
+              <div className="bg-gradient-to-r from-amber-100 to-yellow-100 p-6 rounded-lg">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <h3 className="font-bold text-emerald-800">Nitrate d'Ammonium Agricole</h3>
+                    <p className="text-gray-600">Pour le marché local</p>
+                  </div>
+                  <div className="text-4xl text-amber-600">🌾</div>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-r from-amber-100 to-yellow-100 p-6 rounded-lg mt-4">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <h3 className="font-bold text-emerald-800">Nitrate d'Ammonium Poreux</h3>
+                    <p className="text-gray-600">Applications spécialisées</p>
+                  </div>
+                  <div className="text-4xl text-amber-600">🧪</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100 shadow-sm">
+              <div className="flex items-center mb-6">
+                <div className="bg-emerald-100 p-3 rounded-lg mr-4">
+                  <span className="text-emerald-600 text-xl">👥</span>
+                </div>
+                <h2 className="text-2xl font-bold text-emerald-800">Notre Équipe</h2>
+              </div>
+              
+              <div className="text-center mb-6">
+                <div className="text-5xl font-bold text-emerald-800 mb-2">
+                  {companyContent.employees.split(' ')[0]}
+                </div>
+                <p className="text-emerald-700">collaborateurs dédiés</p>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <div className="bg-emerald-100 p-2 rounded-lg mr-4">
+                    <span className="text-emerald-600">👷</span>
+                  </div>
+                  <p>Spécialistes techniques et ingénieurs</p>
+                </div>
+                <div className="flex items-center">
+                  <div className="bg-emerald-100 p-2 rounded-lg mr-4">
+                    <span className="text-emerald-600">🔬</span>
+                  </div>
+                  <p>Chercheurs et développeurs</p>
+                </div>
+                <div className="flex items-center">
+                  <div className="bg-emerald-100 p-2 rounded-lg mr-4">
+                    <span className="text-emerald-600">🤝</span>
+                  </div>
+                  <p>Experts en relations internationales</p>
+                </div>
+                <div className="flex items-center">
+                  <div className="bg-emerald-100 p-2 rounded-lg mr-4">
+                    <span className="text-emerald-600">🌱</span>
+                  </div>
+                  <p>Professionnels de l'agro-industrie</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Production Sites */}
+        <section className="mb-16">
+          <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border border-green-100 shadow-sm">
+            <div className="flex items-center mb-6">
+              <div className="bg-emerald-100 p-3 rounded-lg mr-4">
+                <span className="text-emerald-600 text-xl">📍</span>
+              </div>
+              <h2 className="text-2xl font-bold text-emerald-800">
+                {companyContent.productionSites.heading}
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              {companyContent.productionSites.locations.map((location, index) => (
+                <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden border border-emerald-100">
+                  <div className="h-48 bg-gradient-to-br from-emerald-100 to-cyan-100 flex items-center justify-center">
+                    <div className="text-5xl text-emerald-600">
+                      {location === "Gabès" ? "🏭" : location === "Skhira" ? "⚓" : "⛰️"}
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-emerald-800 mb-2">{location}</h3>
+                    <p className="text-gray-600">
+                      {location === "Gabès" 
+                        ? "Centre de production d'acide phosphorique et d'engrais" 
+                        : location === "Skhira" 
+                          ? "Site portuaire et unité de transformation" 
+                          : "Zone d'extraction et de traitement primaire"}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Our Mission */}
+        <section className="mb-16">
+          <div className="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 border border-purple-100 shadow-sm">
+            <div className="flex items-center mb-6">
+              <div className="bg-emerald-100 p-3 rounded-lg mr-4">
+                <span className="text-emerald-600 text-xl">🎯</span>
+              </div>
+              <h2 className="text-2xl font-bold text-emerald-800">
+                {companyContent.mission.heading}
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              {companyContent.mission.points.map((point, index) => (
+                <div key={index} className="bg-gradient-to-br from-emerald-50 to-white p-6 rounded-xl border border-emerald-100">
+                  <div className="text-5xl text-emerald-600 mb-4">
+                    {index === 0 ? "💰" : index === 1 ? "🌎" : "👨‍👩‍👧‍👦"}
+                  </div>
+                  <h3 className="text-lg font-bold text-emerald-800 mb-2">
+                    {point.split(':')[0]}
+                  </h3>
+                  <p className="text-gray-700">
+                    {point.split(':')[1] || "Au cœur de notre engagement quotidien"}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Values Section */}
+        <section className="mb-16">
+          <div className="bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-8 border border-emerald-100 shadow-sm">
+            <div className="flex items-center mb-6">
+              <div className="bg-emerald-100 p-3 rounded-lg mr-4">
+                <span className="text-emerald-600 text-xl">❤️</span>
+              </div>
+              <h2 className="text-2xl font-bold text-emerald-800">
+                Nos Valeurs Fondamentales
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+              <div className="text-center p-6 bg-white rounded-xl border border-emerald-100">
+                <div className="text-4xl text-emerald-600 mb-4">🔒</div>
+                <h3 className="font-bold text-emerald-800 mb-2">Intégrité</h3>
+                <p className="text-gray-600 text-sm">Éthique professionnelle et transparence</p>
+              </div>
+              <div className="text-center p-6 bg-white rounded-xl border border-emerald-100">
+                <div className="text-4xl text-emerald-600 mb-4">♻️</div>
+                <h3 className="font-bold text-emerald-800 mb-2">Durabilité</h3>
+                <p className="text-gray-600 text-sm">Respect de l'environnement et développement durable</p>
+              </div>
+              <div className="text-center p-6 bg-white rounded-xl border border-emerald-100">
+                <div className="text-4xl text-emerald-600 mb-4">🚀</div>
+                <h3 className="font-bold text-emerald-800 mb-2">Innovation</h3>
+                <p className="text-gray-600 text-sm">Recherche constante de solutions améliorées</p>
+              </div>
+              <div className="text-center p-6 bg-white rounded-xl border border-emerald-100">
+                <div className="text-4xl text-emerald-600 mb-4">🤝</div>
+                <h3 className="font-bold text-emerald-800 mb-2">Collaboration</h3>
+                <p className="text-gray-600 text-sm">Travail d'équipe et partenariats solides</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <div className="bg-gradient-to-r from-emerald-700 to-emerald-800 rounded-2xl p-8 text-white text-center">
+          <h3 className="text-2xl font-bold mb-4">En savoir plus sur le GCT</h3>
+          <p className="text-emerald-100 max-w-2xl mx-auto mb-6">
+            Découvrez le message du Directeur Général et notre vision pour l'avenir de l'industrie chimique tunisienne.
+          </p>
+          <Link 
+            href="/about/dg" 
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-emerald-900 bg-white hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
+          >
+            Message du Directeur Général
+            <svg className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
+          </Link>
+        </div>
       </div>
     </div>
   );

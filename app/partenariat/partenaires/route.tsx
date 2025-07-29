@@ -1,5 +1,6 @@
 import client from '@/lib/sanity'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface Partenaire {
   _id: string
@@ -27,33 +28,35 @@ export default async function PartenairesPage() {
     }
   `)
 
+
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+    <div className="bg-emerald-50 py-12">
+      <section className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        
 
         {/* Title & Intro */}
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-blue-900 mb-4">Nos Partenaires</h1>
+        <div className="text-center mb-12">
+          <h1 className="text-3xl lg:text-4xl font-extrabold text-emerald-800 mb-4">Nos Partenaires</h1>
           <p className="text-lg text-gray-600">
             Découvrez les institutions, entreprises et acteurs qui soutiennent notre mission à travers des collaborations stratégiques.
           </p>
         </div>
 
         {/* Table-style layout */}
-        <div className="divide-y border border-blue-100 rounded-xl overflow-hidden bg-gray-50 shadow-sm">
+        <div className="divide-y border border-emerald-200 rounded-2xl overflow-hidden bg-white shadow-xl">
           {partenaires.map((p) => (
-            <div key={p._id} className="grid grid-cols-1 md:grid-cols-5 items-center gap-4 px-6 py-6 hover:bg-blue-50 transition-colors">
+            <div key={p._id} className="grid grid-cols-1 md:grid-cols-5 items-center gap-4 px-6 py-6 hover:bg-emerald-50 transition-colors">
               <div className="col-span-1 flex justify-center md:justify-start">
                 <Image
                   src={p.logoUrl}
                   alt={p.nom}
-                  width={100}
-                  height={60}
+                  width={120}
+                  height={72}
                   className="object-contain h-16 w-auto"
                 />
               </div>
               <div className="md:col-span-3">
-                <h3 className="text-xl font-semibold text-blue-800 mb-1">{p.nom}</h3>
+                <h3 className="text-xl font-semibold text-emerald-700 mb-1">{p.nom}</h3>
                 <p className="text-gray-600 text-sm">{p.description}</p>
               </div>
               <div className="text-right md:justify-end">
@@ -62,7 +65,7 @@ export default async function PartenairesPage() {
                     href={p.siteWeb}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-blue-700 underline hover:text-blue-900"
+                    className="text-sm text-emerald-700 underline hover:text-emerald-900 transition-colors"
                   >
                     Visiter le site →
                   </a>
@@ -73,17 +76,16 @@ export default async function PartenairesPage() {
         </div>
 
         {/* Appel à action */}
-        <div className="bg-blue-100 border-l-4 border-blue-400 p-6 rounded-lg text-blue-900">
+        <div className="mt-12 bg-emerald-100 border-l-4 border-emerald-400 p-6 rounded-xl text-emerald-900">
           <h2 className="text-xl font-bold mb-2">Vous souhaitez devenir partenaire de GCT ?</h2>
-          <p className="mb-4 text-blue-800">
+          <p className="mb-4 text-emerald-800">
             Contactez-nous dès aujourd'hui pour explorer de nouvelles opportunités de collaboration et d'innovation.
           </p>
-          <button className="bg-blue-700 text-white px-5 py-2 rounded-md hover:bg-blue-800 transition">
-            Proposer un partenariat
+          <button  className="bg-emerald-700 text-white px-5 py-2 rounded-md hover:bg-emerald-800 transition-colors">
+           <Link href="/contact"> Proposer un partenariat</Link>
           </button>
         </div>
-
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }

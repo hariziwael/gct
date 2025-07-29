@@ -1,5 +1,3 @@
-// app/recherche/siape/page.tsx
-
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -87,162 +85,158 @@ const siapeContent = {
 export default function RechercheSiapePage() {
   // --- Breadcrumb Component ---
   const Breadcrumb = () => (
-    <nav className="text-sm text-gray-500 mb-6 flex items-center">
-      <Link href="/" className="hover:text-blue-600 transition-colors">Accueil</Link>
-      <span className="mx-2">&raquo;</span>
-      <Link href="/recherche" className="hover:text-blue-600 transition-colors">Recherche & Développement</Link>
-      <span className="mx-2">&raquo;</span>
-      <span className="font-semibold text-blue-700">Le procédé SIAPE/GCT</span>
+    <nav aria-label="breadcrumb" className="text-sm text-gray-500 mb-4 flex items-center">
+      <Link href="/" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">Accueil</Link>
+      <span className="mx-2 text-gray-400">&raquo;</span>
+      <Link href="/recherche" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">Recherche & Développement</Link>
+      <span className="mx-2 text-gray-400">&raquo;</span>
+      <span className="font-medium text-emerald-700" aria-current="page">Le procédé SIAPE/GCT</span>
     </nav>
   );
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-12 bg-gray-50">
-      <Breadcrumb />
+    <div className="bg-emerald-50 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumb />
 
-      <section className="bg-white shadow-lg rounded-xl p-6 md:p-10 mb-12">
-        <h1 className="text-4xl font-extrabold text-blue-800 text-center mb-8">
-          {siapeContent.pageTitle}
-        </h1>
+        <section className="bg-white shadow-xl rounded-2xl p-6 md:p-8 lg:p-12 mb-12">
+          <h1 className="text-3xl lg:text-4xl font-extrabold text-emerald-800 text-center mb-6 lg:mb-8">
+            {siapeContent.pageTitle}
+          </h1>
 
-        {/* Part One */}
-        <div className="mb-10 p-6 rounded-lg bg-blue-50 shadow-sm border border-blue-200">
-          <h2 className="text-2xl font-bold text-blue-700 mb-4 flex items-center">
-            <svg className="w-7 h-7 mr-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clipRule="evenodd"></path></svg>
-            {siapeContent.partOne.heading}
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            {siapeContent.partOne.paragraph}
-          </p>
-        </div>
-
-        {/* Part Two: Generations */}
-        <div className="mb-10 p-6 rounded-lg bg-purple-50 shadow-sm border border-purple-200">
-          <h2 className="text-2xl font-bold text-purple-700 mb-6 flex items-center">
-            <svg className="w-7 h-7 mr-3 text-purple-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3-7a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm3 11a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
-            {siapeContent.partTwo.heading}
-          </h2>
-          <div className="space-y-6">
-            {siapeContent.partTwo.generations.map((gen, index) => (
-              <div key={index}>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 flex items-center">
-                  <span className="text-purple-600 mr-2 text-2xl font-bold">{gen.year}:</span> {gen.title}
-                </h3>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  {gen.description}
-                </p>
-                {gen.subpoints && (
-                  <ul className="list-disc list-inside ml-4 mt-2 text-lg text-gray-700">
-                    {gen.subpoints.map((sub, subIndex) => (
-                      <li key={subIndex}>{sub}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Part Three: International Export */}
-        <div className="mb-10 p-6 rounded-lg bg-green-50 shadow-sm border border-green-200">
-          <h2 className="text-2xl font-bold text-green-700 mb-4 flex items-center">
-            <svg className="w-7 h-7 mr-3 text-green-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M12 5a1 1 0 011 1v4a1 1 0 01-1 1H9.293l1.146 1.146a1 1 0 01-1.414 1.414l-2.5-2.5a1 1 0 010-1.414l2.5-2.5a1 1 0 011.414 1.414L9.707 10H12V6a1 1 0 011-1z" clipRule="evenodd"></path></svg>
-            {siapeContent.partThree.heading}
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed mb-4">
-            {siapeContent.partThree.paragraph}
-          </p>
-          <ul className="list-disc list-inside space-y-2 text-lg text-gray-700">
-            {siapeContent.partThree.references.map((ref, index) => (
-              <li key={index}>{ref}</li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Part Four: TSP Process & Image */}
-        <div className="grid md:grid-cols-2 gap-8 items-start mb-10">
-          <div className="order-2 md:order-1">
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              {siapeContent.partFour.introParagraph}
+          {/* Part One */}
+          <div className="mb-10 p-6 rounded-xl bg-emerald-50 shadow-sm border border-emerald-200">
+            <h2 className="text-2xl font-semibold text-emerald-700 mb-4 flex items-center">
+              <svg className="w-6 h-6 mr-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clipRule="evenodd"></path></svg>
+              {siapeContent.partOne.heading}
+            </h2>
+            <p className="text-base lg:text-lg text-gray-700 leading-relaxed">
+              {siapeContent.partOne.paragraph}
             </p>
+          </div>
 
-            <div className="p-6 rounded-lg bg-yellow-50 shadow-sm border border-yellow-200">
-              <h3 className="text-2xl font-bold text-yellow-700 mb-4 flex items-center">
-                <svg className="w-7 h-7 mr-3 text-yellow-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 100 2 1 1 0 000-2zm-6 4a1 1 0 100 2 1 1 0 000-2zm4 0a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd"></path></svg>
-                {siapeContent.partFour.tspProcess.title}
-              </h3>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                {siapeContent.partFour.tspProcess.paragraph1}
-              </p>
-              <h4 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
-                <svg className="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"></path></svg>
-                {siapeContent.partFour.tspProcess.generation2.title}
-              </h4>
-              <p className="text-lg text-gray-700 leading-relaxed mb-3">
-                {siapeContent.partFour.tspProcess.generation2.paragraph}
-              </p>
-              <ul className="list-disc list-inside space-y-2 text-lg text-gray-700">
-                {siapeContent.partFour.tspProcess.generation2.benefits.map((benefit, index) => (
-                  <li key={index}>{benefit}</li>
-                ))}
-              </ul>
-              <p className="text-lg text-gray-700 leading-relaxed mt-4">
-                {siapeContent.partFour.tspProcess.conclusion}
-              </p>
+          {/* Part Two: Generations */}
+          <div className="mb-10 p-6 rounded-xl bg-gray-50 shadow-sm border border-gray-200">
+            <h2 className="text-2xl font-semibold text-gray-700 mb-6 flex items-center">
+              <svg className="w-6 h-6 mr-3 text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3-7a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm3 11a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
+              {siapeContent.partTwo.heading}
+            </h2>
+            <div className="space-y-6">
+              {siapeContent.partTwo.generations.map((gen, index) => (
+                <div key={index}>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2 flex items-center">
+                    <span className="text-emerald-600 mr-2 text-2xl font-bold">{gen.year}:</span> {gen.title}
+                  </h3>
+                  <p className="text-base lg:text-lg text-gray-700 leading-relaxed">
+                    {gen.description}
+                  </p>
+                  {gen.subpoints && (
+                    <ul className="list-disc list-inside ml-4 mt-2 text-base lg:text-lg text-gray-700">
+                      {gen.subpoints.map((sub, subIndex) => (
+                        <li key={subIndex}>{sub}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
-          <div className="order-1 md:order-2 flex justify-center items-center">
-            {siapeContent.partFour.image.src && (
-              <div className="relative w-full max-w-md h-64 md:h-96 rounded-xl overflow-hidden shadow-lg border-4 border-yellow-300">
-                <Image
-                  src={siapeContent.partFour.image.src}
-                  alt={siapeContent.partFour.image.alt}
-                  layout="fill"
-                  objectFit="cover"
-                  className="transition-transform duration-300 hover:scale-105"
-                  priority
-                />
+
+          {/* Part Three: International Export */}
+          <div className="mb-10 p-6 rounded-xl bg-emerald-50 shadow-sm border border-emerald-200">
+            <h2 className="text-2xl font-semibold text-emerald-700 mb-4 flex items-center">
+              <svg className="w-6 h-6 mr-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M12 5a1 1 0 011 1v4a1 1 0 01-1 1H9.293l1.146 1.146a1 1 0 01-1.414 1.414l-2.5-2.5a1 1 0 010-1.414l2.5-2.5a1 1 0 011.414 1.414L9.707 10H12V6a1 1 0 011-1z" clipRule="evenodd"></path></svg>
+              {siapeContent.partThree.heading}
+            </h2>
+            <p className="text-base lg:text-lg text-gray-700 leading-relaxed mb-4">
+              {siapeContent.partThree.paragraph}
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-base lg:text-lg text-gray-700">
+              {siapeContent.partThree.references.map((ref, index) => (
+                <li key={index}>{ref}</li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Part Four: TSP Process & Image */}
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-10">
+            <div className="order-2 md:order-1">
+              <p className="text-base lg:text-lg text-gray-700 leading-relaxed mb-6">
+                {siapeContent.partFour.introParagraph}
+              </p>
+
+              <div className="p-6 rounded-xl bg-yellow-50 shadow-sm border border-yellow-200">
+                <h3 className="text-2xl font-semibold text-yellow-700 mb-4 flex items-center">
+                  <svg className="w-6 h-6 mr-3 text-yellow-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 100 2 1 1 0 000-2zm-6 4a1 1 0 100 2 1 1 0 000-2zm4 0a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd"></path></svg>
+                  {siapeContent.partFour.tspProcess.title}
+                </h3>
+                <p className="text-base lg:text-lg text-gray-700 leading-relaxed mb-4">
+                  {siapeContent.partFour.tspProcess.paragraph1}
+                </p>
+                <h4 className="text-xl font-semibold text-gray-900 mb-3 flex items-center">
+                  <svg className="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"></path></svg>
+                  {siapeContent.partFour.tspProcess.generation2.title}
+                </h4>
+                <p className="text-base lg:text-lg text-gray-700 leading-relaxed mb-3">
+                  {siapeContent.partFour.tspProcess.generation2.paragraph}
+                </p>
+                <ul className="list-disc list-inside space-y-2 text-base lg:text-lg text-gray-700">
+                  {siapeContent.partFour.tspProcess.generation2.benefits.map((benefit, index) => (
+                    <li key={index}>{benefit}</li>
+                  ))}
+                </ul>
+                <p className="text-base lg:text-lg text-gray-700 leading-relaxed mt-4">
+                  {siapeContent.partFour.tspProcess.conclusion}
+                </p>
               </div>
-            )}
+            </div>
+            <div className="order-1 md:order-2 flex justify-center items-center">
+              {siapeContent.partFour.image.src && (
+                <div className="relative w-full max-w-md h-64 md:h-96 rounded-xl overflow-hidden shadow-lg border-4 border-yellow-300">
+                  <Image
+                    src={siapeContent.partFour.image.src}
+                    alt={siapeContent.partFour.image.alt}
+                    layout="fill"
+                    objectFit="cover"
+                    className="transition-transform duration-300 hover:scale-105"
+                    priority
+                  />
+                </div>
+              )}
+            </div>
           </div>
-        </div>
 
-        {/* Part Five: Patents */}
-        <div className="p-6 rounded-lg bg-orange-50 shadow-sm border border-orange-200">
-          <h2 className="text-2xl font-bold text-orange-700 mb-4 flex items-center">
-            <svg className="w-7 h-7 mr-3 text-orange-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zM12 8a1 1 0 100-2h-3a1 1 0 100 2h3zm-3 2a1 1 0 00-1 1v3a1 1 0 102 0v-3a1 1 0 00-1-1z" clipRule="evenodd"></path></svg>
-            {siapeContent.partFive.heading}
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            {siapeContent.partFive.intro}
-          </p>
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
-              <thead>
-                <tr className="bg-gray-100 border-b border-gray-200">
-                  <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">Référence</th>
-                  <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">Titre de l’invention</th>
-                </tr>
-              </thead>
-              <tbody>
-                {siapeContent.partFive.patents.map((patent, index) => (
-                  <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="py-3 px-4 border-b border-gray-200 text-sm font-medium text-gray-800">{patent.ref}</td>
-                    <td className="py-3 px-4 border-b border-gray-200 text-sm text-gray-700">{patent.title}</td>
+          {/* Part Five: Patents */}
+          <div className="p-6 rounded-xl bg-orange-50 shadow-sm border border-orange-200">
+            <h2 className="text-2xl font-semibold text-orange-700 mb-4 flex items-center">
+              <svg className="w-6 h-6 mr-3 text-orange-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zM12 8a1 1 0 100-2h-3a1 1 0 100 2h3zm-3 2a1 1 0 00-1 1v3a1 1 0 102 0v-3a1 1 0 00-1-1z" clipRule="evenodd"></path></svg>
+              {siapeContent.partFive.heading}
+            </h2>
+            <p className="text-base lg:text-lg text-gray-700 leading-relaxed mb-6">
+              {siapeContent.partFive.intro}
+            </p>
+            <div className="overflow-x-auto">
+              <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+                <thead>
+                  <tr className="bg-gray-100 border-b border-gray-200">
+                    <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">Référence</th>
+                    <th className="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">Titre de l’invention</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {siapeContent.partFive.patents.map((patent, index) => (
+                    <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                      <td className="py-3 px-4 border-b border-gray-200 text-sm font-medium text-gray-800">{patent.ref}</td>
+                      <td className="py-3 px-4 border-b border-gray-200 text-sm text-gray-700">{patent.title}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Optional: Navigation back to Recherche page */}
-      <div className="mt-12 text-center py-8 border-t border-gray-200">
-        <Link href="/recherche" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-          <svg className="mr-2 -ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd"></path></svg>
-          Retour à la Recherche & Développement
-        </Link>
+        
       </div>
     </div>
   );
