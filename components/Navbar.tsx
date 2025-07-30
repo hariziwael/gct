@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { useState, useEffect } from "react"
 import { Menu, X, MapPin, Mail, Phone, ChevronDown, ChevronRight, ChevronUp } from "lucide-react"
-
+import { Search } from 'lucide-react';
 const navLinks = [
   { name: "Accueil", href: "/" },
   {
@@ -22,7 +22,7 @@ const navLinks = [
   {
     name: "Management",
     href: "/management",
-    
+
   },
   {
     name: "Chaine de Valeur",
@@ -65,6 +65,32 @@ const navLinks = [
   { name: "RSE", href: "/rse" },
 ]
 
+
+
+const pdfFiles = [
+  {
+    title: "📝 Politique d'accès à l'information - GCT | سياسة النفاذ إلى المعلومة بالمجمع الكيميائي",
+    url: "/pdf/politique-acces-information-gct.pdf",
+  },
+  {
+    title: "📄 Formulaire de demande d’accès à l’information | مطلب النفاذ إلى المعلومة",
+    url: "/pdf/demande-acces-information.pdf",
+  },
+  {
+    title: "📑 Formulaire de recours en cas de refus | مطلب طعن لدى الهيكل العمومي",
+    url: "/pdf/demande-recours-organisme.pdf",
+  },
+  {
+    title: "📘 Loi n°2016-22 du 24 mars 2016 (FR) - Accès à l'information | القانون الأساسي عدد 22 لسنة 2016 (فرنسية)",
+    url: "/pdf/loi-organique-2016-22-fr.pdf",
+  },
+  {
+    title: "📙 القانون الأساسي عدد 22 لسنة 2016 (AR) - النفاذ إلى المعلومة | Loi organique n°2016-22 (arabe)",
+    url: "/pdf/loi-organique-2016-22-ar.pdf",
+  },
+];
+
+
 export default function Navbar() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
@@ -99,6 +125,19 @@ export default function Navbar() {
     setActiveNested(activeNested === name ? null : name)
   }
 
+
+
+
+  const [query, setQuery] = useState('');
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const filteredSuggestions =
+    query.length > 0
+      ? pdfFiles.filter((file) =>
+        file.title.toLowerCase().includes(query.toLowerCase())
+      )
+      : [];
+
   return (
     <>
       {/* Top Navigation Bar */}
@@ -122,6 +161,51 @@ export default function Navbar() {
             </div>
 
             <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+
+
+
+              {/* Right: Search */}
+              <div className="relative w-full sm:w-80 mt-4 sm:mt-0">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 w-5 h-5" />
+                  <input
+                    type="text"
+                    value={query}
+                    onChange={(e) => {
+                      setQuery(e.target.value);
+                      setShowSuggestions(true);
+                    }}
+                    onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                    placeholder="Rechercher un document..."
+                    className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 text-black focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition duration-200"
+                  />
+                </div>
+
+                {showSuggestions && filteredSuggestions.length > 0 && (
+                  <ul className="absolute w-full mt-2 bg-white text-black rounded-lg shadow-md overflow-hidden z-50 max-h-60 overflow-y-auto">
+                    {filteredSuggestions.map((file, i) => (
+                      <li
+                        key={i}
+                        className="px-4 py-3 hover:bg-emerald-100 transition cursor-pointer text-sm"
+                        onClick={() => {
+                          window.open(file.url, '_blank');
+                          setQuery('');
+                          setShowSuggestions(false);
+                        }}
+                      >
+                        {file.title}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+
+
+
+
+
+
               <Link href="/contact" className="flex items-center hover:text-emerald-300 transition-colors text-sm">
                 <Mail className="w-4 h-4 mr-1" />
                 Contactez-nous
@@ -132,7 +216,7 @@ export default function Navbar() {
               </Link>
               <div className="flex items-center text-sm">
                 <Phone className="w-4 h-4 mr-1" />
-                +216 71 100 100
+                +216 71 783 822
               </div>
             </div>
           </div>

@@ -88,8 +88,7 @@ export default function RechercheSiapePage() {
     <nav aria-label="breadcrumb" className="text-sm text-gray-500 mb-4 flex items-center">
       <Link href="/" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">Accueil</Link>
       <span className="mx-2 text-gray-400">&raquo;</span>
-      <Link href="/recherche" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">Recherche & Développement</Link>
-      <span className="mx-2 text-gray-400">&raquo;</span>
+      
       <span className="font-medium text-emerald-700" aria-current="page">Le procédé SIAPE/GCT</span>
     </nav>
   );

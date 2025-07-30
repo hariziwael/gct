@@ -80,8 +80,7 @@ const Breadcrumb = () => (
   <nav className="text-sm text-gray-500 mb-6 flex items-center">
     <Link href="/" className="hover:text-emerald-600 transition-colors">Accueil</Link>
     <span className="mx-2">&raquo;</span>
-    <Link href="/about" className="hover:text-emerald-600 transition-colors">À propos</Link>
-    <span className="mx-2">&raquo;</span>
+   
     <span className="font-semibold text-emerald-700">Mot du Directeur Général</span>
   </nav>
 );

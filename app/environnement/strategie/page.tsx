@@ -42,11 +42,11 @@ export default function EnvironnementStrategiePage() {
       documents: [
         {
           title: "Projet de mise à niveau environnementale (PDF)",
-          href: "/documents/environnement/projet-mise-a-niveau-environnementale.pdf", // Ensure this PDF exists
+          href: "/pdf/projet-mise-a-niveau-environnementale.pdf", // Ensure this PDF exists
         },
         {
           title: "Stratégie Environnementale du GCT (PDF)",
-          href: "/documents/environnement/strategie-environnementale-gct.pdf", // Ensure this PDF exists
+          href: "/pdf/strategie-environnementale-gct.pdf", // Ensure this PDF exists
         },
       ],
     },
@@ -59,8 +59,7 @@ export default function EnvironnementStrategiePage() {
         <nav aria-label="breadcrumb" className="text-sm text-gray-500 mb-4 flex items-center">
           <Link href="/" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">Accueil</Link>
           <span className="mx-2 text-gray-400">&raquo;</span>
-          <Link href="/environnement" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">Environnement</Link>
-          <span className="mx-2 text-gray-400">&raquo;</span>
+          
           <span className="font-medium text-emerald-700" aria-current="page">Stratégie Environnementale</span>
         </nav>
 

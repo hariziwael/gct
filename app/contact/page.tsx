@@ -38,7 +38,7 @@ export default async function ContactPage() {
     "imageUrl": image.asset->url
   }`)
 
-  const gctAddress = encodeURIComponent("Rue Hédi Nouira, 2035 Tunis-Carthage, Tunisie");
+  const gctAddress = encodeURIComponent("7 Rue d'Arabie Saoudite, Tunis 1002");
   const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${gctAddress}`;
 
   return (

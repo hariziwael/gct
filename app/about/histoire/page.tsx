@@ -34,13 +34,7 @@ export default async function HistoirePage() {
       </Link>
       <span className="mx-2" aria-hidden="true">&raquo;</span>
       
-      <Link 
-        href="/about" 
-        className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded px-1"
-      >
-        À propos
-      </Link>
-      <span className="mx-2" aria-hidden="true">&raquo;</span>
+     
       <span className="font-semibold text-emerald-700" aria-current="page">Histoire du GCT</span>
     </nav>
   );

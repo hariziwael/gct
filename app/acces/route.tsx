@@ -7,23 +7,23 @@ export default function GCTAccesInformationPage() {
   const documents = [
     {
       title: "Politique d'Accès à l'information au GCT",
-      href: "/documents/acces-information/politique-acces-information-gct.pdf",
+      href: "/pdf/politique-acces-information-gct.pdf",
     },
     {
       title: "Demande d’accès à l’information",
-      href: "/documents/acces-information/demande-acces-information.pdf",
+      href: "/pdf/demande-acces-information.pdf",
     },
     {
       title: "Demande de recours auprès de l'organisme",
-      href: "/documents/acces-information/demande-recours-organisme.pdf",
+      href: "/pdf/demande-recours-organisme.pdf",
     },
     {
       title: "Loi organique n° 2016-22 du 24 mars 2016 (ar)",
-      href: "/documents/acces-information/loi-organique-2016-22-ar.pdf",
+      href: "/pdf/loi-organique-2016-22-ar.pdf",
     },
     {
       title: "Loi organique n° 2016-22 du 24 mars 2016 (fr)",
-      href: "/documents/acces-information/loi-organique-2016-22-fr.pdf",
+      href: "/pdf/loi-organique-2016-22-fr.pdf",
     },
   ];
 

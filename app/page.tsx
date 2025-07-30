@@ -90,12 +90,7 @@ export default async function HomePage() {
               >
                 Découvrir nos actualités
               </Link>
-              <Link 
-                href="/about" 
-                className="px-8 py-4 bg-transparent text-white border-2 border-white/60 font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 hover:border-white/80"
-              >
-                En savoir plus
-              </Link>
+              
             </div>
 
             {/* Quick Stats */}

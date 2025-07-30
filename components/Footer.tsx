@@ -76,7 +76,7 @@ export default function Footer() {
                 <li><Link href="/chaine/usines" className="text-emerald-200 hover:text-white transition-colors">Usines du GCT</Link></li>
                 <li><Link href="/rse/effectif" className="text-emerald-200 hover:text-white transition-colors">Effectif</Link></li>
                 <li><Link href="/rse/formation" className="text-emerald-200 hover:text-white transition-colors">Formation</Link></li>
-                <li><Link href="/map" className="text-emerald-200 hover:text-white transition-colors">Siège Social, Tunis</Link></li>
+                <li><Link href="https://maps.app.goo.gl/RtX3MsP8dCPBNio59" target="_blanc" className="text-emerald-200 hover:text-white transition-colors">Siège Social, Tunis</Link></li>
               </ul>
             </div>
             
@@ -89,7 +89,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center">
                   <Phone className="w-5 h-5 mr-2 text-emerald-300" />
-                  <span>+216 71 100 100</span>
+                  <span>+216 71 783 822</span>
                 </li>
                 <li className="flex items-center">
                   <Mail className="w-5 h-5 mr-2 text-emerald-300" />

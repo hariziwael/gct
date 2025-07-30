@@ -23,8 +23,7 @@ export default function GCTVisionPage() {
     <nav aria-label="breadcrumb" className="text-sm text-gray-500 mb-4 flex items-center">
       <Link href="/" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">Accueil</Link>
       <span className="mx-2 text-gray-400">&raquo;</span>
-      <Link href="/about" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">À propos</Link>
-      <span className="mx-2 text-gray-400">&raquo;</span>
+      
       <span className="font-medium text-emerald-700" aria-current="page">Vision du GCT</span>
     </nav>
   );
@@ -105,13 +104,7 @@ export default function GCTVisionPage() {
           </div>
         </section>
 
-        {/* Optional: Navigation back to About page */}
-        <div className="mt-12 text-center">
-          <Link href="/about" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-colors duration-300">
-            <svg className="mr-2 -ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-            Retour à À Propos
-          </Link>
-        </div>
+       
       </div>
     </div>
   );
