@@ -57,7 +57,7 @@ export default async function HistoirePage() {
               Notre Histoire
             </h1>
             <p className="text-xl text-emerald-100 max-w-3xl">
-              Depuis 1947, le Groupe Chimique Tunisien façonne l'industrie chimique tunisienne
+              Depuis 1947, le Groupe Chimique Tunisien façonne l&apos;industrie chimique tunisienne
             </p>
           </div>
         </div>
@@ -70,7 +70,7 @@ export default async function HistoirePage() {
       {/* Timeline Navigation */}
       <nav 
         className="sticky top-0 z-10 bg-white shadow-md py-4"
-        aria-label="Navigation dans l'historique"
+        aria-label="Navigation dans l&apos;historique"
       >
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="flex flex-wrap justify-center gap-2 md:gap-6">
@@ -112,12 +112,12 @@ export default async function HistoirePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="space-y-4">
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  L'histoire du GCT remonte à 1947, avec la constitution de la S.I.A.P.E (Société Industrielle d'Acide Phosphorique et d'Engrais) implantée à Sfax, 
+                  L&apos;histoire du GCT remonte à 1947, avec la constitution de la S.I.A.P.E (Société Industrielle d&apos;Acide Phosphorique et d&apos;Engrais) implantée à Sfax, 
                   et le démarrage en 1952 de la production du Triple Super Phosphate (TSP).
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  La SIAPE apportait ainsi une valeur ajoutée au phosphate tunisien extrait par la Compagnie des Phosphates de Gafsa (CPG), marquant le début d'une aventure industrielle 
-                  qui allait façonner l'économie tunisienne.
+                  La SIAPE apportait ainsi une valeur ajoutée au phosphate tunisien extrait par la Compagnie des Phosphates de Gafsa (CPG), marquant le début d&apos;une aventure industrielle 
+                  qui allait façonner l&apos;économie tunisienne.
                 </p>
               </div>
               
@@ -147,7 +147,7 @@ export default async function HistoirePage() {
             
             <div className="space-y-6">
               <p className="text-lg text-gray-700 leading-relaxed">
-                Pendant les années 1970 - 1980, la Tunisie a poursuivi les investissements dans l'industrie chimique, 
+                Pendant les années 1970 - 1980, la Tunisie a poursuivi les investissements dans l&apos;industrie chimique, 
                 transformant le paysage économique national et positionnant le GCT comme un acteur majeur du secteur.
               </p>
               
@@ -183,7 +183,7 @@ export default async function HistoirePage() {
                 <h3 className="text-xl font-bold text-emerald-800 mb-3">Notre Mission à Travers les Décennies</h3>
                 <p className="text-gray-700">
                   Depuis sa création, le GCT a pour mission de valoriser les ressources phosphatées tunisiennes tout en contribuant 
-                  au développement économique du pays et à la création d'emplois qualifiés.
+                  au développement économique du pays et à la création d&apos;emplois qualifiés.
                 </p>
               </div>
             </div>
@@ -207,7 +207,7 @@ export default async function HistoirePage() {
                 <div className="ml-4">
                   <h3 className="text-xl font-bold text-emerald-900 mb-2">1947</h3>
                   <p className="text-gray-700">
-                    Constitution de l'usine TSP à Sfax sous le nom de SIAPE (Société Industrielle d'Acide Phosphorique et d'Engrais)
+                    Constitution de l&apos;usine TSP à Sfax sous le nom de SIAPE (Société Industrielle d&apos;Acide Phosphorique et d&apos;Engrais)
                   </p>
                 </div>
               </div>
@@ -219,7 +219,7 @@ export default async function HistoirePage() {
                 <div className="ml-4">
                   <h3 className="text-xl font-bold text-emerald-900 mb-2">1952</h3>
                   <p className="text-gray-700">
-                    Lancement de l'usine TSP à Sfax, marquant le début de la production industrielle d'engrais en Tunisie
+                    Lancement de l&apos;usine TSP à Sfax, marquant le début de la production industrielle d&apos;engrais en Tunisie
                   </p>
                 </div>
               </div>
@@ -231,7 +231,7 @@ export default async function HistoirePage() {
                 <div className="ml-4">
                   <h3 className="text-xl font-bold text-emerald-900 mb-2">1972</h3>
                   <p className="text-gray-700">
-                    Lancement d'une usine à Gabès, élargissant la capacité de production et la présence géographique du groupe
+                    Lancement d&apos;une usine à Gabès, élargissant la capacité de production et la présence géographique du groupe
                   </p>
                 </div>
               </div>
@@ -243,7 +243,9 @@ export default async function HistoirePage() {
                 <div className="ml-4">
                   <h3 className="text-xl font-bold text-emerald-900 mb-2">1983</h3>
                   <p className="text-gray-700">
-                    Création du Groupe Chimique Tunisien (GCT) par la fusion de plusieurs entités spécialisées dans la transformation chimique
+                    Création du Groupe Chimique Tunisien (GCT) par la fusion de plusieurs entités spécialisées dans la transformation chimique. <br />
+                    Le GCT devient le premier groupe industriel tunisien à être coté à la bourse de Tunis. <br />
+                    
                   </p>
                 </div>
               </div>
@@ -255,7 +257,7 @@ export default async function HistoirePage() {
                 <div className="ml-4">
                   <h3 className="text-xl font-bold text-emerald-900 mb-2">2021</h3>
                   <p className="text-gray-700">
-                    Lancement du plan stratégique "GCT 2030" axé sur l'innovation durable et la transition écologique
+                    Lancement du plan stratégique &quot;GCT 2030&quot; axé sur l&apos;innovation durable et la transition écologique
                   </p>
                 </div>
               </div>

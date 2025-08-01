@@ -50,7 +50,7 @@ export default function GCTAccesInformationPage() {
       <span className="mx-2 text-gray-400">&raquo;</span>
       <Link href="/about" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">À propos</Link>
       <span className="mx-2 text-gray-400">&raquo;</span>
-      <span className="font-medium text-emerald-700" aria-current="page">Accès à l'information</span>
+      <span className="font-medium text-emerald-700" aria-current="page">Accès à l&apos;information</span>
     </nav>
   );
 
@@ -62,7 +62,7 @@ export default function GCTAccesInformationPage() {
 
         <section className="bg-white rounded-2xl shadow-xl p-6 md:p-10 mb-12">
           <h1 className="text-4xl font-extrabold text-emerald-800 text-center mb-8">
-            Accès à l'information
+            Accès à l&apos;information
           </h1>
 
           {/* Section for PDF Documents */}

@@ -1,12 +1,14 @@
-import client from '@/lib/sanity'
-import { format } from 'date-fns'
+import { client } from '@/lib/client'
+import { format } from 'date-fns' 
 import Link from "next/link"
+// @ts-ignore
+import { AppelOffre } from '@/lib/sanity.types'
 
 export const dynamic = 'force-dynamic'
 
 export const metadata = {
-  title: "Appels d'Offres - GCT",
-  description: "Consultez les appels d'offres ouverts et téléchargez les documents nécessaires pour y participer.",
+    title: "Appels d&apos;Offres - GCT",
+  description: "Consultez les appels d&apos;offres ouverts et téléchargez les documents nécessaires pour y participer.",
 }
 
 export default async function AppelsPage() {
@@ -43,17 +45,17 @@ export default async function AppelsPage() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Appels d'Offres
+            Appels d&apos;Offres
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-emerald-500 to-emerald-600 mx-auto rounded-full"></div>
           <p className="text-gray-600 mt-6 text-lg max-w-2xl mx-auto">
-            Découvrez nos opportunités d'affaires et téléchargez les documents nécessaires pour participer
+            Découvrez nos opportunités d&apos;affaires et téléchargez les documents nécessaires pour participer
           </p>
         </div>
 
         {/* Cards Grid */}
         <div className="grid gap-8 md:gap-6 lg:grid-cols-2 xl:grid-cols-2">
-          {appels.map((a: any) => (
+          {appels.map((a: AppelOffre) => (
             <div 
               key={a._id} 
               className="group relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden"
@@ -127,7 +129,7 @@ export default async function AppelsPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Aucun appel d'offre disponible</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Aucun appel d&apos;offre disponible</h3>
             <p className="text-gray-600">Revenez bientôt pour découvrir de nouvelles opportunités</p>
           </div>
         )}

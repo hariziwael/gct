@@ -53,7 +53,7 @@ export default async function EffectifPage() {
               Notre Effectif
             </h1>
             <p className="text-xl text-emerald-100 max-w-3xl">
-              Découvrez la composition de nos équipes et l'évolution de nos ressources humaines
+              Découvrez la composition de nos équipes et l&apos;évolution de nos ressources humaines
             </p>
           </div>
         </div>
@@ -131,7 +131,7 @@ export default async function EffectifPage() {
               Répartition par Année
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Découvrez l'évolution de nos effectifs et leur répartition par département
+              Découvrez l&apos;évolution de nos effectifs et leur répartition par département
             </p>
           </div>
 
@@ -227,7 +227,7 @@ export default async function EffectifPage() {
                   <div className="inline-block p-5 bg-emerald-700/50 rounded-full mb-4">
                     <span className="text-4xl">📈</span>
                   </div>
-                  <p className="text-lg font-medium">Graphique d'Évolution des Effectifs</p>
+                  <p className="text-lg font-medium">Graphique d&apos;Évolution des Effectifs</p>
                   <p className="text-emerald-300 mt-2">(Intégration système de visualisation de données)</p>
                 </div>
               </div>

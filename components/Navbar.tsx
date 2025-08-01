@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils"
 import { useState, useEffect } from "react"
 import { Menu, X, MapPin, Mail, Phone, ChevronDown, ChevronRight, ChevronUp } from "lucide-react"
 import { Search } from 'lucide-react';
+import Image from "next/image";
 const navLinks = [
   { name: "Accueil", href: "/" },
   {
@@ -50,12 +51,7 @@ const navLinks = [
       {
         name: "Achats",
         href: "/services/achats",
-        // subitems: [
-        //   { name: "Manuel des procédures", href: "/services/achats/procedures" },
-        //   { name: "Commission Recours/Intégrité", href: "/services/achats/recours" },
-        //   { name: "Appel Fournisseurs", href: "/services/achats/fournisseurs" },
-        //   { name: "Appel Armateurs", href: "/services/achats/armateurs" },
-        // ],
+      
       },
       { name: "Appels", href: "/services/appels" },
     ],
@@ -147,16 +143,18 @@ export default function Navbar() {
             <div className="flex items-center mb-2 md:mb-0">
               <div className=" p-0.2  mr-3">
                 <Link href="/" className="block">
-                  <img
-                    src="/images/logo_gct.png" // <-- Change to your actual image path
+                  <Image
+                    src="/images/logo_gct.png" 
                     alt="GCT Logo"
                     className="w-10 h-15  object-cover"
-                  />
+                    width={100}
+                    height={100}
+                    />
                 </Link>
               </div>
               <div>
                 <span className="font-bold text-lg md:text-xl">Groupe Chimique Tunisien</span>
-                <p className="text-xs text-emerald-200">Leader dans l'industrie du phosphate</p>
+                <p className="text-xs text-emerald-200">Leader dans l&apos;industrie du phosphate</p>
               </div>
             </div>
 

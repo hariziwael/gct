@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -12,17 +13,19 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-4 flex items-center">
               <div className=" p-0.2  mr-3">
                 <Link href="/" className="block">
-                  <img
-                    src="/images/logo_gct.png" // <-- Change to your actual image path
+                  <Image
+                        src="/images/logo_gct.png"
                     alt="GCT Logo"
                     className="w-12 h-15  object-cover"
+                    width={100}
+                    height={100}
                   />
                 </Link>
               </div>
                 Groupe Chimique Tunisien
               </h3>
               <p className="text-emerald-200 mb-4">
-                Leader dans l'industrie chimique tunisienne, spécialisé dans la production et 
+                Leader dans l&apos;industrie chimique tunisienne, spécialisé dans la production et 
                 la commercialisation de produits phosphatés.
               </p>
               <div className="flex space-x-4">

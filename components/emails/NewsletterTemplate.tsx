@@ -1,12 +1,13 @@
-// components/emails/NewsletterTemplate.tsx
-import React from 'react'
-
+'use client'        
+import Image from 'next/image'
+import Link from 'next/link'
 interface NewsletterTemplateProps {
-    content: any
     subject: string
+    email: string
+    newsletterId: string
 }
 
-export default function NewsletterTemplate({ content, subject }: NewsletterTemplateProps) {
+export default function NewsletterTemplate({ subject, email, newsletterId }: NewsletterTemplateProps) {
     return (
         <html>
             <head>
@@ -21,13 +22,13 @@ export default function NewsletterTemplate({ content, subject }: NewsletterTempl
                 padding: '20px'
             }}>
 
-// In NewsletterTemplate
-<img 
-  src={`https://votresite.com/api/track?email={email}&newsletter={newsletterId}`} 
+
+<Image 
+            src={`https://gct.vercel.app/api/track?email=${ email   }&newsletter=${newsletterId}`} 
   alt="" 
-  width="1" 
-  height="1" 
-  style={{display: 'block'}}
+  style={{display: 'block', width: '100%', height: 'auto'     }}
+  width={100}
+  height={100} 
 />
                 <div style={{
                     backgroundColor: '#047857',
@@ -60,17 +61,17 @@ export default function NewsletterTemplate({ content, subject }: NewsletterTempl
                         color: '#6b7280'
                     }}>
                         <p>Vous recevez cet email car vous êtes abonné à la newsletter GCT.</p>
-                        <p>Pour vous désabonner, cliquez <a href="#" style={{ color: '#047857' }}>ici</a>.</p>
+                        <p>Pour vous désabonner, cliquez <Link href="/unsubscribe" style={{ color: '#047857' }}>ici</Link>.</p>
                     </div>
                 </div>
-        // In the footer section
+
                 <div className="footer">
                     <p>© {new Date().getFullYear()} Groupe Chimique Tunisien</p>
                     <p>
-                        <a href={`https://votresite.com/unsubscribe?email={email}`}>
+                                <Link href={`https://gct.vercel.app/unsubscribe?email=${email}&newsletter=${newsletterId}`}>
                             Se désabonner
-                        </a> |
-                        <a href="https://votresite.com">Visitez notre site</a>
+                        </Link> |
+                        <Link href="https://gct.vercel.app">Visitez notre site</Link>
                     </p>
                 </div>
             </body>

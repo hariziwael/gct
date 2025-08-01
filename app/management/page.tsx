@@ -177,7 +177,7 @@ export default function GCTManagementPage() {
             <div className="mb-8 p-6 rounded-xl bg-emerald-50 shadow-sm border border-emerald-200">
               <h3 className="text-2xl font-semibold text-emerald-700 mb-4 flex items-center">
                 <svg className="w-6 h-6 mr-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 6a3 3 0 013-3h10a2 2 0 012 2v8a2 2 0 01-2 2H6.5L1 18V6z" clipRule="evenodd"></path></svg>
-                Le Conseil d'Administration
+                Le Conseil d&apos;Administration
               </h3>
               <p className="text-base lg:text-lg text-gray-700 leading-relaxed mb-6">
                 {governanceContent.boardOfDirectors.intro}
@@ -200,7 +200,7 @@ export default function GCTManagementPage() {
             <div className="mb-8 text-center bg-emerald-50 p-6 rounded-xl shadow-sm border border-emerald-200">
               <h3 className="text-2xl font-semibold text-emerald-700 mb-4 flex items-center justify-center">
                 <svg className="w-6 h-6 mr-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1.5a1 1 0 01-1 1h-2a1 1 0 01-1-1V3a1 1 0 011-1h2zM9 8a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1zM5 14a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
-                De la Roche à l'Engrais
+                De la Roche à l&apos;Engrais
               </h3>
               <p className="text-base lg:text-lg text-gray-700 leading-relaxed">
                 {objectifsContent.partOne}
@@ -337,7 +337,7 @@ export default function GCTManagementPage() {
                 <span className="text-emerald-700">La stratégie du GCT</span> combine à la fois{' '}
                 <span className="text-green-600">la réussite économique</span>,{' '}
                 <span className="text-blue-600">la responsabilité sociétale</span> et{' '}
-                <span className="text-purple-600">la protection de l'environnement</span>.
+                <span className="text-purple-600">la protection de l&apos;environnement</span>.
               </p>
             </div>
           </div>

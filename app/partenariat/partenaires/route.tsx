@@ -79,7 +79,7 @@ export default async function PartenairesPage() {
         <div className="mt-12 bg-emerald-100 border-l-4 border-emerald-400 p-6 rounded-xl text-emerald-900">
           <h2 className="text-xl font-bold mb-2">Vous souhaitez devenir partenaire de GCT ?</h2>
           <p className="mb-4 text-emerald-800">
-            Contactez-nous dès aujourd'hui pour explorer de nouvelles opportunités de collaboration et d'innovation.
+            Contactez-nous dès aujourd&apos;hui pour explorer de nouvelles opportunités de collaboration et d&apos;innovation.
           </p>
           <button  className="bg-emerald-700 text-white px-5 py-2 rounded-md hover:bg-emerald-800 transition-colors">
            <Link href="/contact"> Proposer un partenariat</Link>

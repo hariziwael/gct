@@ -35,7 +35,7 @@ export default async function HomePage() {
             Groupe Chimique Tunisien
           </h1>
           <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto mb-8 drop-shadow-md">
-            Leader dans la production et l'exportation de phosphate depuis plus de 60 ans
+            Leader dans la production et l&apos;exportation de phosphate depuis plus de 60 ans
           </p>
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4">
@@ -97,7 +97,7 @@ export default async function HomePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
               <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-white mb-1">60+</div>
-                <div className="text-emerald-200 text-sm">Années d'expertise</div>
+                  <div className="text-emerald-200 text-sm">Années d&apos;expertise</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-white mb-1">5000+</div>
@@ -160,7 +160,7 @@ export default async function HomePage() {
               <div className="text-emerald-600 text-4xl mb-3">🔬</div>
               <h3 className="text-xl font-bold text-emerald-800 mb-2">Innovation Technologique</h3>
               <p className="text-gray-700">
-                Notre centre de recherche développe constamment de nouvelles méthodes d'extraction 
+                      Notre centre de recherche développe constamment de nouvelles méthodes d&apos;extraction 
                 et de transformation plus efficaces.
               </p>
             </div>

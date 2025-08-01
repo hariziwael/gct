@@ -1,7 +1,7 @@
 // app/services/achats/page.tsx
 
 import Link from 'next/link';
-import client from '../../../lib/sanity';
+  import { client } from '@/lib/client';
 
 type ManuelAchat = {
   titre: string;
@@ -93,10 +93,10 @@ Le courrier doit comporter la mention « Manifestation d'intérêt pour particip
         {/* Page Header */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-800 mb-4">
-            Services d'<span className="text-emerald-600">Achats</span>
+            Services d&apos;<span className="text-emerald-600">Achats</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Découvrez nos services d'achats et les opportunités de collaboration avec le Groupe Chimique Tunisien
+            Découvrez nos services d&apos;achats et les opportunités de collaboration avec le Groupe Chimique Tunisien
           </p>
         </div>
 
@@ -153,7 +153,7 @@ Le courrier doit comporter la mention « Manifestation d'intérêt pour particip
                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                     </svg>
-                    Envoyer votre manifestation d'intérêt
+                    Envoyer votre manifestation d&apos;intérêt
                   </a>
                 </div>
               </div>
@@ -194,7 +194,7 @@ Le courrier doit comporter la mention « Manifestation d'intérêt pour particip
                       <li>• Raison sociale</li>
                       <li>• Coordonnées complètes</li>
                       <li>• Spécialités</li>
-                      <li>• Domaines d'activité</li>
+                      <li>• Domaines d&apos;activité</li>
                     </ul>
                   </div>
                 </div>
@@ -311,9 +311,9 @@ Le courrier doit comporter la mention « Manifestation d'intérêt pour particip
 
         {/* Footer CTA */}
         <div className="mt-16 text-center bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-8 text-white">
-          <h2 className="text-2xl font-bold mb-4">Besoin d'aide ?</h2>
+            <h2 className="text-2xl font-bold mb-4">Besoin d&apos;aide ?</h2>
           <p className="text-lg mb-6 opacity-90">
-            Notre équipe est à votre disposition pour répondre à vos questions concernant nos services d'achats.
+            Notre équipe est à votre disposition pour répondre à vos questions concernant nos services d&apos;achats.
           </p>
           <Link
             href="/contact"

@@ -106,7 +106,7 @@ export default function GCTQualitePage() {
                     </svg>
                   </div>
                   <h3 className="text-teal-800 font-semibold mb-2">ISO 9001</h3>
-                  <p className="text-slate-600 text-sm">Usine M'dhilla certifiée</p>
+                  <p className="text-slate-600 text-sm">Usine M&apos;dhilla certifiée</p>
                 </div>
 
                 <div className="text-center p-6 bg-gradient-to-br from-slate-50 to-emerald-50 rounded-xl border border-slate-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">

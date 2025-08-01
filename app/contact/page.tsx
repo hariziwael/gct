@@ -111,7 +111,7 @@ export default async function ContactPage() {
 
               {/* Opening Hours */}
               <div>
-                <h3 className="font-semibold text-emerald-700 mb-2">Heures d'ouverture</h3>
+                <h3 className="font-semibold text-emerald-700 mb-2">Heures d&apos;ouverture</h3>
                 <div className="flex justify-between text-gray-600">
                   <span>Lundi - Vendredi</span>
                   <span>8:00 - 17:00</span>

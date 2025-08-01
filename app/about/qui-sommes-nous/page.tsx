@@ -69,9 +69,9 @@ export default function QuiSommesNousPage() {
           <div className="bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-8 border border-emerald-100 shadow-sm">
             <h2 className="text-2xl font-bold text-emerald-800 mb-4">Notre Histoire</h2>
             <p className="text-gray-700 mb-6">
-              Fondé en 1947, le Groupe Chimique Tunisien (GCT) a évolué d'une entreprise d'extraction de phosphate brut
-              à un leader mondial dans la transformation de phosphates. Avec plus de 75 ans d'expertise, nous avons
-              constamment innové pour valoriser cette ressource naturelle au profit de l'économie tunisienne.
+              Fondé en 1947, le Groupe Chimique Tunisien (GCT) a évolué d&apos;une entreprise d&apos;extraction de phosphate brut
+              à un leader mondial dans la transformation de phosphates. Avec plus de 75 ans d&apos;expertise, nous avons
+              constamment innové pour valoriser cette ressource naturelle au profit de l&apos;économie tunisienne.
             </p>
 
             <div className="flex items-center bg-blue-50 p-4 rounded-lg">
@@ -79,7 +79,7 @@ export default function QuiSommesNousPage() {
                 <span className="text-emerald-600 text-xl">🏭</span>
               </div>
               <p className="text-gray-700">
-                Aujourd'hui, nous transformons le phosphate tunisien en produits à haute valeur ajoutée pour le marché mondial.
+                Aujourd&apos;hui, nous transformons le phosphate tunisien en produits à haute valeur ajoutée pour le marché mondial.
               </p>
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function QuiSommesNousPage() {
                 <div className="bg-gradient-to-r from-amber-100 to-yellow-100 p-6 rounded-lg">
                   <div className="flex justify-between items-center">
                     <div>
-                      <h3 className="font-bold text-emerald-800">Nitrate d'Ammonium Agricole</h3>
+                      <h3 className="font-bold text-emerald-800">Nitrate d&apos;Ammonium Agricole</h3>
                       <p className="text-gray-600">Pour le marché local</p>
                     </div>
                     <div className="text-4xl text-amber-600">🌾</div>
@@ -170,7 +170,7 @@ export default function QuiSommesNousPage() {
                 <div className="bg-gradient-to-r from-amber-100 to-yellow-100 p-6 rounded-lg mt-4">
                   <div className="flex justify-between items-center">
                     <div>
-                      <h3 className="font-bold text-emerald-800">Nitrate d'Ammonium Poreux</h3>
+                      <h3 className="font-bold text-emerald-800">Nitrate d&apos;Ammonium Poreux</h3>
                       <p className="text-gray-600">Applications spécialisées</p>
                     </div>
                     <div className="text-4xl text-amber-600">🧪</div>
@@ -216,7 +216,7 @@ export default function QuiSommesNousPage() {
                     <div className="bg-emerald-100 p-2 rounded-lg mr-4">
                       <span className="text-emerald-600">🌱</span>
                     </div>
-                    <p>Professionnels de l'agro-industrie</p>
+                    <p>Professionnels de l&apos;agro-industrie</p>
                   </div>
                 </div>
               </div>
@@ -247,10 +247,10 @@ export default function QuiSommesNousPage() {
                       <h3 className="text-xl font-bold text-emerald-800 mb-2">{location}</h3>
                       <p className="text-gray-600">
                         {location === "Gabès"
-                          ? "Centre de production d'acide phosphorique et d'engrais"
+                          ? "Centre de production d&apos;acide phosphorique et d&apos;engrais"
                           : location === "Skhira"
                             ? "Site portuaire et unité de transformation"
-                            : "Zone d'extraction et de traitement primaire"}
+                            : "Zone d&apos;extraction et de traitement primaire"}
                       </p>
                     </div>
                   </div>
@@ -310,7 +310,7 @@ export default function QuiSommesNousPage() {
                 <div className="text-center p-6 bg-white rounded-xl border border-emerald-100">
                   <div className="text-4xl text-emerald-600 mb-4">♻️</div>
                   <h3 className="font-bold text-emerald-800 mb-2">Durabilité</h3>
-                  <p className="text-gray-600 text-sm">Respect de l'environnement et développement durable</p>
+                  <p className="text-gray-600 text-sm">Respect de l&apos;environnement et développement durable</p>
                 </div>
                 <div className="text-center p-6 bg-white rounded-xl border border-emerald-100">
                   <div className="text-4xl text-emerald-600 mb-4">🚀</div>
@@ -320,7 +320,7 @@ export default function QuiSommesNousPage() {
                 <div className="text-center p-6 bg-white rounded-xl border border-emerald-100">
                   <div className="text-4xl text-emerald-600 mb-4">🤝</div>
                   <h3 className="font-bold text-emerald-800 mb-2">Collaboration</h3>
-                  <p className="text-gray-600 text-sm">Travail d'équipe et partenariats solides</p>
+                  <p className="text-gray-600 text-sm">Travail d&apos;équipe et partenariats solides</p>
                 </div>
               </div>
             </div>
@@ -330,7 +330,7 @@ export default function QuiSommesNousPage() {
           <div className="bg-gradient-to-r from-emerald-700 to-emerald-800 rounded-2xl p-8 text-white text-center">
             <h3 className="text-2xl font-bold mb-4">En savoir plus sur le GCT</h3>
             <p className="text-emerald-100 max-w-2xl mx-auto mb-6">
-              Découvrez le message du Directeur Général et notre vision pour l'avenir de l'industrie chimique tunisienne.
+              Découvrez le message du Directeur Général et notre vision pour l&apos;avenir de l&apos;industrie chimique tunisienne.
             </p>
             <Link
               href="/about/dg"

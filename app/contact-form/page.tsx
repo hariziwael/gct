@@ -41,7 +41,7 @@ export default function ContactPage() {
             Contactez-nous
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Pour toute demande d'information, de partenariat ou de collaboration, veuillez remplir le formulaire ci-dessous.
+                Pour toute demande d&apos;information, de partenariat ou de collaboration, veuillez remplir le formulaire ci-dessous.
           </p>
         </div>
 

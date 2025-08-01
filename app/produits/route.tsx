@@ -1,7 +1,6 @@
 // app/produit/page.tsx
 import { client } from '@/lib/client';
-import Image from 'next/image';
-import { FaFlask, FaWeight, FaWater, FaRuler, FaCertificate, FaIndustry, FaLeaf, FaPaw } from 'react-icons/fa';
+import { FaFlask, FaWeight, FaWater, FaRuler, FaIndustry, FaLeaf, FaPaw } from 'react-icons/fa';
 
 interface Produit {
   _id: string;
@@ -43,7 +42,7 @@ export default async function ProduitPage() {
             <div className="w-32 h-1 bg-white mx-auto mb-8"></div>
             <p className="text-xl text-emerald-100 max-w-4xl mx-auto leading-relaxed">
               Découvrez notre gamme complète de produits phosphatés de haute qualité, 
-              répondant aux normes internationales les plus strictes pour l'industrie et l'agriculture.
+              répondant aux normes internationales les plus strictes pour l&apos;industrie et l&apos;agriculture.
             </p>
           </div>
         </div>
@@ -260,7 +259,7 @@ export default async function ProduitPage() {
                   <div>
                     <h3 className="text-xl font-bold text-emerald-800 mb-2">Industrie</h3>
                     <p className="text-gray-600">
-                      Matières premières pour la production d'acides, de détergents et de produits chimiques
+                      Matières premières pour la production d&apos;acides, de détergents et de produits chimiques
                     </p>
                   </div>
                 </div>
@@ -268,7 +267,7 @@ export default async function ProduitPage() {
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-emerald-600 rounded-full mr-3"></span>
-                      Production d'acide phosphorique
+                      Production d&apos;acide phosphorique
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-emerald-600 rounded-full mr-3"></span>
@@ -318,7 +317,7 @@ export default async function ProduitPage() {
                     <FaWater className="text-white text-2xl" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-emerald-800 mb-2">Traitement de l'Eau</h3>
+                    <h3 className="text-xl font-bold text-emerald-800 mb-2">Traitement de l&apos;Eau</h3>
                     <p className="text-gray-600">
                       Produits pour la purification et le traitement des eaux
                     </p>
@@ -332,7 +331,7 @@ export default async function ProduitPage() {
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-emerald-600 rounded-full mr-3"></span>
-                      Adoucisseurs d'eau
+                      Adoucisseurs d&apos;eau
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-emerald-600 rounded-full mr-3"></span>

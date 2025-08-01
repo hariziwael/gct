@@ -3,6 +3,7 @@
 
 import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 
 export default function UnsubscribePage() {
   const searchParams = useSearchParams()
@@ -31,7 +32,7 @@ export default function UnsubscribePage() {
       } else {
         setMessage(result.error || 'An error occurred')
       }
-    } catch (error) {
+    } catch ( error: any) {
       setMessage('Failed to unsubscribe')
     } finally {
       setIsLoading(false)
@@ -74,11 +75,11 @@ export default function UnsubscribePage() {
         )}
         
         <div className="mt-6 text-center text-gray-600 text-sm">
-          <p>You're receiving this because you subscribed to our newsletter</p>
+          <p>You&apos;re receiving this because you subscribed to our newsletter</p>
           <p className="mt-2">
-            <a href="/" className="text-emerald-600 hover:underline">
+            <Link href="/" className="text-emerald-600 hover:underline">
               Return to homepage
-            </a>
+            </Link>
           </p>
         </div>
       </div>

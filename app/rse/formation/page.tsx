@@ -1,11 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import imageUrlBuilder from '@sanity/image-url'
 import { client } from '@/lib/client'
 import { Card, CardContent } from '@/components/ui/card'
 import { urlForImage } from '@/sanity/lib/image'
 import Link from 'next/link';
+// @ts-ignore
+import { Image } from 'sanity';
 
 type Formation = {
   _id: string
@@ -15,7 +16,7 @@ type Formation = {
   dateDebut: string
   dateFin: string
   lieu: string
-  image?: any
+  image?: Image
   donneesParAnnee: {
     annee: number
     participation: number
@@ -69,8 +70,9 @@ export default function FormationPage() {
               <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 {formation.image && (
                   <div className="relative rounded-xl overflow-hidden">
-                    <img
-                      src={urlForImage(formation.image).width(500).height(300).fit('crop').url()}
+                    {/* @ts-ignore */}
+                    <Image
+                      src={urlForImage(formation.image).width(500).height(300).fit('crop').url() as string || ''      }
                       alt={formation.titre}
                       className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
                     />

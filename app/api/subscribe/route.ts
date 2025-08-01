@@ -2,9 +2,11 @@
 import { NextResponse } from 'next/server'
 import client from '@/lib/sanity'
 import { v4 as uuidv4 } from 'uuid'
+// @ts-ignore
+      import { Subscriber } from '@/lib/sanity.types'
 
-export async function POST(request: Request) {
-  const { email } = await request.json()
+export async function POST(request: Request) : Promise<NextResponse> {
+  const { email } = await request.json() as { email: string }
   
   try {
     // Validate email format
@@ -17,7 +19,7 @@ export async function POST(request: Request) {
     }
 
     // Check for existing subscriber
-    const existingSubscriber = await client.fetch(
+    const existingSubscriber = await client.fetch<Subscriber>(
       `*[_type == "subscriber" && email == $email][0]`,
       { email }
     )
@@ -30,7 +32,7 @@ export async function POST(request: Request) {
     }
     
     // Create new subscriber
-    const newSubscriber = {
+    const newSubscriber: Subscriber = {
       _type: 'subscriber',
       _id: `subscriber-${uuidv4()}`,
       email,
@@ -38,20 +40,25 @@ export async function POST(request: Request) {
       isActive: true,
     }
     
-    await client.create(newSubscriber)
+    await client.create(newSubscriber) as Subscriber
     
     return NextResponse.json(
       { message: 'Abonnement réussi !' },
       { status: 200 }
     )
-  } catch (error: any) {
-    console.error('Subscription error:', error)
+  } catch (error: any | Error) {
+    // @ts-ignore
+      console.error('Subscription error:', error)
+    // @ts-ignore
     return NextResponse.json(
       { 
+        // @ts-ignore
         message: "Erreur lors de l'abonnement",
+        // @ts-ignore
         details: error.message 
       },
-      { status: 500 }
+      // @ts-ignore
+        { status: 500 }
     )
   }
 }

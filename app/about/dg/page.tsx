@@ -1,6 +1,6 @@
 // app/about/dg/page.tsx
 import Link from 'next/link';
-import Image from 'next/image';
+import Img from 'next/image';
 
 const dgMessageContent = {
   title: "Mot du Directeur Général",
@@ -141,7 +141,7 @@ export default function DirectorGeneralMessagePage() {
             
             <div className="flex justify-center">
               <div className="relative w-64 h-64 rounded-full border-4 border-white shadow-2xl overflow-hidden">
-                <img
+                <Img
                   src="/images/dg-photo.jpg"
                   alt="Directeur Général"
                   className="w-full h-full object-cover"
@@ -245,7 +245,7 @@ export default function DirectorGeneralMessagePage() {
             <div className="bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-6 border border-emerald-100 shadow-sm">
               <h3 className="text-xl font-bold text-emerald-800 mb-4">Notre Approche Qualité</h3>
               <p className="text-gray-700 mb-4">
-                La démarche qualité au sein du GCT repose sur une culture d'excellence qui s'étend à tous les niveaux de l'organisation.
+                La démarche qualité au sein du GCT repose sur une culture d&apos;excellence qui s&apos;étend à tous les niveaux de l&apos;organisation.
               </p>
               
               <div className="grid grid-cols-2 gap-4 mt-6">
@@ -365,7 +365,7 @@ export default function DirectorGeneralMessagePage() {
             
             <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-lg mt-6">
               <p className="text-yellow-800 italic">
-                "{dgMessageContent.societalEngagement.definition}"
+                &quot;{dgMessageContent.societalEngagement.definition}&quot;
               </p>
             </div>
             
@@ -432,7 +432,7 @@ export default function DirectorGeneralMessagePage() {
                 <div className="flex justify-between items-center">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-emerald-800">-30%</div>
-                    <div className="text-sm text-gray-600">Émissions CO2 d'ici 2030</div>
+                    <div className="text-sm text-gray-600">Émissions CO2 d&apos;ici 2030</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-emerald-800">+40%</div>
@@ -440,7 +440,7 @@ export default function DirectorGeneralMessagePage() {
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-emerald-800">100%</div>
-                    <div className="text-sm text-gray-600">Sites dépollués d'ici 2028</div>
+                    <div className="text-sm text-gray-600">Sites dépollués d&apos;ici 2028</div>
                   </div>
                 </div>
               </div>
@@ -547,7 +547,7 @@ export default function DirectorGeneralMessagePage() {
               ))}
               
               <blockquote className="border-l-4 border-cyan-400 pl-4 my-6 italic">
-                "{dgMessageContent.challengeConclusion.gratitude}"
+                &quot;{dgMessageContent.challengeConclusion.gratitude}&quot;
               </blockquote>
               
               <div className="mt-8 flex flex-col items-end">

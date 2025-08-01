@@ -3,6 +3,8 @@ import { format } from 'date-fns'
 import MarineTrafficButton from '../../components/MarineTrafficButton'
 import Link from 'next/link'
 import Image from 'next/image'
+// @ts-ignore
+      import { Bateau } from '@/lib/sanity.types'         
 
 export const dynamic = 'force-dynamic'
 export const metadata = {
@@ -32,7 +34,7 @@ export default async function BateauxPage() {
   }`)
 
   // Group ships by arrival status
-  const arrivingSoon = bateaux.filter((b: any) => {
+  const arrivingSoon = bateaux.filter((b: Bateau) => {
     const arrivalDate = new Date(b.dateArrivee);
     const today = new Date();
     const diffTime = arrivalDate.getTime() - today.getTime();
@@ -40,13 +42,13 @@ export default async function BateauxPage() {
     return diffDays > 0 && diffDays <= 7;
   });
 
-  const inPort = bateaux.filter((b: any) => {
+  const inPort = bateaux.filter((b: Bateau) => {
     const arrivalDate = new Date(b.dateArrivee);
     const today = new Date();
     return arrivalDate <= today;
   });
 
-  const upcoming = bateaux.filter((b: any) => {
+  const upcoming = bateaux.filter((b: Bateau) => {
     const arrivalDate = new Date(b.dateArrivee);
     const today = new Date();
     const diffTime = arrivalDate.getTime() - today.getTime();
@@ -130,7 +132,7 @@ export default async function BateauxPage() {
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-                  {group.ships.map((b: any) => (
+                    {group.ships.map((b: Bateau) => (
                     <div
                       key={b._id}
                       className="border border-emerald-100 rounded-xl p-5 hover:shadow-lg transition-all duration-300 group"

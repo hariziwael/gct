@@ -1,7 +1,5 @@
 // app/rse/page.tsx
 import { client } from "@/lib/client";
-import Image from "next/image";
-import { PortableText } from "@portabletext/react";
 import Link from 'next/link'
 
 type RSEData = {
