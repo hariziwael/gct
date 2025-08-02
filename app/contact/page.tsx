@@ -1,7 +1,7 @@
 import client from '@/lib/sanity'
 import Image from 'next/image'
 import Link from 'next/link'
-import Acces from '../acces/route'
+import Acces from '../acces/page'
 
 interface Contact {
   _id: string

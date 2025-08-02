@@ -1,7 +1,7 @@
 // app/page.tsx
 import client from '@/lib/sanity'
 import ActualitesPage from './actualites/page'
-import Produits from './produits/route'
+import Produits from './produits/page'
 import Link from 'next/link'
 
 interface HeroBanner {
