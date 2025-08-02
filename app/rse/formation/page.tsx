@@ -6,9 +6,8 @@ import { Card, CardContent } from '@/components/ui/card'
 import { urlForImage } from '@/sanity/lib/image'
 import Link from 'next/link'
 import Image from 'next/image'
-import type { Image as SanityImage } from 'sanity' // ✅ for proper typing of `image`
+import type { Image as SanityImage } from 'sanity'
 
-// ✅ Clean Formation type
 type Formation = {
   _id: string
   titre: string
@@ -24,17 +23,6 @@ type Formation = {
     joursFormation: number
     candidats: number
   }[]
-}
-
-type BadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
-  variant?: 'outline' | 'secondary'
-}
-
-export function Badge({ children, variant, ...props }: BadgeProps) {
-  let className = props.className || ''
-  if (variant === 'outline') className += ' border border-emerald-400 text-emerald-700'
-  if (variant === 'secondary') className += ' bg-emerald-100 text-emerald-700'
-  return <span {...props} className={className.trim()}>{children}</span>
 }
 
 export default function FormationPage() {
@@ -58,6 +46,23 @@ export default function FormationPage() {
       <span className="font-medium text-emerald-700" aria-current="page">Formations</span>
     </nav>
   )
+
+  const Badge = ({
+    children,
+    variant,
+    ...props
+  }: React.HTMLAttributes<HTMLSpanElement> & {
+    variant?: 'outline' | 'secondary'
+  }) => {
+    let className = props.className || ''
+    if (variant === 'outline') className += ' border border-emerald-400 text-emerald-700 px-2 py-1 rounded'
+    if (variant === 'secondary') className += ' bg-emerald-100 text-emerald-700 px-2 py-1 rounded'
+    return (
+      <span {...props} className={className.trim()}>
+        {children}
+      </span>
+    )
+  }
 
   return (
     <div className="bg-emerald-50 py-12">
