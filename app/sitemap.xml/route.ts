@@ -1,6 +1,6 @@
 // app/sitemap.xml/route.ts
 export async function GET(): Promise<Response> {
-  const baseUrl = 'https://gct.vercel.app'
+  const baseUrl = 'https://gct-tn.vercel.app'
 
   const staticRoutes = [
     '',

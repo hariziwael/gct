@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 // app/layout.tsx
 
 export const metadata = {
-  metadataBase: new URL('https://gct.vercel.app'),
+  metadataBase: new URL('https://gct-tn.vercel.app'),
   title: {
     default: 'GCT – Groupe Chimique Tunisien',
     template: '%s | GCT',
@@ -32,7 +32,7 @@ export const metadata = {
   openGraph: {
     title: 'Groupe Chimique Tunisien',
     description: 'Découvrez les produits et l’impact du GCT.',
-    url: 'https://gct.vercel.app',
+    url: 'https://gct-tn.vercel.app',
     siteName: 'GCT',
     locale: ['fr_FR', 'ar_AR', 'tn_TN'],
     type: 'website',
