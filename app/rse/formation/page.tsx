@@ -4,12 +4,11 @@ import { useEffect, useState } from 'react'
 import { client } from '@/lib/client'
 import { Card, CardContent } from '@/components/ui/card'
 import { urlForImage } from '@/sanity/lib/image'
-import Link from 'next/link';
-import Image from 'next/image';
-// @ts-expect-error - Sanity types are not defined
-import { Formation } from '@/lib/sanity.types'
+import Link from 'next/link'
+import Image from 'next/image'
+import type { Image as SanityImage } from 'sanity' // ✅ for proper typing of `image`
 
-
+// ✅ Clean Formation type
 type Formation = {
   _id: string
   titre: string
@@ -18,9 +17,7 @@ type Formation = {
   dateDebut: string
   dateFin: string
   lieu: string
-  // @typescript-eslint/no-explicit-any
-
-  image?: any
+  image?: SanityImage
   donneesParAnnee: {
     annee: number
     participation: number
@@ -60,7 +57,7 @@ export default function FormationPage() {
       <span className="mx-2 text-gray-400">&raquo;</span>
       <span className="font-medium text-emerald-700" aria-current="page">Formations</span>
     </nav>
-  );
+  )
 
   return (
     <div className="bg-emerald-50 py-12">
@@ -74,9 +71,11 @@ export default function FormationPage() {
               <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 {formation.image && (
                   <div className="relative rounded-xl overflow-hidden">
-                        <Image
-                      src={urlForImage(formation.image).width(500).height(300).fit('crop').url() as string || ''}
+                    <Image
+                      src={urlForImage(formation.image).width(500).height(300).fit('crop').url() ?? ''}
                       alt={formation.titre}
+                      width={500}
+                      height={300}
                       className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
                     />
                   </div>

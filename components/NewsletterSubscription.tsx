@@ -1,4 +1,3 @@
-// components/NewsletterSubscription.tsx
 'use client'
 
 import { useState } from 'react'
@@ -13,12 +12,12 @@ export default function NewsletterSubscription() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!email) {
       toast.error('Veuillez entrer une adresse email')
       return
     }
-    
+
     setIsLoading(true)
     setIsSuccess(false)
 
@@ -27,23 +26,20 @@ export default function NewsletterSubscription() {
       toast.success('Abonnement réussi ! Vous recevrez nos actualités bientôt.')
       setEmail('')
       setIsSuccess(true)
-      
+
       // Reset success state after 3 seconds
       setTimeout(() => setIsSuccess(false), 3000)
-      // @typescript-eslint/no-explicit-any
-    } catch (error:   any) {
-      
+    } catch (error) {
       console.error('Subscription error:', error)
-      
-      // @typescript-eslint/ban-ts-comment
-        if (error.message.includes('déjà abonné')) {
-        toast.error(error.message)
-        // @typescript-eslint/ban-ts-comment
-      } else if (error.message.includes('invalide')) {
+
+      const errorMessage = (error as Error).message || ''
+
+      if (errorMessage.includes('déjà abonné')) {
+        toast.error(errorMessage)
+      } else if (errorMessage.includes('invalide')) {
         toast.error('Adresse email invalide')
       } else {
-        // @typescript-eslint/ban-ts-comment
-              toast.error("Échec de l&apos;abonnement. Veuillez réessayer.")
+        toast.error("Échec de l'abonnement. Veuillez réessayer.")
       }
     } finally {
       setIsLoading(false)
@@ -72,7 +68,7 @@ export default function NewsletterSubscription() {
           },
         }}
       />
-      
+
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
         <input 
           type="email" 
@@ -105,11 +101,12 @@ export default function NewsletterSubscription() {
           ) : (
             <>
               <FaPaperPlane className="mr-2" />
-              S&apos;abonner
+              S’abonner
             </>
           )}
         </button>
       </form>
+
       <p className="text-emerald-200 text-sm mt-3">
         Vous pouvez vous désabonner à tout moment. Nous respectons votre vie privée.
       </p>

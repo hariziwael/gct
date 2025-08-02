@@ -1,4 +1,3 @@
-// app/unsubscribe/page.tsx
 'use client'
 
 import { useState } from 'react'
@@ -15,27 +14,27 @@ export default function UnsubscribePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-    
+    setMessage('')
+
     try {
       const response = await fetch('/api/unsubscribe', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ email }),
       })
-      
+
       const result = await response.json()
-      
+
       if (response.ok) {
         setMessage(result.message)
       } else {
-        setMessage(result.error || 'An error occurred')
+        setMessage(result.error || 'An error occurred.')
       }
-    // @typescript-eslint/no-explicit-any - Sanity types are not defined 
-    // @typescript-eslint/no-unused-vars
-    } catch ( error:  any) {
-      setMessage('Failed to unsubscribe')
+    } catch (error) {
+      console.error('Unsubscribe error:', error)
+      setMessage('Failed to unsubscribe. Please try again later.')
     } finally {
       setIsLoading(false)
     }
@@ -45,7 +44,7 @@ export default function UnsubscribePage() {
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold text-emerald-800 mb-6">Unsubscribe from Newsletter</h1>
-        
+
         {message ? (
           <div className="bg-emerald-100 text-emerald-800 p-4 rounded-md">
             {message}
@@ -65,7 +64,7 @@ export default function UnsubscribePage() {
                 required
               />
             </div>
-            
+
             <button
               type="submit"
               disabled={isLoading}
@@ -75,9 +74,9 @@ export default function UnsubscribePage() {
             </button>
           </form>
         )}
-        
+
         <div className="mt-6 text-center text-gray-600 text-sm">
-          <p>You&apos;re receiving this because you subscribed to our newsletter</p>
+          <p>You&apos;re receiving this because you subscribed to our newsletter.</p>
           <p className="mt-2">
             <Link href="/" className="text-emerald-600 hover:underline">
               Return to homepage
