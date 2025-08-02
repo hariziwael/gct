@@ -1,6 +1,6 @@
 // app/page.tsx
 import client from '@/lib/sanity'
-import ActualitesPage from './actualites/route'
+import ActualitesPage from './actualites/page'
 import Produits from './produits/route'
 import Link from 'next/link'
 
