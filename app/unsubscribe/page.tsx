@@ -1,90 +1,49 @@
+// app/unsubscribe/page.tsx
+
 'use client'
 
-import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import Link from 'next/link'
+import { useEffect, useState, Suspense } from 'react'
 
-export default function UnsubscribePage() {
+function UnsubscribePageContent() {
   const searchParams = useSearchParams()
-  const initialEmail = searchParams.get('email') || ''
-  const [email, setEmail] = useState(initialEmail)
-  const [message, setMessage] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+  const email = searchParams.get('email')
+  const [message, setMessage] = useState('Unsubscribing...')
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setMessage('')
-
-    try {
-      const response = await fetch('/api/unsubscribe', {
+  useEffect(() => {
+    if (email) {
+      fetch('/api/unsubscribe', {
         method: 'POST',
+        body: JSON.stringify({ email }),
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }),
       })
-
-      const result = await response.json()
-
-      if (response.ok) {
-        setMessage(result.message)
-      } else {
-        setMessage(result.error || 'An error occurred.')
-      }
-    } catch (error) {
-      console.error('Unsubscribe error:', error)
-      setMessage('Failed to unsubscribe. Please try again later.')
-    } finally {
-      setIsLoading(false)
+        .then((res) => res.json())
+        .then((data) => {
+          setMessage(data.message || data.error)
+        })
+        .catch(() => setMessage('Something went wrong'))
+    } else {
+      setMessage('No email provided.')
     }
-  }
+  }, [email])
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold text-emerald-800 mb-6">Unsubscribe from Newsletter</h1>
-
-        {message ? (
-          <div className="bg-emerald-100 text-emerald-800 p-4 rounded-md">
-            {message}
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-700 mb-2">
-                Your Email Address
-              </label>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                required
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="w-full bg-emerald-600 text-white py-2 px-4 rounded-md hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 disabled:opacity-70"
-            >
-              {isLoading ? 'Processing...' : 'Unsubscribe'}
-            </button>
-          </form>
-        )}
-
-        <div className="mt-6 text-center text-gray-600 text-sm">
-          <p>You&apos;re receiving this because you subscribed to our newsletter.</p>
-          <p className="mt-2">
-            <Link href="/" className="text-emerald-600 hover:underline">
-              Return to homepage
-            </Link>
-          </p>
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white p-8 rounded shadow text-center max-w-md">
+        <h1 className="text-xl font-semibold text-gray-800">Unsubscribe</h1>
+        <p className="mt-4 text-gray-600">{message}</p>
       </div>
     </div>
   )
 }
 
+// Wrap in Suspense for streaming support
+export default function UnsubscribePage() {
+  return (
+    <Suspense fallback={<div className="text-center p-8">Loading...</div>}>
+      <UnsubscribePageContent />
+    </Suspense>
+  )
+}

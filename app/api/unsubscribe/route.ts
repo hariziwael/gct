@@ -1,4 +1,5 @@
 // app/api/unsubscribe/route.ts
+
 import { NextResponse } from 'next/server'
 import client from '@/lib/sanity'
 
@@ -18,20 +19,20 @@ export async function POST(request: Request) {
       `*[_type == "subscriber" && email == $email][0]`,
       { email }
     )
-    
+
     if (!subscriber) {
       return NextResponse.json(
         { error: 'Subscriber not found' },
         { status: 404 }
       )
     }
-    
+
     // Update subscriber to inactive
     await client
       .patch(subscriber._id)
       .set({ isActive: false })
       .commit()
-    
+
     return NextResponse.json(
       { message: 'You have been unsubscribed successfully' },
       { status: 200 }
