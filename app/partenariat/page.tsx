@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import PartenairesPage from "./partenaires/route"
+import PartenairesPage from "./partenaires/page"
 import GCTProjetsPage from "./projets/route"
 import GCTPartenariatPage from "./partenariat/route"
 import Link from "next/link";
