@@ -3,8 +3,8 @@ import { format } from 'date-fns'
 import MarineTrafficButton from '../../components/MarineTrafficButton'
 import Link from 'next/link'
 import Image from 'next/image'
-// @ts-ignore
-      import { Bateau } from '@/lib/sanity.types'         
+// @ts-expect-error - Sanity types are not defined
+import { Bateau } from '@/lib/sanity.types'         
 
 export const dynamic = 'force-dynamic'
 export const metadata = {

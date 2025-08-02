@@ -1,4 +1,5 @@
 'use client'        
+import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 interface NewsletterTemplateProps {
@@ -10,9 +11,9 @@ interface NewsletterTemplateProps {
 export default function NewsletterTemplate({ subject, email, newsletterId }: NewsletterTemplateProps) {
     return (
         <html>
-            <head>
+            <Head>
                 <title>{subject}</title>
-            </head>
+            </Head>
             <body style={{
                 fontFamily: 'Arial, sans-serif',
                 lineHeight: '1.6',

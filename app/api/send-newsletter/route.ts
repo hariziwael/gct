@@ -1,14 +1,17 @@
 // app/api/send-newsletter/route.ts
 import { NextResponse } from 'next/server'
-import client from '@/lib/sanity'
+import { client } from '@/lib/client'
 import { Resend } from 'resend'
-// @ts-ignore
-import { Newsletter, Subscriber      } from '@/lib/sanity.types'     
-// @ts-ignore     
+// @ts-expect-error - Sanity types are not defined
+import {  Subscriber } from  '@/lib/sanity.types'     
+
+
+     
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-                  export async function POST(request: Request) : Promise<NextResponse>     {
-  // @ts-ignore
+
+    export async function POST(request: Request) : Promise<NextResponse>     {
+  
   const { newsletterId } = await request.json() as { newsletterId: string }   
 
   if (!newsletterId) {
@@ -30,7 +33,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 
   try {
     // Fetch the newsletter
-    const newsletter = await client.fetch<Newsletter>(
+    const newsletter = await  client.fetch(
       `*[_type == "newsletter" && _id == $newsletterId][0]{
         _id,
         subject,
@@ -207,7 +210,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
     )
 
     if (!newsletter)  {
-      // @ts-ignore
+      
       return NextResponse.json(
         { error: 'Newsletter not found' },
         { status: 404 }
@@ -215,7 +218,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
     }
 
     if (newsletter.sent) {
-      // @ts-ignore
+      
       return NextResponse.json(
         { error: 'Newsletter already sent' },
         { status: 400 }
@@ -223,14 +226,14 @@ const resend = new Resend(process.env.RESEND_API_KEY)
     }
 
     // Fetch active subscribers
-    const subscribers = await client.fetch<Subscriber[]>(
+    const subscribers = await client.fetch(
       `*[_type == "subscriber" && isActive == true]{
         email
       }`
     )
 
     if (subscribers.length === 0) {
-      // @ts-ignore
+      
       return NextResponse.json(
         { error: 'No active subscribers' },
         { status: 400 }
@@ -238,7 +241,7 @@ const resend = new Resend(process.env.RESEND_API_KEY)
     }
 
     // Create email HTML content
-    // @ts-ignore
+    
     const emailHtml = `
       <html>
         <head>
@@ -276,30 +279,30 @@ const resend = new Resend(process.env.RESEND_API_KEY)
     await Promise.all(sendPromises)
 
     // Update newsletter as sent
-    // @ts-ignore
+    
     await client
-      // @ts-ignore
+      
       .patch(newsletterId)
       .set({ 
         sent: true,
-        // @ts-ignore
+        
         sentAt: new Date().toISOString()    
       })
       .commit()
 
-    // @ts-ignore
+    
     return NextResponse.json(
       { message: `Newsletter sent successfully to ${subscribers.length} subscribers` },
       { status: 200 }
     )
   } catch (error) {
-    // @ts-ignore
+    
         console.error('Error sending newsletter:', error)
-    // @ts-ignore
+    
     return NextResponse.json(
-      // @ts-ignore
+      
       { error   : 'Internal server error'   },
-      // @ts-ignore
+      
       {     status: 500     }
     )
   }

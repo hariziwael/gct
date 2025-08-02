@@ -30,18 +30,19 @@ export default function NewsletterSubscription() {
       
       // Reset success state after 3 seconds
       setTimeout(() => setIsSuccess(false), 3000)
+      // @typescript-eslint/no-explicit-any
     } catch (error:   any) {
-        // @ts-ignore
+      
       console.error('Subscription error:', error)
       
-      // @ts-ignore
+      // @typescript-eslint/ban-ts-comment
         if (error.message.includes('déjà abonné')) {
         toast.error(error.message)
-        // @ts-ignore
+        // @typescript-eslint/ban-ts-comment
       } else if (error.message.includes('invalide')) {
         toast.error('Adresse email invalide')
       } else {
-        // @ts-ignore
+        // @typescript-eslint/ban-ts-comment
               toast.error("Échec de l&apos;abonnement. Veuillez réessayer.")
       }
     } finally {

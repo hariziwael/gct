@@ -3,6 +3,9 @@ import client from '@/lib/sanity'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+          // @ts-expect-error - Sanity types are not defined
+import { SiteMinier, DepotPhosphate, Usine, Production } from '@/lib/sanity.types'
+
 
 interface SiteMinier {
   _id: string
@@ -406,15 +409,12 @@ function UsinesSection({ usines }: { usines: Usine[] }) {
               </div>
 
               {usine.capacites && usine.capacites.length > 0 && (
-                <div className="mb-4">
-                  {/* @ts-ignore */}
+                <div className="mb-4">  
                   <p className="text-sm font-semibold text-gray-700 mb-2">Détails des capacités:</p>
-                  {/* @ts-ignore */}
                   <div className="space-y-1">
                     {usine.capacites.map((cap, index) => (
                       <div key={index} className="text-sm text-gray-600 bg-gray-50 rounded p-2">
-                        {/* @ts-ignore */}
-                                <span className="font-medium">{cap.type}:</span> {cap.capacite} {cap.unite}
+                        <span className="font-medium">{cap.type}:</span> {cap.capacite} {cap.unite}
                       </div>
                     ))}
                   </div>

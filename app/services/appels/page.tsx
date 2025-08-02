@@ -1,7 +1,7 @@
 import { client } from '@/lib/client'
 import { format } from 'date-fns' 
 import Link from "next/link"
-// @ts-ignore
+// @ts-expect-error - Sanity types are not defined
 import { AppelOffre } from '@/lib/sanity.types'
 
 export const dynamic = 'force-dynamic'

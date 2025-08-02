@@ -1,9 +1,9 @@
 // app/api/subscribe/route.ts
 import { NextResponse } from 'next/server'
 import client from '@/lib/sanity'
-import { v4 as uuidv4 } from 'uuid'
-// @ts-ignore
-      import { Subscriber } from '@/lib/sanity.types'
+import { v4 as uuidv4 } from 'uuid'   
+// @ts-expect-error - Sanity types are not defined
+import { Subscriber } from '@/lib/sanity.types'
 
 export async function POST(request: Request) : Promise<NextResponse> {
   const { email } = await request.json() as { email: string }
@@ -46,18 +46,13 @@ export async function POST(request: Request) : Promise<NextResponse> {
       { message: 'Abonnement réussi !' },
       { status: 200 }
     )
-  } catch (error: any | Error) {
-    // @ts-ignore
+  } catch (error: any | Error) { 
       console.error('Subscription error:', error)
-    // @ts-ignore
     return NextResponse.json(
       { 
-        // @ts-ignore
         message: "Erreur lors de l'abonnement",
-        // @ts-ignore
         details: error.message 
       },
-      // @ts-ignore
         { status: 500 }
     )
   }
