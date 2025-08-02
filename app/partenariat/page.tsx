@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import PartenairesPage from "./partenaires/page"
-import GCTProjetsPage from "./projets/route"
-import GCTPartenariatPage from "./partenariat/route"
+import GCTProjetsPage from "./projets/page"
+import GCTPartenariatPage from "./partenariat/page"
 import Link from "next/link";
 
 export const metadata: Metadata = {
