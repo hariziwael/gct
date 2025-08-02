@@ -45,7 +45,8 @@ export async function POST(request: Request) : Promise<NextResponse> {
     return NextResponse.json(
       { message: 'Abonnement réussi !' },
       { status: 200 }
-    )
+    )// @typescript-eslint/no-explicit-any
+
   } catch (error: any | Error) { 
       console.error('Subscription error:', error)
     return NextResponse.json(

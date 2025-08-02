@@ -18,6 +18,8 @@ type Formation = {
   dateDebut: string
   dateFin: string
   lieu: string
+  // @typescript-eslint/no-explicit-any
+
   image?: any
   donneesParAnnee: {
     annee: number

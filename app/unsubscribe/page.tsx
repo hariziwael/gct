@@ -33,6 +33,7 @@ export default function UnsubscribePage() {
         setMessage(result.error || 'An error occurred')
       }
     // @typescript-eslint/no-explicit-any - Sanity types are not defined 
+    // @typescript-eslint/no-unused-vars
     } catch ( error:  any) {
       setMessage('Failed to unsubscribe')
     } finally {
