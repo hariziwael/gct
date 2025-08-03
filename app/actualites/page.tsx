@@ -1,6 +1,6 @@
 import client from '@/lib/sanity'
-import Image from 'next/image'
-import { FaCalendarAlt, FaArrowRight, FaNewspaper, FaUsers, FaChartLine } from 'react-icons/fa'
+
+import { FaNewspaper} from 'react-icons/fa'
 import NewsletterSubscription from '@/components/NewsletterSubscription'
 import React from 'react'
 import  ActualiteCard  from "@/components/ActualiteCard";
