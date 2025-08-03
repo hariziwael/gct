@@ -70,7 +70,7 @@ export default async function HistoirePage() {
       {/* Timeline Navigation */}
       <nav 
         className="sticky top-0 z-10 bg-white shadow-md py-4"
-        aria-label="Navigation dans l&apos;historique"
+        aria-label="Navigation dans l'historique"
       >
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="flex flex-wrap justify-center gap-2 md:gap-6">

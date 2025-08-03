@@ -48,7 +48,7 @@ export default async function ProduitPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         {/* Product Type Navigation */}
         <div className="py-8 border-b border-gray-200">
           <nav className="flex justify-center">

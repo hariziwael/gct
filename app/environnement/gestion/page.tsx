@@ -5,23 +5,23 @@ import Image from 'next/image';
 
 export default function EnvironnementGestionPage() {
   const content = {
-    pageTitle: "Gestion de l&apos;Élimination du Phosphogypse et Préservation de l&apos;eau",
+    pageTitle: "Gestion de l'Élimination du Phosphogypse et Préservation de l'eau",
     partOne: {
-      paragraph: `Pour chaque tonne d&apos;acide phosphorique (exprimée en P2O5) produite en utilisant le procédé par voie humide, plus de 5 tonnes de phosphogypse sont générées. L&apos;eau libre contenue dans le gâteau de gypse est très acide (pH inférieur à 2,0).`,
+      paragraph: `Pour chaque tonne d'acide phosphorique (exprimée en P2O5) produite en utilisant le procédé par voie humide, plus de 5 tonnes de phosphogypse sont générées. L'eau libre contenue dans le gâteau de gypse est très acide (pH inférieur à 2,0).`,
     },
     partTwo: {
       image: {
         src: "/images/gestion-phosphogypse.jpg", // Ensure this image exists in public/images/
-        alt: "Vue d&apos;un site de gestion de phosphogypse ou une station de traitement d&apos;eau",
+        alt: "Vue d'un site de gestion de phosphogypse ou une station de traitement d'eau",
       },
-              paragraph: `Les utilisations commerciales du phosphogypse dans le monde restent limitées dans l&apos;agriculture et dans la fabrication de plaques de plâtre et de ciment Portland, la grande majorité du phosphogypse produit par les unités phosphoriques du GCT est mise en terril dans des surfaces de terre aménagées ou sont rejetées en mer.`,
+              paragraph: `Les utilisations commerciales du phosphogypse dans le monde restent limitées dans l'agriculture et dans la fabrication de plaques de plâtre et de ciment Portland, la grande majorité du phosphogypse produit par les unités phosphoriques du GCT est mise en terril dans des surfaces de terre aménagées ou sont rejetées en mer.`,
       advantagesTitle: `Prenant en considération la spécificité du phosphogypse produit par les unités phosphorique du GCT et les retombés économiques bénéfiques attendues derrière le projet de décharge humide du phosphogypse, les avantages du nouveau mode de décharge sont:`,
       advantages: [
         `Protection de la terre, de la surface et des eaux souterraines.`,
         `Réduction des émissions de poussières.`,
         `Taux de récupération élevé de P2O5.`,
-        `Faible taux dans le temps d&apos;arrêt.`,
-        `Système d&apos;entretien réduit.`,
+        `Faible taux dans le temps d'arrêt.`,
+        `Système d'entretien réduit.`,
       ],
     },
     partThree: {
@@ -29,7 +29,7 @@ export default function EnvironnementGestionPage() {
       projects: [
         `Réutilisation des eaux usées récupérées après traitement tertiaire.`,
         `Réutilisation des eaux usées de la station de dessalement SONEDE.`,
-          `Dessalement de l&apos;eau de mer.`,
+          `Dessalement de l'eau de mer.`,
       ],
     },
   };
@@ -41,9 +41,8 @@ export default function EnvironnementGestionPage() {
         <nav aria-label="breadcrumb" className="text-sm text-gray-500 mb-4 flex items-center">
           <Link href="/" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">Accueil</Link>
           <span className="mx-2 text-gray-400">&raquo;</span>
-          <Link href="/environnement" className="hover:text-emerald-600 transition-colors focus:outline-none focus:ring focus:ring-emerald-300">Environnement</Link>
-          <span className="mx-2 text-gray-400">&raquo;</span>
-          <span className="font-medium text-emerald-700" aria-current="page">Gestion de l&apos;eau</span>
+          
+          <span className="font-medium text-emerald-700" aria-current="page">Gestion du Phosphogypse</span>
         </nav>
 
         <section className="bg-white shadow-xl rounded-2xl p-6 md:p-8 lg:p-12 mb-12">
@@ -66,13 +65,13 @@ export default function EnvironnementGestionPage() {
           <div className="grid md:grid-cols-2 gap-8 items-center mb-8">
             {content.partTwo.image.src && (
               <div className="flex justify-center items-center order-1 md:order-1">
-                <div className="relative w-full max-w-md h-64 md:h-80 rounded-2xl overflow-hidden shadow-lg border-4 border-emerald-300">
+                <div className="relative w-full max-w-md h-64 md:h-80 rounded-2xl overflow-hidden shadow-lg border-4 border-emerald-300 ">
                   <Image
                     src={content.partTwo.image.src}
                     alt={content.partTwo.image.alt}
                     fill
                     style={{ objectFit: 'cover' }}
-                    className="transition-transform duration-300 hover:scale-105"
+                    className="transition-transform duration-300 "
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>

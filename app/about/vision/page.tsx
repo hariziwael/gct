@@ -54,7 +54,7 @@ export default function GCTVisionPage() {
 
           {/* Content Section */}
           <div className="px-4 py-8 sm:px-8 sm:py-12">
-            <div className="max-w-3xl mx-auto">
+            <div className=" mx-auto">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="order-2 md:order-1">
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">

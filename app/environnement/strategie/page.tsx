@@ -11,7 +11,7 @@ export default function EnvironnementStrategiePage() {
       Dans chaque partie de la chaîne de production, il y a lieu de maintenir des conditions propices de sécurité et de santé, en évitant les dangers et les nocivités pour tous ceux qui travaillent à proximité de ces produits et pour les citoyens qui vivent autour des lieux de production.
       Le GCT a fait des progrès significatifs pour réduire les nuisances environnementales et améliorer les rendements.`,
       image: {
-        src: "/images/environnement-strategie.jpg", // Ensure this image exists in public/images/
+        src: "/images/environnement-strategie.png", // Ensure this image exists in public/images/
         alt: "Vue sur une installation industrielle du GCT avec un environnement propre et des cheminées sans fumée",
       },
     },
@@ -82,7 +82,7 @@ export default function EnvironnementStrategiePage() {
                     src={content.partOne.image.src}
                     alt={content.partOne.image.alt}
                     fill
-                    style={{ objectFit: 'cover' }}
+                    style={{ objectFit: 'contain' }}
                     className="transition-transform duration-300 hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />

@@ -97,14 +97,27 @@ const SectionHeader = ({ title, subtitle, icon }: { title: string; subtitle?: st
   </div>
 );
 
-const ValueCard = ({ value }: { value: string }) => (
-  <div className="bg-gradient-to-br from-emerald-50 to-white border border-emerald-200 rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-all">
-    <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-      <span className="text-2xl text-emerald-600">★</span>
+const emojiMap: Record<string, string> = {
+  Transparence: "🔍",
+  "Bonne gestion": "📊",
+  Qualité: "✅",
+  Innovation: "💡",
+  Valeurs: "💎",
+  Éthique: "⚖️",
+}
+
+const ValueCard = ({ value }: { value: string }) => {
+  const emoji = emojiMap[value] || "⭐"
+
+  return (
+    <div className="bg-gradient-to-br from-emerald-50 to-white border border-emerald-200 rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-all">
+      <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span className="text-2xl text-emerald-600">{emoji}</span>
+      </div>
+      <h3 className="font-bold text-emerald-800">{value}</h3>
     </div>
-    <h3 className="font-bold text-emerald-800">{value}</h3>
-  </div>
-);
+  )
+}
 
 const TimelineItem = ({ year, title, description }: { year: string; title: string; description: string }) => (
   <div className="flex">
@@ -145,6 +158,8 @@ export default function DirectorGeneralMessagePage() {
                   src="/images/dg-photo.jpg"
                   alt="Directeur Général"
                   className="w-full h-full object-cover"
+                  width={100}
+                  height={100}
                 />
               </div>
             </div>
@@ -192,19 +207,19 @@ export default function DirectorGeneralMessagePage() {
                   <div className="bg-cyan-100 p-2 rounded-lg mr-3">
                     <span className="text-cyan-600">✓</span>
                   </div>
-                  <p>Adoption de technologies propres et modernes</p>
+                  <p className='text-white'>Adoption de technologies propres et modernes</p>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-cyan-100 p-2 rounded-lg mr-3">
                     <span className="text-cyan-600">✓</span>
                   </div>
-                  <p>Amélioration continue de la performance environnementale</p>
+                  <p className='text-white'>Amélioration continue de la performance environnementale</p>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-cyan-100 p-2 rounded-lg mr-3">
                     <span className="text-cyan-600">✓</span>
                   </div>
-                  <p>Réduction des coûts et amélioration de la compétitivité</p>
+                  <p className='text-white'>Réduction des coûts et amélioration de la compétitivité</p>
                 </li>
               </ul>
             </div>

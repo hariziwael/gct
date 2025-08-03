@@ -137,7 +137,11 @@ export default function Navbar() {
   return (
     <>
       {/* Top Navigation Bar */}
-      <div className={`bg-emerald-900 text-white fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-2' : 'py-3'}`}>
+      <div
+      className={`bg-emerald-900 text-white fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? 'py-2 shadow-md' : 'py-3'
+      }`}
+    >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-2 md:mb-0">
@@ -222,7 +226,7 @@ export default function Navbar() {
       </div>
 
       {/* Main Navigation Bar - Transparent */}
-      <nav className={`fixed w-full  z-40  sm:top-16 lg:top-18 transition-all duration-300 ${scrolled ? 'bg-emerald-800    py-2 shadow-lg' : 'bg-transparent py-3'}`}>
+      <nav className={`fixed w-full  z-40  sm:top-16 lg:top-18 transition-all duration-300 ${scrolled ? 'bg-emerald-800    py-2 shadow-lg' : 'bg-emerald-900'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="hidden md:flex space-x-4">
@@ -232,7 +236,7 @@ export default function Navbar() {
                     href={item.href}
                     className={cn(
                       "font-medium flex items-center px-3 py-2 rounded-lg transition-colors",
-                      pathname.startsWith(item.href)
+                      pathname === item.href
                         ? "text-white bg-emerald-700"
                         : "text-white hover:bg-emerald-700/50",
                       scrolled ? "text-white" : "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"

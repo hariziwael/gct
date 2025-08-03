@@ -16,15 +16,15 @@ export default async function RSEPage() {
 
   return (
     <main className="p-6 max-w-5xl bg-emerald-50 mx-auto">
-      <h1 className="text-4xl font-bold mb-6">{data.title}</h1>
+      <h1 className="text-4xl font-bold text-black mb-6">{data.title}</h1>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Introduction</h2>
+        <h2 className="text-2xl font-semibold text-black mb-2">Introduction</h2>
         <p className="text-gray-700">{data.introduction}</p>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Objectifs</h2>
+        <h2 className="text-2xl font-semibold text-black mb-2">Objectifs</h2>
         <ul className="list-disc pl-6 text-gray-700">
           {data.objectives.map((item, i) => (
             <li key={i}>{item}</li>
@@ -54,7 +54,7 @@ export default async function RSEPage() {
 </section>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Axes stratégiques</h2>
+        <h2 className="text-2xl text-black font-semibold mb-2">Axes stratégiques</h2>
         <ul className="list-disc pl-6 text-gray-700">
           {data.pillars.map((item, i) => (
             <li key={i}>{item}</li>
@@ -63,7 +63,7 @@ export default async function RSEPage() {
       </section>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Partenaires</h2>
+        <h2 className="text-2xl text-black font-semibold mb-2">Partenaires</h2>
         <ul className="list-disc pl-6 text-gray-700">
           {data.partners.map((item, i) => (
             <li key={i}>{item}</li>
@@ -72,10 +72,10 @@ export default async function RSEPage() {
       </section>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Projets Futurs</h2>
+        <h2 className="text-2xl font-semibold text-black mb-2">Projets Futurs</h2>
         {data.futureProjects.map((proj, i) => (
           <div key={i} className="mb-4">
-            <h3 className="font-bold">{proj.title}</h3>
+            <h3 className="font-bold text-black">{proj.title}</h3>
             <p className="text-gray-700">{proj.description}</p>
           </div>
         ))}

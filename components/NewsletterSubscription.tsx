@@ -75,7 +75,7 @@ export default function NewsletterSubscription() {
           placeholder="Votre adresse email" 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="flex-grow px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          className="flex-grow  border  hover:bg-emerald-100  px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2"
           required
           disabled={isLoading || isSuccess}
         />
