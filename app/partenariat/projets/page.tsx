@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 const projetsContent = {
   pageTitle: "Projets en Partenariat",
   partOne: {
@@ -109,7 +111,7 @@ export default function GCTProjetsPage() {
 
                 {/* Project Image */}
                 <div className="h-52 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                  <img
+                  <Image
                     src="/images/sacf.jpg"
                     alt="SACF Industrial Complex"
                     className="w-full h-full object-cover"
@@ -174,7 +176,7 @@ export default function GCTProjetsPage() {
 
                 {/* Project Image */}
                 <div className="h-54 bg-gradient-to-br from-amber-100 to-orange-200 flex items-center justify-center">
-                  <img
+                  <Image
                     src="/images/tifert.jpg"
                     alt="TIFERT Production Facility"
                     className="w-full h-full object-cover"

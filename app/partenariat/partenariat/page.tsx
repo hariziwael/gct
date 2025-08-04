@@ -1,3 +1,4 @@
+import Image from "next/image";
 
 
 export default function GCTPartenariatPage() {
@@ -47,7 +48,7 @@ export default function GCTPartenariatPage() {
 
                   {/* Image placeholder */}
                   <div className="w-full h-48 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl mb-6 flex items-center justify-center overflow-hidden">
-                    <img
+                    <Image
                       src="/images/business-complementarity.jpg"
                       alt="Business complementarity"
                       className="w-full h-full object-cover rounded-xl"
@@ -76,7 +77,7 @@ export default function GCTPartenariatPage() {
 
                   {/* Image placeholder */}
                   <div className="w-full h-40 bg-gradient-to-br from-teal-100 to-cyan-200 rounded-xl mb-6 flex items-center justify-center overflow-hidden">
-                    <img
+                    <Image
                       src="/images/innovation-research.jpg"
                       alt="Innovation and research"
                       className="w-full h-full object-cover rounded-xl"
@@ -91,7 +92,7 @@ export default function GCTPartenariatPage() {
 
                     <p className="text-base lg:text-lg text-gray-700 leading-relaxed">
                       Que ce soit dans le domaine industriel, environnemental ou de la recherche, nous sommes ouverts à
-                      toute collaboration porteuse d'innovation et de croissance mutuelle.
+                      toute collaboration porteuse d&apos;innovation et de croissance mutuelle.
                     </p>
                   </div>
                 </div>
