@@ -29,7 +29,7 @@ export default function GCTVisionPage() {
   );
 
   return (
-    <div className="bg-emerald-50 py-12">
+    <div className="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumb />
 

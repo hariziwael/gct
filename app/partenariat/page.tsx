@@ -20,22 +20,22 @@ export default function PartenariatHubPage() {
   );
 
   return (
-    <div className="bg-emerald-50 py-12">
+    <div className="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 py-12">
       <main className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <Breadcrumb />
 
-        <section className="mb-16">
-          <h2 className="text-3xl font-extrabold text-emerald-800 mb-6">À propos du Partenariat</h2>
+        <section className="mb-8">
+          
           <GCTPartenariatPage />
         </section>
 
-        <section className="mb-16" id="partenaires">
-          <h2 className="text-3xl font-extrabold text-emerald-800 mb-6">Nos Partenaires</h2>
+        <section className="mb-8" id="partenaires">
+          
           <PartenairesPage />
         </section>
 
-        <section className="mb-16" id="projets">
-          <h2 className="text-3xl font-extrabold text-emerald-800 mb-6">Nos Projets</h2>
+        <section className="mb-8" id="projets">
+          
           <GCTProjetsPage />
         </section>
       </main>

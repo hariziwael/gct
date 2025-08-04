@@ -23,7 +23,7 @@ export default async function HomePage() {
   }`)
 
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-hidden bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
 
 
 

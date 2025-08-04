@@ -33,7 +33,7 @@ export default async function ActualitesPage() {
 
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-emerald-50">
       
 
       {/* Featured News */}
