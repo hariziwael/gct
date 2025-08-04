@@ -15,7 +15,7 @@ export default async function RSEPage() {
   const data: RSEData = await client.fetch(`*[_type == "rse"][0]`);
 
   return (
-    <main className="p-6 max-w-5xl bg-emerald-50 mx-auto">
+    <main className="p-6  bg-emerald-50 mx-auto">
       <h1 className="text-4xl font-bold text-black mb-6">{data.title}</h1>
 
       <section className="mb-8">

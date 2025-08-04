@@ -210,7 +210,7 @@ export default async function BateauxPage() {
               Notre système de suivi en temps réel vous permet de visualiser les positions actuelles de nos navires
             </p>
 
-            <div className="relative bg-emerald-800/30 border border-emerald-500/30 rounded-xl h-96 overflow-hidden border">
+            <div className="relative bg-emerald-800/30 border border-emerald-500/30 rounded-xl h-96 overflow-hidden">
               <Image
                 src="/images/bateaux.jpg"
                 alt="bateaux place"

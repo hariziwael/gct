@@ -255,7 +255,7 @@ export default function Navbar() {
                         <div key={sub.name} className="relative group/nested">
                           <Link
                             href={sub.href}
-                            className="block px-4 py-3 text-sm text-emerald-900 hover:bg-emerald-50 border-b border-emerald-100 flex justify-between items-center"
+                            className=" px-4 py-3 text-sm text-emerald-900 hover:bg-emerald-50 border-b border-emerald-100 flex justify-between items-center"
                           >
                             {sub.name}
                             {"subitems" in sub && Array.isArray(sub.subitems) && (
