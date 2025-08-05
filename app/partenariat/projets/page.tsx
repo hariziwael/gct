@@ -38,7 +38,7 @@ export default function GCTProjetsPage() {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full translate-x-48 translate-y-48"></div>
 
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-white bg-opacity-20 rounded-full mb-6">
+          {/* <div className="inline-flex items-center justify-center w-20 h-20 bg-white bg-opacity-20 rounded-full mb-6">
             <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
@@ -47,7 +47,7 @@ export default function GCTProjetsPage() {
                 d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
               />
             </svg>
-          </div>
+          </div> */}
           <h1 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight">
             {projetsContent.pageTitle}
           </h1>
@@ -96,11 +96,11 @@ export default function GCTProjetsPage() {
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-y-16 translate-x-16"></div>
                   <div className="relative">
                     <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                      {/* <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
                         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                         </svg>
-                      </div>
+                      </div> */}
                       <div>
                         <h3 className="text-2xl font-bold">SACF</h3>
                         <p className="text-blue-100 text-sm">Sino-Arab Chemical Fertilizers</p>
@@ -115,6 +115,7 @@ export default function GCTProjetsPage() {
                     src="/images/sacf.jpg"
                     alt="SACF Industrial Complex"
                     className="w-full h-full object-cover"
+                    
                   />
                 </div>
 
@@ -161,11 +162,11 @@ export default function GCTProjetsPage() {
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-y-16 translate-x-16"></div>
                   <div className="relative">
                     <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                      {/* <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
                         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
                         </svg>
-                      </div>
+                      </div> */}
                       <div>
                         <h3 className="text-2xl font-bold">TIFERT</h3>
                         <p className="text-orange-100 text-sm">Tunisian Indian Fertilizers</p>
@@ -180,6 +181,7 @@ export default function GCTProjetsPage() {
                     src="/images/tifert.jpg"
                     alt="TIFERT Production Facility"
                     className="w-full h-full object-cover"
+                    
                   />
                 </div>
 

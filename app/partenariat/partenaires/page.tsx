@@ -79,7 +79,7 @@ export default function PartenairesPage() {
             {/* Scrollable Partners List - Hidden Scrollbar */}
             <div
               ref={scrollContainerRef}
-              className="flex space-x-6 overflow-x-auto scroll-smooth pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+              className="flex space-x-6 overflow-x-auto scroll-smooth pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] block"
             >
               {partenaires.map((partenaire) => (
                 <div

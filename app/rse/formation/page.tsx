@@ -65,7 +65,7 @@ export default function FormationPage() {
   }
 
   return (
-    <div className="bg-emerald-50 py-12">
+    <div className="bg-emerald-50 max-h-max py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <Breadcrumb />
         <h1 className="text-4xl font-extrabold mb-8 text-center text-emerald-800">Nos Formations</h1>
@@ -119,10 +119,10 @@ export default function FormationPage() {
                           <tbody>
                             {formation.donneesParAnnee.map((data, i) => (
                               <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-emerald-50'}>
-                                <td className="border px-3 py-1 text-center">{data.annee}</td>
-                                <td className="border px-3 py-1 text-center">{data.participation}</td>
-                                <td className="border px-3 py-1 text-center">{data.joursFormation}</td>
-                                <td className="border px-3 py-1 text-center">{data.candidats}</td>
+                                <td className="border px-3 py-1 text-gray-800 text-center">{data.annee}</td>
+                                <td className="border px-3 py-1 text-gray-800 text-center">{data.participation}</td>
+                                <td className="border px-3 py-1 text-gray-800 text-center">{data.joursFormation}</td>
+                                <td className="border px-3 py-1 text-gray-800 text-center">{data.candidats}</td>
                               </tr>
                             ))}
                           </tbody>

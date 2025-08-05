@@ -50,8 +50,10 @@ export default function GCTPartenariatPage() {
                   <div className="w-full h-48 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl mb-6 flex items-center justify-center overflow-hidden">
                     <Image
                       src="/images/business-complementarity.jpg"
+                     
                       alt="Business complementarity"
                       className="w-full h-full object-cover rounded-xl"
+                      
                     />
                   </div>
 
