@@ -5,6 +5,7 @@ export interface SubscribeResponse {
   success: boolean;
   message?: string;
   subscriberId?: string;
+  // @typescript-eslint/no-explicit-any
   data?: any;
 }
 

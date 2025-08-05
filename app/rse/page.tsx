@@ -129,7 +129,7 @@ export default async function RSEPage() {
                   </div>
                   <h3 className="text-2xl font-semibold text-white mb-2 text-center">Formation</h3>
                   <p className="text-emerald-950 text-center">
-                    Découvrez les programmes de formation et d'acquisition de compétences pour les collaborateurs.
+                    Découvrez les programmes de formation et d&apos;acquisition de compétences pour les collaborateurs.
                   </p>
                 </Link>
               </div>
