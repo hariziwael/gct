@@ -4,9 +4,12 @@ import ActualitesPage from './actualites/page'
 import Produits from './produits/page'
 import Link from 'next/link'
 
+
 interface HeroBanner {
   titre: string
   sousTitre: string
+ 
+  
 }
 
 export const metadata = {
@@ -19,7 +22,8 @@ export const dynamic = 'force-dynamic'
 export default async function HomePage() {
   const hero: HeroBanner | null = await client.fetch(`*[_type == "heroBanner"][0]{
     titre,
-    sousTitre
+    sousTitre,
+    
   }`)
 
   return (

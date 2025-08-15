@@ -48,7 +48,7 @@ export default async function ProduitPage() {
         </div>
       </div>
 
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8">
+      <div className=" sm:px-6 lg:px-8">
         {/* Product Type Navigation */}
         <div className="py-8 border-b border-gray-200">
           <nav className="flex justify-center">
@@ -57,7 +57,7 @@ export default async function ProduitPage() {
                 <a 
                   key={index}
                   href={`#${type.replace(/\s+/g, '-').toLowerCase()}`}
-                  className="flex-shrink-0 px-6 py-3 text-sm font-medium text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50 rounded-md transition-all duration-200"
+                  className="flex-shrink-0 px-4 py-3 text-sm font-medium text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50 rounded-md transition-all duration-200 shadow-2xl shadow-emerald-950 rounded-b-md"
                 >
                   {type}
                 </a>
