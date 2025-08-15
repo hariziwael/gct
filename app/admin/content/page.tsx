@@ -3,21 +3,26 @@
 import { useEffect, useState } from 'react'
 import client from '@/lib/sanity'
 
+interface HeroBanner {
+  titre: string
+  sousTitre: string
+}
 
 export default function AdminContentPage() {
-  // @typescript-eslint/no-explicit-any
-  const [hero, setHero] = useState<string | any>(null)
+  const [hero, setHero] = useState<HeroBanner | null>(null)
 
   useEffect(() => {
     const fetchHero = async () => {
-      const data = await client.fetch(`*[_type == "heroBanner"][0]`)
+      const data: HeroBanner = await client.fetch(`*[_type == "heroBanner"][0]`)
       setHero(data)
     }
 
     fetchHero()
   }, [])
 
-  if (!hero) return <p className="text-center py-12 text-gray-600">Chargement...</p>
+  if (!hero) {
+    return <p className="text-center py-12 text-gray-600">Chargement...</p>
+  }
 
   return (
     <div className="min-h-screen bg-emerald-50 py-20 px-6">
