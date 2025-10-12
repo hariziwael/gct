@@ -3,7 +3,7 @@ module.exports = {
   poweredByHeader: false,
 
   experimental: {
-    serverActions: true,
+    serverActions: {},
   },
   webpack: (config: any, { isServer }: { isServer: boolean }) => {
     if (isServer) {
