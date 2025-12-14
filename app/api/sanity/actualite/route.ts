@@ -11,6 +11,33 @@ const writeClient = createClient({
   token: process.env.SANITY_API_TOKEN!,
 })
 
+interface ActualiteDocument {
+  _type: "actualite"
+  titre: string
+  contenu: string
+  publishedAt: string
+  image?: {
+    _type: "image"
+    asset: {
+      _type: "reference"
+      _ref: string
+    }
+  }
+}
+
+interface ActualiteUpdateData {
+  titre: string
+  contenu: string
+  publishedAt: string
+  image?: {
+    _type: "image"
+    asset: {
+      _type: "reference"
+      _ref: string
+    }
+  }
+}
+
 // Créer une nouvelle actualité
 export async function POST(request: NextRequest) {
   try {
@@ -42,18 +69,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const doc: any = {
+    const doc: ActualiteDocument = {
       _type: "actualite",
       titre,
       contenu,
       publishedAt: new Date(publishedAt).toISOString(),
+      ...(imageAsset && {
+        image: {
+          _type: "image",
+          asset: { _type: "reference", _ref: imageAsset._id },
+        },
+      }),
     };
-    if (imageAsset) {
-      doc.image = {
-        _type: "image",
-        asset: { _type: "reference", _ref: imageAsset._id },
-      };
-    }
 
     const result = await writeClient.create(doc);
 
@@ -102,18 +129,17 @@ export async function PUT(request: NextRequest) {
       )
     }
 
-    const updateData: any = {
+    const updateData: ActualiteUpdateData = {
       titre,
       contenu,
       publishedAt: new Date(publishedAt).toISOString(),
+      ...(imageAsset && {
+        image: {
+          _type: "image",
+          asset: { _type: "reference", _ref: imageAsset._id },
+        },
+      }),
     };
-
-    if (imageAsset) {
-      updateData.image = {
-        _type: "image",
-        asset: { _type: "reference", _ref: imageAsset._id },
-      };
-    }
 
     const result = await writeClient
       .patch(_id)

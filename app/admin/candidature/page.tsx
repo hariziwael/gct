@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { CheckCircle, XCircle, FileText, Mail, Phone, Calendar, Filter, Download } from 'lucide-react'
 
 interface Candidature {
@@ -21,11 +21,7 @@ export default function CandidaturesManager() {
   const [filter, setFilter] = useState<string>('all')
   const [message, setMessage] = useState('')
 
-  useEffect(() => {
-    fetchCandidatures()
-  }, [filter])
-
-  const fetchCandidatures = async () => {
+  const fetchCandidatures = useCallback(async () => {
     try {
       setIsLoading(true)
       const url = filter === 'all' 
@@ -43,7 +39,11 @@ export default function CandidaturesManager() {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [filter])
+
+  useEffect(() => {
+    fetchCandidatures()
+  }, [fetchCandidatures])
 
   const handleUpdateStatut = async (id: string, statut: 'accepted' | 'refused') => {
     try {
@@ -54,7 +54,7 @@ export default function CandidaturesManager() {
       })
 
       if (response.ok) {
-        const data = await response.json()
+        
         setMessage(`✅ Candidature ${statut === 'accepted' ? 'acceptée' : 'refusée'}! 📧 Email de notification envoyé au candidat.`)
         fetchCandidatures()
         setTimeout(() => setMessage(''), 5000)
@@ -202,7 +202,7 @@ export default function CandidaturesManager() {
                   {getStatutBadge(candidature.statut)}
                 </div>
                 <p className="text-sm text-slate-600 mb-2">
-                  <strong>Appel d'offre:</strong> {candidature.appelOffreTitre}
+                  <strong>Appel d&apos;offre:</strong> {candidature.appelOffreTitre}
                 </p>
               </div>
             </div>

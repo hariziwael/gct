@@ -10,6 +10,35 @@ const writeClient = createClient({
   token: process.env.SANITY_API_TOKEN!,
 })
 
+interface AppelOffreDocument {
+  _type: "appelOffre"
+  titre: string
+  description: string
+  dateLimite: string
+  etat: string
+  documentPdf?: {
+    _type: "file"
+    asset: {
+      _type: "reference"
+      _ref: string
+    }
+  }
+}
+
+interface AppelOffreUpdateData {
+  titre?: string
+  description?: string
+  dateLimite?: string
+  etat?: string
+  documentPdf?: {
+    _type: "file"
+    asset: {
+      _type: "reference"
+      _ref: string
+    }
+  }
+}
+
 export async function GET() {
   try {
     const appels = await client.fetch(`
@@ -72,20 +101,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const doc: any = {
+    const doc: AppelOffreDocument = {
       _type: "appelOffre",
       titre,
       description: description || "",
       dateLimite: new Date(dateLimite).toISOString(),
       etat,
+      ...(pdfAsset && {
+        documentPdf: {
+          _type: "file",
+          asset: { _type: "reference", _ref: pdfAsset._id },
+        },
+      }),
     };
-    
-    if (pdfAsset) {
-      doc.documentPdf = {
-        _type: "file",
-        asset: { _type: "reference", _ref: pdfAsset._id },
-      };
-    }
 
     const result = await writeClient.create(doc);
 
@@ -138,7 +166,7 @@ export async function PUT(request: NextRequest) {
     }
 
     // Support partial updates - only update fields that are provided
-    const updateData: any = {};
+    const updateData: AppelOffreUpdateData = {};
 
     if (titre !== undefined && titre !== null) {
       updateData.titre = titre;
