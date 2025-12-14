@@ -11,6 +11,7 @@ import {
   LogOut,
   Menu,
   X,
+  FileSpreadsheet,
 } from "lucide-react";
 import { UserButton, useUser } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
@@ -32,6 +33,9 @@ const navigation = [
   },
   { name: "Gestion des utilisateurs", href: "/admin/users", icon: Users },
   { name: "Paramètres du site", href: "/admin/settings", icon: Settings },
+  { name: "candidature", href: "/admin/candidature", icon: FileSpreadsheet,
+        color: 'bg-slate-600 hover:bg-slate-700', },
+
 ];
 
 export default function AdminSidebar() {
@@ -79,6 +83,7 @@ export default function AdminSidebar() {
             <Link
               key={item.name}
               href={item.href}
+              prefetch={true}
               onClick={() => setIsMobileMenuOpen(false)}
               className={cn(
                 "flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200",
@@ -96,6 +101,7 @@ export default function AdminSidebar() {
         {/* Return to Public Site */}
         <Link
           href="/"
+          prefetch={true}
           onClick={() => setIsMobileMenuOpen(false)}
           className="flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 text-slate-300 hover:bg-slate-800 hover:text-white mt-4 border-t border-slate-700 pt-6"
         >

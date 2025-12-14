@@ -22,7 +22,7 @@
     "isomorphic-dompurify": "^2.26.0",
     "lucide-react": "^0.526.0",
     "motion": "^10.16.4",
-    "next": "^15.4.4",
+    "next": "^15.5.5",
     "next-sanity": "^10.0.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

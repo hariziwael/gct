@@ -95,7 +95,7 @@ export default function UsersPage() {
   }
 
   const exportToCSV = () => {
-    const csv = 'Nom,Email,Rôle,Statut\n' + users.map(u =>
+    const csv = 'Nom,Email,Role,Statut\n' + users.map(u =>
       `${u.nom},${u.email},${u.role},${u.actif ? 'Actif' : 'Inactif'}`
     ).join('\n')
 
@@ -330,7 +330,7 @@ export default function UsersPage() {
               <div className="flex items-start">
                 <Mail className="w-5 h-5 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-blue-800">
-                  L'utilisateur recevra un email avec un lien pour créer son compte et définir son mot de passe.
+                  L&apos;utilisateur recevra un email avec un lien pour créer son compte et définir son mot de passe
                 </p>
               </div>
             </div>
@@ -345,7 +345,7 @@ export default function UsersPage() {
                   value={formData.firstName}
                   onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                   className="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                  placeholder="Jean"
+                  placeholder="foulen"
                 />
               </div>
 
@@ -358,7 +358,7 @@ export default function UsersPage() {
                   value={formData.lastName}
                   onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                   className="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                  placeholder="Dupont"
+                  placeholder="foulen"
                 />
               </div>
 
@@ -371,7 +371,7 @@ export default function UsersPage() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full border border-slate-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                  placeholder="email@example.com"
+                  placeholder="foulen@example.com"
                   required
                 />
               </div>

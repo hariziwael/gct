@@ -1,6 +1,6 @@
-// app/api/sanity/appel-offre/route.ts
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@sanity/client'
+import client from '@/lib/sanity'
 
 const writeClient = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
@@ -10,57 +10,86 @@ const writeClient = createClient({
   token: process.env.SANITY_API_TOKEN!,
 })
 
+export async function GET() {
+  try {
+    const appels = await client.fetch(`
+      *[_type == "appelOffre"] | order(dateLimite desc) {
+        _id,
+        titre,
+        description,
+        dateLimite,
+        etat,
+        "documentUrl": documentPdf.asset->url
+      }
+    `)
+
+    return NextResponse.json({
+      success: true,
+      appels,
+    })
+  } catch (error) {
+    console.error('Erreur:', error)
+    return NextResponse.json(
+      { error: 'Erreur lors de la récupération' },
+      { status: 500 }
+    )
+  }
+}
+
 // Créer un nouvel appel d'offre
 export async function POST(request: NextRequest) {
   try {
-    let titre, description, dateLimite, etat, fileAsset
-
-    if (request.headers.get('content-type')?.includes('multipart/form-data')) {
-      const formData = await request.formData()
-      titre = formData.get('titre') as string
-      description = formData.get('description') as string
-      dateLimite = formData.get('dateLimite') as string
-      etat = formData.get('etat') as string
-      const file = formData.get('file') as File | null
+    let titre, description, dateLimite, etat, pdfAsset;
+    
+    if (request.headers.get("content-type")?.includes("multipart/form-data")) {
+      const formData = await request.formData();
+      titre = formData.get("titre") as string;
+      description = formData.get("description") as string;
+      dateLimite = formData.get("dateLimite") as string;
+      etat = formData.get("etat") as string;
+      const file = formData.get("file") as File | null;
+      
       if (file && file.size > 0) {
-        const buffer = await file.arrayBuffer()
-        fileAsset = await writeClient.assets.upload('file', Buffer.from(buffer), {
+        const arrayBuffer = await file.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
+        pdfAsset = await writeClient.assets.upload("file", buffer, {
           filename: file.name,
-          contentType: 'application/pdf',
-        })
+          contentType: file.type || "application/pdf",
+        });
       }
     } else {
-      const body = await request.json()
-      titre = body.titre
-      description = body.description
-      dateLimite = body.dateLimite
-      etat = body.etat
+      const body = await request.json();
+      titre = body.titre;
+      description = body.description;
+      dateLimite = body.dateLimite;
+      etat = body.etat;
     }
 
     if (!titre || !dateLimite || !etat) {
       return NextResponse.json(
-        { error: 'Données manquantes' },
+        { error: "Données manquantes" },
         { status: 400 }
-      )
+      );
     }
 
     const doc: any = {
-      _type: 'appelOffre',
+      _type: "appelOffre",
       titre,
-      description: description || '',
-      dateLimite,
+      description: description || "",
+      dateLimite: new Date(dateLimite).toISOString(),
       etat,
-    }
-    if (fileAsset) {
-      doc.fichier = {
-        _type: 'file',
-        asset: { _type: 'reference', _ref: fileAsset._id },
-      }
+    };
+    
+    if (pdfAsset) {
+      doc.documentPdf = {
+        _type: "file",
+        asset: { _type: "reference", _ref: pdfAsset._id },
+      };
     }
 
-    const result = await writeClient.create(doc)
+    const result = await writeClient.create(doc);
 
-    return NextResponse.json({ success: true, data: result })
+    return NextResponse.json({ success: true, data: result });
   } catch (error) {
     console.error('Erreur création:', error)
     return NextResponse.json(
@@ -73,30 +102,32 @@ export async function POST(request: NextRequest) {
 // Mettre à jour un appel d'offre
 export async function PUT(request: NextRequest) {
   try {
-    let _id, titre, description, dateLimite, etat, fileAsset
-
-    if (request.headers.get('content-type')?.includes('multipart/form-data')) {
-      const formData = await request.formData()
-      _id = formData.get('_id') as string
-      titre = formData.get('titre') as string
-      description = formData.get('description') as string
-      dateLimite = formData.get('dateLimite') as string
-      etat = formData.get('etat') as string
-      const file = formData.get('file') as File | null
+    let _id, titre, description, dateLimite, etat, pdfAsset;
+    
+    if (request.headers.get("content-type")?.includes("multipart/form-data")) {
+      const formData = await request.formData();
+      _id = formData.get("_id") as string;
+      titre = formData.get("titre") as string | null;
+      description = formData.get("description") as string | null;
+      dateLimite = formData.get("dateLimite") as string | null;
+      etat = formData.get("etat") as string | null;
+      const file = formData.get("file") as File | null;
+      
       if (file && file.size > 0) {
-        const buffer = await file.arrayBuffer()
-        fileAsset = await writeClient.assets.upload('file', Buffer.from(buffer), {
+        const arrayBuffer = await file.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
+        pdfAsset = await writeClient.assets.upload("file", buffer, {
           filename: file.name,
-          contentType: 'application/pdf',
-        })
+          contentType: file.type || "application/pdf",
+        });
       }
     } else {
-      const body = await request.json()
-      _id = body._id
-      titre = body.titre
-      description = body.description
-      dateLimite = body.dateLimite
-      etat = body.etat
+      const body = await request.json();
+      _id = body._id;
+      titre = body.titre;
+      description = body.description;
+      dateLimite = body.dateLimite;
+      etat = body.etat;
     }
 
     if (!_id) {
@@ -106,41 +137,31 @@ export async function PUT(request: NextRequest) {
       )
     }
 
-    // Si seulement l'état est envoyé (toggle rapide)
-    if (etat && !titre) {
-      const result = await writeClient
-        .patch(_id)
-        .set({ etat })
-        .commit()
+    // Support partial updates - only update fields that are provided
+    const updateData: any = {};
 
-      return NextResponse.json({ success: true, data: result })
+    if (titre !== undefined && titre !== null) {
+      updateData.titre = titre;
     }
-
-    // Mise à jour complète
-    if (!titre || !dateLimite || !etat) {
-      return NextResponse.json(
-        { error: 'Données manquantes' },
-        { status: 400 }
-      )
+    if (description !== undefined && description !== null) {
+      updateData.description = description || "";
     }
-
-    const patchData: any = {
-      titre,
-      description: description || '',
-      dateLimite,
-      etat,
+    if (dateLimite !== undefined && dateLimite !== null) {
+      updateData.dateLimite = new Date(dateLimite).toISOString();
     }
-
-    if (fileAsset) {
-      patchData.fichier = {
-        _type: 'file',
-        asset: { _type: 'reference', _ref: fileAsset._id },
-      }
+    if (etat !== undefined && etat !== null) {
+      updateData.etat = etat;
+    }
+    if (pdfAsset) {
+      updateData.documentPdf = {
+        _type: "file",
+        asset: { _type: "reference", _ref: pdfAsset._id },
+      };
     }
 
     const result = await writeClient
       .patch(_id)
-      .set(patchData)
+      .set(updateData)
       .commit()
 
     return NextResponse.json({ success: true, data: result })

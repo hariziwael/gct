@@ -1,7 +1,7 @@
 'use client'
 
 import { useUser } from '@clerk/nextjs'
-import { LayoutDashboard, FileText, Users, Settings, TrendingUp, Activity } from 'lucide-react'
+import { LayoutDashboard, FileText, Users, Settings, TrendingUp, Activity, FileSpreadsheet } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useSettings } from '@/context/SettingsContext'
@@ -22,17 +22,18 @@ export default function AdminPage() {
 
   const fetchStats = async () => {
     try {
-      // Fetch users count from Clerk
-      const usersResponse = await fetch('/api/clerk/users')
-      const usersData = await usersResponse.json()
+      // Fetch all stats in parallel for faster loading
+      const [usersResponse, actualitesResponse, appelsResponse] = await Promise.all([
+        fetch('/api/clerk/users'),
+        fetch('/api/sanity/actualite/count'),
+        fetch('/api/sanity/appel-offre/count')
+      ])
 
-      // Fetch actualités count from Sanity
-      const actualitesResponse = await fetch('/api/sanity/actualite/count')
-      const actualitesData = await actualitesResponse.json()
-
-      // Fetch appels d'offres count from Sanity
-      const appelsResponse = await fetch('/api/sanity/appel-offre/count')
-      const appelsData = await appelsResponse.json()
+      const [usersData, actualitesData, appelsData] = await Promise.all([
+        usersResponse.json(),
+        actualitesResponse.json(),
+        appelsResponse.json()
+      ])
 
       setStats({
         totalUsers: usersData.count || 0,
@@ -75,6 +76,13 @@ export default function AdminPage() {
       icon: Settings,
       color: 'bg-slate-600 hover:bg-slate-700',
     },
+    {
+      name: 'Candidatures',
+      description: 'Gérer les candidatures reçues',
+      href: '/admin/candidature',
+      icon: FileSpreadsheet,
+      color: 'bg-slate-600 hover:bg-slate-700',
+    },
   ]
 
   return (
@@ -85,7 +93,7 @@ export default function AdminPage() {
             Bienvenue, {user?.firstName || 'Admin'} 👋
           </h1>
           <p className="text-lg text-slate-600">
-            Voici un aperçu de votre tableau de bord d'administration
+            Voici un aperçu de votre tableau de bord d&apos;administration
           </p>
         </div>
 
@@ -122,6 +130,7 @@ export default function AdminPage() {
                 <Link
                   key={action.name}
                   href={action.href}
+                  prefetch={true}
                   className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all transform hover:-translate-y-1"
                 >
                   <div className="flex items-start space-x-4">

@@ -19,8 +19,7 @@ export async function GET() {
         _id,
         siteTitle,
         contactEmail,
-        facebookLink,
-        themeColor
+        
       }
     `)
 
@@ -29,9 +28,9 @@ export async function GET() {
         success: true,
         settings: {
           siteTitle: 'Groupe Chimique Tunisien',
-          contactEmail: 'contact@gct.tn',
-          facebookLink: 'https://facebook.com/gct',
-          themeColor: '#059669',
+          contactEmail: 'contact@gct.tn'
+          
+          
         },
       })
     }
@@ -52,7 +51,7 @@ export async function GET() {
 // POST - Mettre à jour les settings
 export async function POST(request: NextRequest) {
   try {
-    const { siteTitle, contactEmail, facebookLink, themeColor } = await request.json()
+    const { siteTitle, contactEmail } = await request.json()
 
     // Récupérer le document settings existant
     const existingSettings = await client.fetch(`*[_type == "settings"][0]._id`)
@@ -66,8 +65,7 @@ export async function POST(request: NextRequest) {
         .set({
           siteTitle,
           contactEmail,
-          facebookLink,
-          themeColor,
+          
         })
         .commit()
     } else {
@@ -76,8 +74,7 @@ export async function POST(request: NextRequest) {
         _type: 'settings',
         siteTitle,
         contactEmail,
-        facebookLink,
-        themeColor,
+        
       })
     }
 

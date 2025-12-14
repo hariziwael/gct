@@ -35,17 +35,20 @@ export async function POST(request: NextRequest) {
         status: invitation.status,
       },
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Erreur invitation:', error)
 
     // Gestion erreurs Clerk
-    if (error.errors) {
-      const clerkError = error.errors[0]
-      if (clerkError.code === 'duplicate_record') {
-        return NextResponse.json(
-          { error: 'Une invitation existe déjà pour cet email' },
-          { status: 400 }
-        )
+    if (typeof error === 'object' && error !== null && 'errors' in error) {
+      const maybeErrors = (error as { errors?: unknown }).errors
+      if (Array.isArray(maybeErrors) && maybeErrors.length > 0) {
+        const clerkError = maybeErrors[0] as { code?: string }
+        if (clerkError.code === 'duplicate_record') {
+          return NextResponse.json(
+            { error: 'Une invitation existe déjà pour cet email' },
+            { status: 400 }
+          )
+        }
       }
     }
 

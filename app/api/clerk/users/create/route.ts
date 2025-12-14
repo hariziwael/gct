@@ -43,17 +43,23 @@ export async function POST(request: NextRequest) {
         role: role || 'user',
       },
     })
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Erreur création utilisateur:', error)
 
     // Gestion des erreurs spécifiques Clerk
-    if (error.errors) {
-      const clerkError = error.errors[0]
-      if (clerkError.code === 'form_identifier_exists') {
-        return NextResponse.json(
-          { error: 'Cet email existe déjà' },
-          { status: 400 }
-        )
+    type ClerkError = { code?: string }
+    type ClerkErrorResponse = { errors?: ClerkError[] }
+
+    if (typeof error === 'object' && error !== null && 'errors' in error) {
+      const maybeErrors = (error as ClerkErrorResponse).errors
+      if (Array.isArray(maybeErrors) && maybeErrors.length > 0) {
+        const clerkError = maybeErrors[0]
+        if (clerkError?.code === 'form_identifier_exists') {
+          return NextResponse.json(
+            { error: 'Cet email existe déjà' },
+            { status: 400 }
+          )
+        }
       }
     }
 

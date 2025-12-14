@@ -30,6 +30,8 @@ export default async function ProduitPage() {
     groupedProduits[produit.type].push(produit);
   });
 
+  
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -48,8 +50,8 @@ export default async function ProduitPage() {
         </div>
       </div>
 
-      <div className=" sm:px-6 lg:px-8">
-        {/* Product Type Navigation */}
+      <div className="sm:px-6 lg:px-8">
+        {/* Product Type Navigation - Simple static navigation */}
         <div className="py-8 border-b border-gray-200">
           <nav className="flex justify-center">
             <div className="flex overflow-x-auto space-x-1 bg-white rounded-lg p-1 shadow-sm border">
@@ -66,148 +68,166 @@ export default async function ProduitPage() {
           </nav>
         </div>
 
-        {/* Products by Type */}
-        <div className="py-12 space-y-16">
+        {/* Products by Type - Each section is collapsible */}
+        <div className="py-8 space-y-8">
           {Object.entries(groupedProduits).map(([type, produits], index) => (
-            <section key={index} id={type.replace(/\s+/g, '-').toLowerCase()} className="scroll-mt-24">
-              {/* Section Header */}
-              <div className="mb-10">
-                <div className="flex items-center mb-4">
-                  <div className="bg-emerald-800 p-3 rounded-lg mr-4">
-                    <FaFlask className="text-white text-xl" />
+            <section 
+              key={index} 
+              id={type.replace(/\s+/g, '-').toLowerCase()} 
+              className="scroll-mt-24 bg-white rounded-lg shadow-sm border border-gray-200"
+            >
+              {/* Section Header - Clickable to expand/collapse */}
+              <details className="group" open={index === 0}>
+                <summary className="cursor-pointer list-none">
+                  <div className="px-6 py-4 hover:bg-gray-50 transition-colors">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <div className="bg-emerald-800 p-3 rounded-lg mr-4">
+                          <FaFlask className="text-white text-xl" />
+                        </div>
+                        <div>
+                          <h2 className="text-2xl font-bold text-emerald-800">{type}</h2>
+                          <p className="text-gray-600 mt-1">
+                            {produits.length} produit{produits.length > 1 ? 's' : ''} disponible{produits.length > 1 ? 's' : ''}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="transform group-open:rotate-180 transition-transform">
+                        <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-emerald-800">{type}</h2>
-                    <p className="text-gray-600 mt-1">
-                      Gamme de produits spécialisés pour diverses applications industrielles et agricoles
-                    </p>
+                </summary>
+                
+                <div className="border-t border-gray-200">
+                  <div className="p-6">
+                    {/* Products Grid */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                      {produits.map((produit) => (
+                        <div 
+                          key={produit._id} 
+                          className="bg-gray-50 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 overflow-hidden"
+                        >
+                          {/* Product Header */}
+                          <div className="bg-gradient-to-r from-emerald-800 to-emerald-700 px-6 py-4">
+                            <div className="flex justify-between items-start">
+                              <div className="flex-1">
+                                <h3 className="text-xl font-bold text-white">{produit.nom}</h3>
+                                <div className="mt-1 flex items-center">
+                                  <span className="inline-block w-2 h-2 rounded-full bg-emerald-300 mr-2"></span>
+                                  <span className="text-sm text-emerald-100 font-medium">{produit.type}</span>
+                                </div>
+                              </div>
+                              <div className="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
+                                GCT Premium
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Product Content */}
+                          <div className="p-6">
+                            <p className="text-gray-700 leading-relaxed mb-6">{produit.description}</p>
+                            
+                            {/* Technical Specifications */}
+                            <div className="space-y-6">
+                              {produit.analyseChimique?.length > 0 && (
+                                <div>
+                                  <div className="flex items-center text-sm font-semibold text-emerald-800 mb-3">
+                                    <FaFlask className="mr-2 text-emerald-600" />
+                                    Analyse Chimique
+                                  </div>
+                                  <div className="bg-white rounded-lg border p-4">
+                                    <div className="space-y-2">
+                                      {produit.analyseChimique.map((a, idx) => (
+                                        <div key={idx} className="flex justify-between items-center py-1 border-b border-gray-200 last:border-0">
+                                          <span className="text-gray-600 font-medium">{a.element}</span>
+                                          <span className="font-semibold text-emerald-800">{a.valeur}</span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {produit.analyseGranulometrique?.length > 0 && (
+                                <div>
+                                  <div className="flex items-center text-sm font-semibold text-emerald-800 mb-3">
+                                    <FaWeight className="mr-2 text-emerald-600" />
+                                    Analyse Granulométrique
+                                  </div>
+                                  <div className="bg-white rounded-lg border overflow-hidden">
+                                    <table className="w-full">
+                                      <thead className="bg-emerald-50">
+                                        <tr>
+                                          <th className="px-4 py-3 text-left text-sm font-semibold text-emerald-800">Maillage</th>
+                                          <th className="px-4 py-3 text-right text-sm font-semibold text-emerald-800">Poids</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        {produit.analyseGranulometrique.map((g, idx) => (
+                                          <tr key={idx} className="border-t border-gray-200">
+                                            <td className="px-4 py-3 text-gray-600 font-medium">{g.maillage}</td>
+                                            <td className="px-4 py-3 text-right font-semibold text-emerald-800">{g.poids}</td>
+                                          </tr>
+                                        ))}
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {produit.solubilite?.length > 0 && (
+                                <div>
+                                  <div className="flex items-center text-sm font-semibold text-emerald-800 mb-3">
+                                    <FaWater className="mr-2 text-emerald-600" />
+                                    Solubilité
+                                  </div>
+                                  <div className="bg-white rounded-lg border p-4">
+                                    <div className="space-y-2">
+                                      {produit.solubilite.map((s, idx) => (
+                                        <div key={idx} className="flex justify-between items-center py-1 border-b border-gray-200 last:border-0">
+                                          <span className="text-gray-600 font-medium">{s.methode}</span>
+                                          <span className="font-semibold text-emerald-800">{s.valeur}</span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {produit.caracteristiquesPhysiques?.length > 0 && (
+                                <div>
+                                  <div className="flex items-center text-sm font-semibold text-emerald-800 mb-3">
+                                    <FaRuler className="mr-2 text-emerald-600" />
+                                    Caractéristiques Physiques
+                                  </div>
+                                  <div className="bg-white rounded-lg border p-4">
+                                    <div className="space-y-2">
+                                      {produit.caracteristiquesPhysiques.map((c, idx) => (
+                                        <div key={idx} className="flex justify-between items-center py-1 border-b border-gray-200 last:border-0">
+                                          <span className="text-gray-600 font-medium">{c.propriete}</span>
+                                          <span className="font-semibold text-emerald-800">{c.valeur}</span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <div className="h-px bg-gradient-to-r from-emerald-200 via-emerald-400 to-emerald-200"></div>
-              </div>
-
-              {/* Products Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                {produits.map((produit) => (
-                  <div 
-                    key={produit._id} 
-                    className="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 overflow-hidden"
-                  >
-                    {/* Product Header */}
-                    <div className="bg-gradient-to-r from-emerald-800 to-emerald-700 px-6 py-4">
-                      <div className="flex justify-between items-start">
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold text-white">{produit.nom}</h3>
-                          <div className="mt-1 flex items-center">
-                            <span className="inline-block w-2 h-2 rounded-full bg-emerald-300 mr-2"></span>
-                            <span className="text-sm text-emerald-100 font-medium">{produit.type}</span>
-                          </div>
-                        </div>
-                        <div className="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
-                          GCT Premium
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Product Content */}
-                    <div className="p-6">
-                      <p className="text-gray-700 leading-relaxed mb-6">{produit.description}</p>
-                      
-                      {/* Technical Specifications */}
-                      <div className="space-y-6">
-                        {produit.analyseChimique?.length > 0 && (
-                          <div>
-                            <div className="flex items-center text-sm font-semibold text-emerald-800 mb-3">
-                              <FaFlask className="mr-2 text-emerald-600" />
-                              Analyse Chimique
-                            </div>
-                            <div className="bg-gray-50 rounded-lg border p-4">
-                              <div className="space-y-2">
-                                {produit.analyseChimique.map((a, idx) => (
-                                  <div key={idx} className="flex justify-between items-center py-1 border-b border-gray-200 last:border-0">
-                                    <span className="text-gray-600 font-medium">{a.element}</span>
-                                    <span className="font-semibold text-emerald-800">{a.valeur}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                        
-                        {produit.analyseGranulometrique?.length > 0 && (
-                          <div>
-                            <div className="flex items-center text-sm font-semibold text-emerald-800 mb-3">
-                              <FaWeight className="mr-2 text-emerald-600" />
-                              Analyse Granulométrique
-                            </div>
-                            <div className="bg-gray-50 rounded-lg border overflow-hidden">
-                              <table className="w-full">
-                                <thead className="bg-emerald-50">
-                                  <tr>
-                                    <th className="px-4 py-3 text-left text-sm font-semibold text-emerald-800">Maillage</th>
-                                    <th className="px-4 py-3 text-right text-sm font-semibold text-emerald-800">Poids</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {produit.analyseGranulometrique.map((g, idx) => (
-                                    <tr key={idx} className="border-t border-gray-200">
-                                      <td className="px-4 py-3 text-gray-600 font-medium">{g.maillage}</td>
-                                      <td className="px-4 py-3 text-right font-semibold text-emerald-800">{g.poids}</td>
-                                    </tr>
-                                  ))}
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                        )}
-                        
-                        {produit.solubilite?.length > 0 && (
-                          <div>
-                            <div className="flex items-center text-sm font-semibold text-emerald-800 mb-3">
-                              <FaWater className="mr-2 text-emerald-600" />
-                              Solubilité
-                            </div>
-                            <div className="bg-gray-50 rounded-lg border p-4">
-                              <div className="space-y-2">
-                                {produit.solubilite.map((s, idx) => (
-                                  <div key={idx} className="flex justify-between items-center py-1 border-b border-gray-200 last:border-0">
-                                    <span className="text-gray-600 font-medium">{s.methode}</span>
-                                    <span className="font-semibold text-emerald-800">{s.valeur}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                        
-                        {produit.caracteristiquesPhysiques?.length > 0 && (
-                          <div>
-                            <div className="flex items-center text-sm font-semibold text-emerald-800 mb-3">
-                              <FaRuler className="mr-2 text-emerald-600" />
-                              Caractéristiques Physiques
-                            </div>
-                            <div className="bg-gray-50 rounded-lg border p-4">
-                              <div className="space-y-2">
-                                {produit.caracteristiquesPhysiques.map((c, idx) => (
-                                  <div key={idx} className="flex justify-between items-center py-1 border-b border-gray-200 last:border-0">
-                                    <span className="text-gray-600 font-medium">{c.propriete}</span>
-                                    <span className="font-semibold text-emerald-800">{c.valeur}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              </details>
             </section>
           ))}
         </div>
 
-        {/* Applications Section */}
+        {/* Applications Section - Keep exactly as before */}
         <section className="py-16 bg-white rounded-lg shadow-sm border border-gray-200 mb-16">
           <div className="px-8 md:px-12">
             <div className="text-center mb-12">
@@ -344,7 +364,7 @@ export default async function ProduitPage() {
           </div>
         </section>
 
-        {/* Quality Assurance */}
+        {/* Quality Assurance - Keep exactly as before */}
         <section className="mb-16">
           <div className="bg-emerald-800 rounded-lg shadow-lg overflow-hidden">
             <div className="px-8 md:px-12 py-12">

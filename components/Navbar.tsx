@@ -237,7 +237,7 @@ export default function Navbar() {
 
       {/* Main Navigation Bar */}
       <nav
-        className={`fixed w-full z-40 sm:top-16 lg:top-18 transition-all duration-300 ${
+        className={`fixed w-full mt-1 z-40 sm:top-16 lg:top-18 transition-all duration-300 ${
           scrolled ? "bg-emerald-800 py-2 shadow-lg" : "bg-emerald-900"
         }`}
       >
@@ -249,6 +249,7 @@ export default function Navbar() {
                 <div key={item.name} className="relative group">
                   <Link
                     href={item.href}
+                    prefetch={true}
                     className={cn(
                       "font-medium flex items-center px-3 py-2 rounded-lg transition-colors",
                       pathname === item.href
@@ -269,6 +270,7 @@ export default function Navbar() {
                         <Link
                           key={sub.name}
                           href={sub.href}
+                          prefetch={true}
                           className="block px-4 py-3 text-sm text-emerald-900 hover:bg-emerald-50 border-b border-gray-100 last:border-b-0 transition-colors"
                         >
                           {sub.name}

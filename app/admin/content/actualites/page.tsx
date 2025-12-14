@@ -8,6 +8,7 @@ interface Actualite {
   _id: string;
   titre: string;
   contenu: string;
+  
   publishedAt: string;
 }
 
@@ -53,6 +54,7 @@ export default function ActualitesManager() {
       setFormData({
         titre: actualite.titre,
         contenu: actualite.contenu,
+        
         publishedAt: actualite.publishedAt.split("T")[0],
       });
     } else {
@@ -63,6 +65,7 @@ export default function ActualitesManager() {
         publishedAt: new Date().toISOString().split("T")[0],
       });
     }
+    setImageFile(null); // Reset image file when opening modal
     setShowModal(true);
   };
 
@@ -70,18 +73,39 @@ export default function ActualitesManager() {
     setMessage("");
 
     try {
-      const response = await fetch("/api/sanity/actualite", {
-        method: editingId ? "PUT" : "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          _id: editingId,
-        }),
-      });
+      let response;
+      
+      // If there's an image file, use FormData
+      if (imageFile) {
+        const formDataToSend = new FormData();
+        formDataToSend.append("titre", formData.titre);
+        formDataToSend.append("contenu", formData.contenu);
+        formDataToSend.append("publishedAt", formData.publishedAt);
+        formDataToSend.append("image", imageFile);
+        if (editingId) {
+          formDataToSend.append("_id", editingId);
+        }
+
+        response = await fetch("/api/sanity/actualite", {
+          method: editingId ? "PUT" : "POST",
+          body: formDataToSend,
+        });
+      } else {
+        // No image, send as JSON
+        response = await fetch("/api/sanity/actualite", {
+          method: editingId ? "PUT" : "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...formData,
+            _id: editingId,
+          }),
+        });
+      }
 
       if (response.ok) {
         setMessage("✅ Actualité enregistrée!");
         setShowModal(false);
+        setImageFile(null); // Reset image file after successful submission
         fetchActualites();
         setTimeout(() => setMessage(""), 3000);
       } else {

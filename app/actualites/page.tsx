@@ -43,7 +43,7 @@ export default async function ActualitesPage() {
           Actualités en Vedette
         </h2>
 
-        <div className="grid grid-cols-1 gap-10">
+        <div className="grid grid-cols-2 gap-10">
         {actualites.slice(0, 2).map((a) => (
         <ActualiteCard key={a._id} a={a} />
         ))}

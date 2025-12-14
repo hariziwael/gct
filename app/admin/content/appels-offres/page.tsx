@@ -68,6 +68,7 @@ export default function AppelsOffresManager() {
         etat: 'ouvert',
       })
     }
+    setPdfFile(null) // Reset PDF file when opening modal
     setShowModal(true)
   }
 
@@ -76,19 +77,23 @@ export default function AppelsOffresManager() {
 
     try {
       let body: BodyInit;
-      let headers: HeadersInit = {};
+      const headers: HeadersInit = {};
 
-      // Only allow file upload on creation
-      if (pdfFile && !editingId) {
+      // If there's a PDF file, use FormData (works for both create and update)
+      if (pdfFile) {
         const formDataToSend = new FormData();
         formDataToSend.append("titre", formData.titre);
         formDataToSend.append("description", formData.description);
         formDataToSend.append("dateLimite", formData.dateLimite);
         formDataToSend.append("etat", formData.etat);
         formDataToSend.append("file", pdfFile);
+        if (editingId) {
+          formDataToSend.append("_id", editingId);
+        }
         body = formDataToSend;
-        // No headers, browser sets them
+        // No headers, browser sets them automatically for FormData
       } else {
+        // No file, send as JSON
         body = JSON.stringify({
           ...formData,
           _id: editingId,
@@ -105,6 +110,7 @@ export default function AppelsOffresManager() {
       if (response.ok) {
         setMessage('✅ Appel d\'offre enregistré!')
         setShowModal(false)
+        setPdfFile(null) // Reset PDF file after successful submission
         fetchAppels()
         setTimeout(() => setMessage(''), 3000)
       } else {
