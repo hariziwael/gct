@@ -1,11 +1,21 @@
 "use client";
 import { useSiteSettings } from "@/hooks/useSiteSettings";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
 import Image from "next/image";
 
 export default function Footer() {
+  const pathname = usePathname();
   const { settings, isLoading } = useSiteSettings();
+
+  // Don't show footer on admin routes
+  const isAdminRoute = pathname?.startsWith("/admin");
+  
+  if (isAdminRoute) {
+    return null;
+  }
+
   return (
     <>
       {/* Footer */}
@@ -13,19 +23,19 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4 flex items-center">
-                <div className=" p-0.2  mr-3">
-                  <Link href="/" className="block">
-                    <Image
-                      src="/images/logo_gct.png"
-                      alt="GCT Logo"
-                      className="w-12 h-15  object-cover"
-                      width={100}
-                      height={100}
-                    />
-                  </Link>
-                </div>
-                {isLoading ? "Groupe Chimique Tunisien" : settings.siteTitle}
+              <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
+                <Link href="/" className="flex-shrink-0">
+                  <Image
+                    src="/images/logo_gct.png"
+                    alt="GCT Logo"
+                    className="w-12 h-12 object-contain"
+                    width={48}
+                    height={48}
+                  />
+                </Link>
+                <span className="truncate">
+                  {isLoading ? "Groupe Chimique Tunisien" : settings?.siteTitle || "GCT"}
+                </span>
               </h3>
               <p className="text-emerald-200 mb-4">
                 Leader dans l&apos;industrie chimique tunisienne, spécialisé
@@ -129,7 +139,7 @@ export default function Footer() {
 
             <div>
               <h3 className="text-lg font-semibold mb-4">
-                Nos Sites, Effictif et Formation
+                Nos Sites, Effectif et Formation
               </h3>
               <ul className="space-y-2">
                 <li>
@@ -167,7 +177,8 @@ export default function Footer() {
                 <li>
                   <Link
                     href="https://maps.app.goo.gl/RtX3MsP8dCPBNio59"
-                    target="_blanc"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-emerald-200 hover:text-white transition-colors"
                   >
                     Siège Social, Tunis
